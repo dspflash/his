@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVxiefang_detail"><Ctrls>
+<ListCtrl Heading="medicineid,55;medicinenopy,250;medicinenocn,250;medicine_pweight,50;medicineno,250;delemp,55;deltime,150;xiefangid,55;xiefang_detailid,55;" loadedclick="0" ToolTip="ttp_xiefang_detail" Name="xiefang_detailLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>xiefang_detailid</Index>
+<DbTable>his.xiefang_detail x left join his.medicine_info m on x.medicineid=m.medicineid</DbTable>
+<Data>m.medicineno medicineid,x.medicinenopy,x.medicinenocn,x.medicine_pweight,x.medicineno,x.delemp,x.deltime,x.xiefangid,x.xiefang_detailid</Data>
+<Order>xiefang_detailid</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op mustselected="0" text="addone"><if cond="!%{xiefangid}"><alert expr="xiefangid is Empty!"/><else/><submit next="$parent.xiefang_detail.GBDEDITxiefang_detail" function="reset"/><assign name="$parent.xiefang_detail.xiefangid" expr="%{xiefangid}"/><assign name="$parent.xiefang_detail.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>xiefang_detailid='%{xiefang_detail_vLst[xiefang_detailid]}'</Where></DbDetails><submit next="$parent.xiefang_detail.xiefang_detailLst" namelist="DbDetails"/><assign name="$parent.xiefang_detail.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.xiefang_detail</DbTable>
+<Where>xiefang_detailid='%{xiefang_detail_vLst[xiefang_detailid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

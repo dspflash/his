@@ -1,0 +1,30 @@
+﻿<WndTap Name="medication_print" Text="medication" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\medication.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\medication_detail.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\medicine_info.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bottle_info.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\cabinet.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\cabinet_cell.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\equipment.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\equipment_pos.xml"/>
+<Ctrls>
+<GroupBox  Name="GBmedication" id="medication" Text="medication" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medication_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Size="100,100"><Ctrls>
+<Button text="ind_shangdai" Name="ind_shangdai" Size="100,20" Weight="100"><OnClick><if cond="!%{medication_detail_vLst[equipmentid]}"><alert expr="请选择药方明细"/><else/><DbDetails> <DbDatabase>mqtt</DbDatabase> <datatype>mqtt</datatype> <queryFormat>set %{medication_detail_vLst[mqtt_ind_shangdai]}='1'</queryFormat> </DbDetails><submit namelist="DbDetails"/></if></OnClick></Button>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Size="100,100"><Ctrls><Button text="return_finish" Name="return_finish" Size="100,20" Weight="100"><OnClick><if cond="!%{medication_detail_vLst[equipmentid]}"><alert expr="请选择药方明细"/><else/><DbDetails> <DbDatabase>mqtt</DbDatabase> <datatype>mqtt</datatype> <queryFormat>set %{medication_detail_vLst[mqtt_return_finish]}='accquire'</queryFormat> </DbDetails><submit next="returnfinish" namelist="DbDetails"/></if></OnClick></Button>
+<TextBox Weight="50" Text="" ToolTip="ttp_returnfinish" Name="returnfinish" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Size="100,100"><Ctrls><Button text="ind_fengdai" Name="ind_fengdai" Size="100,20" Weight="100"><OnClick><if cond="!%{medication_detail_vLst[equipmentid]}"><alert expr="请选择药方明细"/><else/><DbDetails> <DbDatabase>mqtt</DbDatabase> <datatype>mqtt</datatype> <queryFormat>set %{medication_detail_vLst[mqtt_ind_fengdai]}='1'</queryFormat> </DbDetails><submit namelist="DbDetails"/></if></OnClick></Button>
+ </Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medication_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medication_detail_Vvprint.xml"/>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertmedication" Visible="1"/><SetVisible name="modifymedication" Visible="0"/></OnActivate>
+</WndTap>

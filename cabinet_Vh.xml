@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVcabinet" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="cabinetLst" ToolTip="ttp_cabinet" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>cabinetid</Index>
+<DbTable>his.cabinet</DbTable>
+<Data>cabinetno,cabinetname,layout_row,layout_col,layout_rowwidth,layout_rowheight,status,cabinetid,uptime,opera</Data>
+<Order>cabinetid</Order></DbDetails>
+<OnClick><assign name="opera[user_id]" expr="%{cabinetLst[opera]}" function="SetSel"/>
+<if cond="'%{cabinetid}'"><SetVisible name="insertcabinet" Visible="0"/><SetVisible name="modifycabinet" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

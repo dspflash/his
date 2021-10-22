@@ -1,0 +1,31 @@
+﻿<Language name="equipment_type">
+<Lang name="equipment_type" value="发药机类型"/>
+<Lang name="equipment_type_v" value="发药机类型"/>
+<Lang name="TabEditequipment_type" value="equipment_type Edit"/>
+<Lang name="TabViewequipment_type" value="equipment_type View"/>
+<Lang name="equipmenttypeno" value=""/>
+<Lang name="ttp_equipmenttypeno" value="设备类型编号"/>
+<Lang name="equipmenttypename" value=""/>
+<Lang name="ttp_equipmenttypename" value="设备类型名"/>
+<Lang name="equipmenttypeid" value=""/>
+<Lang name="ttp_equipmenttypeid" value="序号"/>
+<Lang name="opera" value=""/>
+<Lang name="ttp_opera" value="操作者"/>
+<Lang name="uptime" value=""/>
+<Lang name="ttp_uptime" value="时间"/>
+<Lang name="ttp_operationequipment_type" value=""/>
+<Lang name="ttp_createequipment_type" value=""/>
+<Lang name="ttp_modifyequipment_type" value=""/>
+<Lang name="ttp_resetequipment_type" value=""/>
+<Lang name="ttp_deleteequipment_type" value=""/>
+<Lang name="ttp_refreshequipment_type" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

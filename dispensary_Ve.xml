@@ -1,0 +1,13 @@
+﻿<WndTap Name="dispensary" Text="dispensary" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="hospitalid"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\dispensary.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBdispensary" id="dispensary" Text="dispensary" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dispensary_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dispensary_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dispensary_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertdispensary" Visible="1"/><SetVisible name="modifydispensary" Visible="0"/></OnActivate>
+</WndTap>

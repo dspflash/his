@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDEDITmedication_detail" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_medicinenocn" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medicinenocn" Size="60,20" Text="medicinenocn" Align="Right"/>
+<TextBox Name="medicinenocn" Size="170,20" Text="" Weight="170" ToolTip="ttp_medicinenocn"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_price" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_price" Size="60,20" Text="price" Align="Right"/>
+<TextBox Name="price" Size="170,20" Text="" Weight="170" ToolTip="ttp_price"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_jiliang" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_jiliang" Size="60,20" Text="jiliang" Align="Right"/>
+<TextBox Name="jiliang" Size="170,20" Text="" Weight="170" ToolTip="ttp_jiliang"><OnEnChange><assign name="xiaoji" expr="js(%{price}*%{jiliang})"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_xiaoji" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_xiaoji" Size="60,20" Text="xiaoji" Align="Right"/>
+<TextBox Name="xiaoji" Size="170,20" Text="" Weight="170" ToolTip="ttp_xiaoji"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

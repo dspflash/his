@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVcomputers"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialcomputers" Size="50,20">
+<OnClick><submit next="computers_vLst" function="initial"/><submit next="records_computers" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPcomputers_vLst" Size="50,20">
+<OnClick><submit next="computers_vLst" function="GetPage(first)"/><submit next="records_computers"/></OnClick></Button>
+<Button Text="prepage" Name="PREcomputers_vLst" Size="50,20">
+<OnClick><submit next="computers_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPcomputers_vLst" Size="50,20">
+<OnClick><submit next="computers_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

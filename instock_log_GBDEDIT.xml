@@ -1,0 +1,136 @@
+﻿<GroupBox Name="GBDEDITinstock_log"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medicineid"><Ctrls>
+<Label Align="Right" Text="medicineid" onload="init" Name="lb_medicineid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_medicineid" onload="init" Name="medicineid" Size="150,100">
+	<DbDetails fcsm="true">
+<Index>medicineid</Index>
+<DbTable>his.medicine_info</DbTable>
+<Data>medicinenocn,medicineno,medicineid</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="bottleid"/></OnSelEndOk></ComboBox>
+<MagicCtrl Name="refreshmedicineid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="medicineid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medicineno"><Ctrls>
+<Label Align="Right" Text="medicineno" Name="lb_medicineno" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_medicineno" Name="medicineno" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bottleid"><Ctrls>
+<Label Align="Right" Text="bottleid" Name="lb_bottleid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_bottleid" Name="bottleid" Size="150,100">
+	<DbDetails fcsm="true">
+<Index>bottleid</Index>
+<DbTable>his.bottle_info</DbTable>
+<Data>bottleno,inqty weight,bottleid</Data>
+<Where>medicineid='%{medicineid[medicineid]}' and uses_flag=100</Where>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshbottleid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="bottleid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_intype"><Ctrls>
+<Label Align="Right" Text="intype" onload="init" Name="lb_intype" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_intype" onload="init" Name="intype" Size="170,100">
+	<DbDetails>
+<Index>statuscode</Index>
+<DbTable>his.status_option</DbTable>
+<Data>statusname,statuscode</Data>
+<Where>statuscode in (101,102,106,107)</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_receiveempid"><Ctrls>
+<Label Align="Right" Text="receiveempid" onload="init" Name="lb_receiveempid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_receiveempid" onload="init" Name="receiveempid" Size="150,100">
+	<DbDetails fcsm="true">
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,real_name receiveemp,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshreceiveempid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="receiveempid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_receiveemp"><Ctrls>
+<Label Align="Right" Text="receiveemp" Name="lb_receiveemp" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_receiveemp" Name="receiveemp" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_stockno"><Ctrls>
+<Label Align="Right" Text="stockno" onload="init" Name="lb_stockno" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_stockno" onload="init" Name="stockno" Size="150,100">
+	<DbDetails>
+<Index>stockid</Index>
+<DbTable>his.stockbaseinfo</DbTable>
+<Data>stockname,stockid</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="locationno"/></OnSelEndOk></ComboBox>
+<MagicCtrl Name="refreshstockno" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="stockno"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_locationno"><Ctrls>
+<Label Align="Right" Text="locationno" Name="lb_locationno" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_locationno" Name="locationno" Size="150,100">
+	<DbDetails>
+<Index>locationid</Index>
+<DbTable>his.stocklocationinfo</DbTable>
+<Data>location_name,locationid</Data>
+<Where>stockid='%{stockno[stockid]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshlocationno" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="locationno"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_bottleno" Visible="false"><Ctrls>
+<Label Align="Right" Text="bottleno" overlap="pre" Name="lb_bottleno" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_bottleno" overlap="pre" Name="bottleno" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_manufacturer"><Ctrls>
+<Label Align="Right" Text="manufacturer" Name="lb_manufacturer" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_manufacturer" Name="manufacturer" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_weight"><Ctrls>
+<Label Align="Right" Text="weight" Name="lb_weight" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_weight" Name="weight" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_validday"><Ctrls>
+<Label Align="Right" Text="validday" Name="lb_validday" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_validday" Name="validday" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_memo"><Ctrls>
+<Label Align="Right" Text="memo" Name="lb_memo" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_memo" Name="memo" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_inserttime" Visible="false"><Ctrls>
+<Label Align="Right" Text="inserttime" overlap="pre" Name="lb_inserttime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_inserttime" overlap="pre" Name="inserttime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_delemp" Visible="false"><Ctrls>
+<Label Align="Right" Text="delemp" overlap="pre" Name="lb_delemp" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_delemp" overlap="pre" Name="delemp" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_deltime" Visible="false"><Ctrls>
+<Label Align="Right" Text="deltime" overlap="pre" Name="lb_deltime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_deltime" overlap="pre" Name="deltime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_inempid" Visible="false"><Ctrls>
+<Label Align="Right" Text="inempid" overlap="pre" Name="lb_inempid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_inempid" overlap="pre" Name="inempid" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_inemp" Visible="false"><Ctrls>
+<Label Align="Right" Text="inemp" overlap="pre" Name="lb_inemp" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_inemp" overlap="pre" Name="inemp" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_instockid" Visible="false"><Ctrls>
+<Label Align="Right" Text="instockid" overlap="pre" Name="lb_instockid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_instockid" overlap="pre" Name="instockid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{instockid}'"><SetVisible name="insertinstock_log" Visible="0"/><SetVisible name="modifyinstock_log" Visible="1"/><else/><SetVisible name="insertinstock_log" Visible="1"/><SetVisible name="modifyinstock_log" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

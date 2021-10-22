@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEcomputers" Size="100,100"><Ctrls>
+<Button sqlpkinsert="computerid" Text="create" ToolTip="ttp_createcomputers" Name="insertcomputers" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>his.computers</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>computer_name,computer_mac,computer_ip,memo,valid,dispensaryid</Data>
+<DataEx>opera,uptime;'%{operaid}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertcomputers[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="computersLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.computers_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifycomputers" Name="modifycomputers" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>his.computers</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>computer_name,computer_mac,computer_ip,memo,valid,dispensaryid</Data>
+<DataEx>opera,uptime;'%{operaid}',now()</DataEx>
+<Where>computerid='%{computerid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifycomputers[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="computersLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.computers_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetcomputers" Name="resetcomputers" Size="50,20">
+<OnClick>
+<submit next="GBDEDITcomputers" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchcomputers" Name="gsearchcomputers" Size="50,20" visible="false">
+<OnClick>
+<search next="computersLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITcomputers" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

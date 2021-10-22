@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVcabinet_cell"><Ctrls>
+<ListCtrl Heading="cell_row,20;cell_col,20;op_idx,120;op_code,120;cabinetid,55;cellid,55;uptime,150;opera,55;" loadedclick="0" ToolTip="ttp_cabinet_cell" Name="cabinet_cellLst" Size="300,450">
+	<DbDetails fcsm="1">
+<Index>cellid</Index>
+<DbTable>his.cabinet_cell c left join his.users u on c.opera=u.user_id</DbTable>
+<Data>c.cell_row,c.cell_col,c.op_idx,c.op_code,c.cabinetid,c.cellid,c.uptime,u.user_name opera</Data>
+<Order>cellid</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op mustselected="0" text="addone"><if cond="!%{cabinetid}"><alert expr="cabinetid is Empty!"/><else/><submit next="$parent.cabinet_cell.GBDEDITcabinet_cell" function="reset"/><assign name="$parent.cabinet_cell.cabinetid" expr="%{cabinetid}"/><assign name="$parent.cabinet_cell.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>cellid='%{cabinet_cell_vLst[cellid]}'</Where></DbDetails><submit next="$parent.cabinet_cell.cabinet_cellLst" namelist="DbDetails"/><assign name="$parent.cabinet_cell.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.cabinet_cell</DbTable>
+<Where>cellid='%{cabinet_cell_vLst[cellid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

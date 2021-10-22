@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGcabinet"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_cabinet" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>cabinetid</Index>
+<DbTable>his.cabinet c left join his.users u on c.opera=u.user_id</DbTable>
+<Data>count(*) records</Data>
+<Order>cabinetid</Order><Queryformat>select %{data} from (select c.cabinetid from %{dbtable} %{where} GROUP BY c.cabinetid  ORDER BY c.cabinetid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_cabinet" expr="js(Math.ceil(%{records_cabinet}/%{cabinet_vLst[countsperpage]}))"/>
+<assign name="pgscb_cabinet" expr="js('1~'+Math.ceil(%{records_cabinet}/%{cabinet_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_cabinet" Size="60,20"><OnSelEndOK><submit next="cabinet_vLst" function="GetPage(%{pgscb_cabinet}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_cabinet" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_cabinet" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagecabinet_vLst" Size="50,20"><OnClick><submit next="cabinet_vLst" function="GetPage(%{pgcur_cabinet}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

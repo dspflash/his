@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEbottle_info" Size="100,100"><Ctrls>
+<Button sqlpkinsert="bottleid" Text="create" ToolTip="ttp_createbottle_info" Name="insertbottle_info" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>his.bottle_info</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>bottleno,medicineid[medicineid],medicineno,weight_gross,weight_net,remark</Data>
+<DataEx>opera,uptime;'%{operaid}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertbottle_info[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="bottle_infoLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.bottle_info_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifybottle_info" Name="modifybottle_info" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>his.bottle_info</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>bottleno,medicineid[medicineid],medicineno,weight_initial,remark</Data>
+<DataEx>opera,uptime;'%{operaid}',now()</DataEx>
+<Where>bottleid='%{bottleid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifybottle_info[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="bottle_infoLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.bottle_info_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetbottle_info" Name="resetbottle_info" Size="50,20">
+<OnClick>
+<submit next="GBDEDITbottle_info" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchbottle_info" Name="gsearchbottle_info" Size="50,20" visible="false">
+<OnClick>
+<search next="bottle_infoLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITbottle_info" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

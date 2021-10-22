@@ -1,0 +1,20 @@
+﻿<WndTap Name="cabinet_cell_v" Text="cabinet_cell_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cabinet_cell_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><cell_row format="(c.cell_row like '%%{opvalue}%')"/><cell_col format="(c.cell_col like '%%{opvalue}%')"/><op_idx format="(c.op_idx like '%%{opvalue}%')"/><op_code format="(c.op_code like '%%{opvalue}%')"/><cabinetid format="(c.cabinetid like '%%{opvalue}%')"/><cellid format="(c.cellid like '%%{opvalue}%')"/><uptime format="(c.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><opera format="c.opera='%{opvalue}'"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\cabinet_cell.xml"/>
+<Ctrls><GroupBox  Name="GBcabinet_cell" id="cabinet_cell" Text="cabinet_cell" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cabinet_cell_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVcabinet_cell" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.cabinet_cell.GBDEDITcabinet_cell" function="reset"/><assign name="$this.cabinet_cell.frmwndctrl" expr="%{$this.cabinet_cell_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetcabinet_cell" Name="resetcabinet_cell" Size="50,20">	<OnClick>	<submit next="GBDEDITcabinet_cell" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchcabinet_cell" Name="gsearchcabinet_cell" Size="50,20">	<OnClick>	
+<search next="cabinet_cell_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITcabinet_cell" namelist="search" function="search"/>	
+<search next="records_cabinet_cell" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITcabinet_cell" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cabinet_cell_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cabinet_cell_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cabinet_cell_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

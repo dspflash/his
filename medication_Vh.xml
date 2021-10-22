@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVmedication" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="medicationLst" ToolTip="ttp_medication" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>medicationid</Index>
+<DbTable>his.medication</DbTable>
+<Data>medication_no,jici,dispensaryid,dept_category,type,status,doctor_no,doctory_diagnosis,doctory_medicineprescript,doctory_medicinefundesc,doctory_usemethod,total_price,patient_name,patient_sex,patient_age,patient_fresh,patient_phoneno,patient_fallill_time,patient_address,patient_intime,patient_allergy,patient_historyilldes,patient_illshow,opera,uptime,medicationid</Data>
+<Order>medicationid</Order></DbDetails>
+<OnClick><assign name="dispensaryid[dispensaryid]" expr="%{medicationLst[dispensaryid]}" function="SetSel"/><assign name="dept_category[dept_categoryid]" expr="%{medicationLst[dept_category]}" function="SetSel"/><assign name="type[statuscode]" expr="%{medicationLst[type]}" function="SetSel"/><assign name="status[statuscode]" expr="%{medicationLst[status]}" function="SetSel"/><assign name="opera[user_id]" expr="%{medicationLst[opera]}" function="SetSel"/>
+<if cond="'%{medicationid}'"><SetVisible name="insertmedication" Visible="0"/><SetVisible name="modifymedication" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

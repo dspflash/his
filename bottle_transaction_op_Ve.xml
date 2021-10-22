@@ -1,0 +1,13 @@
+﻿<WndTap Name="bottle_transaction_op" Text="bottle_transaction_op" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="bottleid[bottleid],medicineid[medicineid]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\bottle_transaction_op.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBbottle_transaction" id="bottle_transaction" Text="bottle_transaction" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_transaction_op_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_transaction_op_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_transaction_op_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertbottle_transaction" Visible="1"/><SetVisible name="modifybottle_transaction" Visible="0"/></OnActivate>
+</WndTap>

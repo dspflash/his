@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVmedicine_info"><Ctrls>
+<ListCtrl Heading="medicineno,250;medicinenocn,250;medicinenopy,250;packno,250;medicinecode,250;density,50;equivalent,55;price,90;warningval_jiliang,90;warningval_stock,25;warningval_cabinet,25;ispoison,60;isanesthetic,60;medicineid,55;opera,55;uptime,150;isdel,60;" loadedclick="0" ToolTip="ttp_medicine_info" Name="medicine_infoLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>medicineid</Index>
+<DbTable>his.medicine_info m left join his.users u on m.opera=u.user_id</DbTable>
+<Data>m.medicineno,m.medicinenocn,m.medicinenopy,m.packno,m.medicinecode,m.density,m.equivalent,m.price,m.warningval_jiliang,m.warningval_stock,m.warningval_cabinet,m.ispoison,m.isanesthetic,m.medicineid,u.user_name opera,m.uptime,m.isdel</Data>
+<Order>medicineid</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>medicineid='%{medicine_info_vLst[medicineid]}'</Where></DbDetails><submit next="$this.medicine_info.medicine_infoLst" namelist="DbDetails"/><assign name="$this.medicine_info.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.medicine_info</DbTable>
+<Where>medicineid='%{medicine_info_vLst[medicineid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

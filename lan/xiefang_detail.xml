@@ -1,0 +1,38 @@
+﻿<Language name="xiefang_detail">
+<Lang name="xiefang_detail" value="xiefang_detail"/>
+<Lang name="TabEditxiefang_detail" value="xiefang_detail Edit"/>
+<Lang name="TabViewxiefang_detail" value="xiefang_detail View"/>
+<Lang name="medicineid" value=""/>
+<Lang name="ttp_medicineid" value=""/>
+<Lang name="medicinenopy" value="药名拼音"/>
+<Lang name="ttp_medicinenopy" value="拼音"/>
+<Lang name="medicinenocn" value="药名中文"/>
+<Lang name="ttp_medicinenocn" value="药名中文"/>
+<Lang name="medicine_pweight" value="参考剂量"/>
+<Lang name="ttp_medicine_pweight" value="参考剂量"/>
+<Lang name="medicineno" value="药物编码"/>
+<Lang name="ttp_medicineno" value="药物编码"/>
+<Lang name="delemp" value=""/>
+<Lang name="ttp_delemp" value="删除人"/>
+<Lang name="deltime" value=""/>
+<Lang name="ttp_deltime" value="删除时间"/>
+<Lang name="xiefangid" value=""/>
+<Lang name="ttp_xiefangid" value="协方号"/>
+<Lang name="xiefang_detailid" value=""/>
+<Lang name="ttp_xiefang_detailid" value=""/>
+<Lang name="ttp_operationxiefang_detail" value=""/>
+<Lang name="ttp_createxiefang_detail" value=""/>
+<Lang name="ttp_modifyxiefang_detail" value=""/>
+<Lang name="ttp_resetxiefang_detail" value=""/>
+<Lang name="ttp_deletexiefang_detail" value=""/>
+<Lang name="ttp_refreshxiefang_detail" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

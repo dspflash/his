@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVuser_role" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="user_roleLst" ToolTip="ttp_user_role" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>role_id</Index>
+<DbTable>his.user_role</DbTable>
+<Data>role_name,layout,insert_time,insert_emp,del_opera,del_time,opera,role_id</Data>
+<Order>role_id</Order></DbDetails>
+<OnClick><assign name="opera[user_id]" expr="%{user_roleLst[opera]}" function="SetSel"/>
+<if cond="'%{role_id}'"><SetVisible name="insertuser_role" Visible="0"/><SetVisible name="modifyuser_role" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

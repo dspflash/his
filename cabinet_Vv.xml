@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVcabinet" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="cabinet_vLst" ToolTip="ttp_cabinet_v" Size="700,450" OnLoad="init" Heading="cabinetno,100;cabinetname,250;layout_row,20;layout_col,20;layout_rowwidth,30;layout_rowheight,30;status,60;cabinetid,55;uptime,150;opera,55;" loadedclick="0">
+	<DbDetails >
+<Index>cabinetid</Index>
+<DbTable>his.cabinet c left join his.users u on c.opera=u.user_id</DbTable>
+<Data>c.cabinetno,c.cabinetname,c.layout_row,c.layout_col,c.layout_rowwidth,c.layout_rowheight,c.status,c.cabinetid,c.uptime,u.user_name opera</Data>
+<Order>cabinetid</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>cabinetid='%{cabinet_vLst[cabinetid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cabinet.cabinetLst"/><assign name="$this.cabinet.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.cabinet</DbTable>
+<Where>cabinetid='%{cabinet_vLst[cabinetid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_cabinet" expr="js(%{cabinet_vLst[currentpage]}+1)"/>
+<assign name="pgscb_cabinet" expr="js(%{cabinet_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

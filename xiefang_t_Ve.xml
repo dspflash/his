@@ -1,0 +1,16 @@
+﻿<WndTap Name="xiefang_t" Text="xiefang_t" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\xiefang_t.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\xiefang_detail.xml"/>
+<Ctrls>
+<GroupBox  Name="GBxiefang_t" id="xiefang_t" Text="xiefang_t" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xiefang_t_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xiefang_t_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xiefang_t_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xiefang_detail_Vv.xml"/>
+</Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertxiefang_t" Visible="1"/><SetVisible name="modifyxiefang_t" Visible="0"/></OnActivate>
+</WndTap>

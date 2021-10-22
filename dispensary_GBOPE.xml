@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEdispensary" Size="100,100"><Ctrls>
+<Button sqlpkinsert="dispensaryid" Text="create" ToolTip="ttp_createdispensary" Name="insertdispensary" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>his.dispensary</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>dispensaryno,dispensaryname,memo,status,hospitalid</Data>
+<DataEx>opera;'%{operaid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertdispensary[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="dispensaryLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.dispensary_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifydispensary" Name="modifydispensary" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>his.dispensary</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>dispensaryno,dispensaryname,memo,status,hospitalid</Data>
+<DataEx>opera;'%{operaid}'</DataEx>
+<Where>dispensaryid='%{dispensaryid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifydispensary[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="dispensaryLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.dispensary_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetdispensary" Name="resetdispensary" Size="50,20">
+<OnClick>
+<submit next="GBDEDITdispensary" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchdispensary" Name="gsearchdispensary" Size="50,20" visible="false">
+<OnClick>
+<search next="dispensaryLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITdispensary" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

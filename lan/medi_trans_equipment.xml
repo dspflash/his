@@ -1,0 +1,48 @@
+﻿<Language name="medi_trans">
+<Lang name="medi_trans" value="medi_trans"/>
+<Lang name="TabEditmedi_trans" value="medi_trans Edit"/>
+<Lang name="TabViewmedi_trans" value="medi_trans View"/>
+<Lang name="medication_detailid" value=""/>
+<Lang name="ttp_medication_detailid" value=""/>
+<Lang name="medicineid" value=""/>
+<Lang name="ttp_medicineid" value=""/>
+<Lang name="bottleid" value=""/>
+<Lang name="ttp_bottleid" value=""/>
+<Lang name="equipmentid" value=""/>
+<Lang name="ttp_equipmentid" value=""/>
+<Lang name="equipment_posid" value=""/>
+<Lang name="ttp_equipment_posid" value=""/>
+<Lang name="equipment_pos_degree" value=""/>
+<Lang name="ttp_equipment_pos_degree" value=""/>
+<Lang name="qtyapply" value=""/>
+<Lang name="ttp_qtyapply" value=""/>
+<Lang name="qtyrelease" value=""/>
+<Lang name="ttp_qtyrelease" value=""/>
+<Lang name="opera" value=""/>
+<Lang name="ttp_opera" value=""/>
+<Lang name="uptime" value=""/>
+<Lang name="ttp_uptime" value=""/>
+<Lang name="transid" value=""/>
+<Lang name="ttp_transid" value=""/>
+<Lang name="weight1" value=""/>
+<Lang name="ttp_weight1" value=""/>
+<Lang name="weight2" value=""/>
+<Lang name="ttp_weight2" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="ttp_operationmedi_trans" value=""/>
+<Lang name="ttp_createmedi_trans" value=""/>
+<Lang name="ttp_modifymedi_trans" value=""/>
+<Lang name="ttp_resetmedi_trans" value=""/>
+<Lang name="ttp_deletemedi_trans" value=""/>
+<Lang name="ttp_refreshmedi_trans" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

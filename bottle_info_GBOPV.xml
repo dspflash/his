@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVbottle_info" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletebottle_info" Name="deletebottle_info" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>his.bottle_info</DbTable>
+<Where>bottleid='%{bottle_infoLst[bottleid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchbottle_info" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshbottle_info" Name="searchbottle_info" Size="50,20">
+			  <OnClick><submit next="bottle_infoLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPbottle_infoLst" OnClick="(bottle_infoLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREbottle_infoLst" OnClick="(bottle_infoLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPbottle_infoLst" OnClick="(bottle_infoLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

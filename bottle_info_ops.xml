@@ -1,0 +1,15 @@
+﻿<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<EvalTbl rules="" table="bottle_info_ops">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/bottle_info_ops.xml"/></rules>
+<inputs uses_flag="%{bottle_info_vLst[usesflag]}" roleid="%{role_id}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="modify"><DbDetails><Where>bottleid='%{bottle_info_vLst[bottleid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bottle_info.bottle_infoLst"/><DbDetails><Where>medicineid='%{bottle_info_vLst[medicineid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bottle_info.medicineid"/><assign name="$this.bottle_info.frmwndctrl" expr="%{this}"/></op>
+<op text="instock"><submit next="$this.bottle_transaction_op.GBDEDITbottle_transaction" function="reset"/><DbDetails><Where>bottleid='%{bottle_info_vLst[bottleid]}' and uses_flag=100</Where></DbDetails><submit namelist="DbDetails" next="$this.bottle_transaction_op.bottleid"/><assign name="$this.bottle_transaction_op.uses_flag" expr="101"/><assign name="$this.bottle_transaction_op.frmwndctrl" expr="%{this}"/></op>
+<op text="upcabinet"><submit next="$this.bottle_loc_cabinet.GBDEDITbottle_loc_cabinet" function="reset"/><DbDetails><Where>bottleid='%{bottle_info_vLst[bottleid]}' and uses_flag&lt;103</Where></DbDetails><submit namelist="DbDetails" next="$this.bottle_loc_cabinet.bottleid"/><assign name="$this.bottle_loc_cabinet.frmwndctrl" expr="%{this}"/></op>
+<!--op text="backstock"><submit next="$this.bottle_transaction_op.GBDEDITbottle_transaction" function="reset"/><DbDetails><Where>bottleid='%{bottle_info_vLst[bottleid]}' and uses_flag in (106,107)</Where></DbDetails><submit namelist="DbDetails" next="$this.bottle_transaction_op.bottleid"/><assign name="$this.bottle_transaction_op.uses_flag" expr="108"/><assign name="$this.bottle_transaction_op.frmwndctrl" expr="%{this}"/></op-->
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.bottle_info</DbTable>
+<Where>bottleid='%{bottle_info_vLst[bottleid]}'</Where>
+<queryFormat>update %{table} set uses_flag=109 where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

@@ -1,0 +1,16 @@
+﻿<GroupBox Name="GBDEDITbottle_loc_cabinet" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_bottleid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bottleid" Size="60,20" Text="bottleid" Align="Right"/>
+<TextBox Name="bottleid" Size="170,20" Text="" Weight="170" ToolTip="ttp_bottleid">
+	<DbDetails>
+<Index>bottleid</Index>
+<DbTable>his.bottle_info</DbTable>
+<Data>bottleno,medicineid,bottleid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnEnChange><submit next="medicineid"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_medicineno" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medicineno" Size="60,20" Text="medicineno" Align="Right"/>
+<TextBox Name="medicineno" Size="170,20" Text="" Weight="170" ToolTip="ttp_medicineno"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

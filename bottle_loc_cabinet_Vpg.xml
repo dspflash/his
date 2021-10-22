@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGbottle_loc_cabinet"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_bottle_loc_cabinet" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>locationid</Index>
+<DbTable>his.bottle_loc_cabinet b left join his.bottle_info b0 on b.bottleid=b0.bottleid left join his.medicine_info m on b.medicineid=m.medicineid left join his.cabinet c on b.cabinetid=c.cabinetid left join his.cabinet_cell c0 on b.cellid=c0.cellid left join his.users u on b.opera=u.user_id</DbTable><Where>where !m.isdel</Where>
+<Data>count(*) records</Data>
+<Order>locationid</Order><Queryformat>select %{data} from (select b.locationid from %{dbtable} %{where} GROUP BY b.locationid  ORDER BY b.locationid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_bottle_loc_cabinet" expr="js(Math.ceil(%{records_bottle_loc_cabinet}/%{bottle_loc_cabinet_vLst[countsperpage]}))"/>
+<assign name="pgscb_bottle_loc_cabinet" expr="js('1~'+Math.ceil(%{records_bottle_loc_cabinet}/%{bottle_loc_cabinet_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_bottle_loc_cabinet" Size="60,20"><OnSelEndOK><submit next="bottle_loc_cabinet_vLst" function="GetPage(%{pgscb_bottle_loc_cabinet}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_bottle_loc_cabinet" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_bottle_loc_cabinet" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagebottle_loc_cabinet_vLst" Size="50,20"><OnClick><submit next="bottle_loc_cabinet_vLst" function="GetPage(%{pgcur_bottle_loc_cabinet}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

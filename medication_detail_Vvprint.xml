@@ -1,0 +1,27 @@
+﻿<GroupBox Name="GBDVmedication_detail" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="medication_detail_vLst" colsDisplay="11" ToolTip="ttp_medication_detail_v" Size="700,220" AutoSizeCol="3" loadedclick="0">
+	<DbDetails >
+<Index>medication_detailid</Index>
+<DbTable>mt_cc_b_m</DbTable>
+<Data>*</Data>
+<Order>medication_detailid</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">CALL PrepareMed(1,1);
+<EvalTbl rules="" table="medication_detail_vvprint_ops">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/medication_detail_vvprint_ops.xml"/></rules>
+<inputs status="%{medication_detail_vLst[status]}" roleid="%{role_id}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="prepare"><if cond="!%{medicationid}"><alert expr="medicationid is Empty!"/><else/><DbDetails>
+<queryFormat>CALL PrepareMed(%{medicationid},%{operaid});</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></if></op>
+<op text="cabinet_pick"><submit next="$parent.medi_trans_cabinet.GBDEDITmedi_trans" function="reset"/><DbDetails><Where>medication_detailid='%{medication_detail_vLst[medication_detailid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.medi_trans_cabinet.medication_detailid"/><assign name="$parent.medi_trans_cabinet.status" expr="302"/><assign name="$parent.medi_trans_cabinet.frmwndctrl" expr="%{this}"/></op>
+<!--op text="ind_shangdai"><DbDetails><DbDatabase>mqtt</DbDatabase><datatype>mqtt</datatype><queryFormat>set %{medication_detail_vLst[mqtt_ind_shangdai]}='1'</queryFormat></DbDetails><submit namelist="DbDetails"/></op-->
+<op text="equipment_weight1"><submit next="$parent.medi_trans_equipment.GBDEDITmedi_trans" function="reset"/><DbDetails><Where>medication_detailid='%{medication_detail_vLst[medication_detailid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.medi_trans_equipment.medication_detailid"/><assign name="$parent.medi_trans_equipment.status" expr="303"/><assign name="$parent.medi_trans_equipment.frmwndctrl" expr="%{this}"/></op>
+<op text="equipment_pos"><submit next="$parent.medi_trans_equipment.GBDEDITmedi_trans" function="reset"/><DbDetails><Where>medication_detailid='%{medication_detail_vLst[medication_detailid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.medi_trans_equipment.medication_detailid"/><assign name="$parent.medi_trans_equipment.status" expr="304"/><assign name="$parent.medi_trans_equipment.frmwndctrl" expr="%{this}"/></op>
+<op text="equipment_issue"><submit next="$parent.medi_trans_equipment.GBDEDITmedi_trans" function="reset"/><DbDetails><Where>medication_detailid='%{medication_detail_vLst[medication_detailid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.medi_trans_equipment.medication_detailid"/><assign name="$parent.medi_trans_equipment.status" expr="305"/><assign name="$parent.medi_trans_equipment.frmwndctrl" expr="%{this}"/></op>
+<op text="equipment_weight2"><submit next="$parent.medi_trans_equipment.GBDEDITmedi_trans" function="reset"/><DbDetails><Where>medication_detailid='%{medication_detail_vLst[medication_detailid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.medi_trans_equipment.medication_detailid"/><assign name="$parent.medi_trans_equipment.status" expr="306"/><assign name="$parent.medi_trans_equipment.frmwndctrl" expr="%{this}"/></op>
+<!--op text="ind_fengdai"><DbDetails><DbDatabase>mqtt</DbDatabase><datatype>mqtt</datatype><queryFormat>set %{medication_detail_vLst[mqtt_ind_fengdai]}='1'</queryFormat></DbDetails><submit namelist="DbDetails"/></op>
+<op text="return_finish"><DbDetails><DbDatabase>mqtt</DbDatabase><datatype>mqtt</datatype><queryFormat>set %{medication_detail_vLst[mqtt_return_finish]}='accquire'</queryFormat></DbDetails><submit namelist="DbDetails"/></op-->
+<op text="cabinet_back"><submit next="$parent.medi_trans_cabinet.GBDEDITmedi_trans" function="reset"/><DbDetails><Where>medication_detailid='%{medication_detail_vLst[medication_detailid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.medi_trans_cabinet.medication_detailid"/><assign name="$parent.medi_trans_cabinet.status" expr="307"/><assign name="$parent.medi_trans_cabinet.frmwndctrl" expr="%{this}"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

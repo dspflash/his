@@ -1,0 +1,22 @@
+﻿<WndTap Name="instock_log_pick" Text="instock_log_Pick">
+<var name="searchtmpl"><medicineid format="i.medicineid='%{opvalue}'"/><medicineno format="(i.medicineno like '%%{opvalue}%')"/><bottleid format="i.bottleid='%{opvalue}'"/><intype format="i.intype='%{opvalue}'"/><receiveempid format="i.receiveempid='%{opvalue}'"/><receiveemp format="(i.receiveemp like '%%{opvalue}%')"/><stockno format="i.stockno='%{opvalue}'"/><locationno format="i.locationno='%{opvalue}'"/><bottleno format="(i.bottleno like '%%{opvalue}%')"/><manufacturer format="(i.manufacturer like '%%{opvalue}%')"/><weight format="(i.weight like '%%{opvalue}%')"/><validday format="(i.validday like '%%{opvalue}%')"/><memo format="(i.memo like '%%{opvalue}%')"/><inserttime format="(i.inserttime between '%{inserttime[datetime]}' and '%{inserttime[datetime2]}')"/><delemp format="(i.delemp like '%%{opvalue}%')"/><deltime format="(i.deltime between '%{deltime[datetime]}' and '%{deltime[datetime2]}')"/><opera format="i.opera='%{opvalue}'"/><inempid format="i.inempid='%{opvalue}'"/><inemp format="i.inemp='%{opvalue}'"/><instockid format="(i.instockid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\instock_log.xml"/>
+<Ctrls><GroupBox  Name="GBinstock_log" id="instock_log" Text="instock_log" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="instock_log_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVinstock_log" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetinstock_log" Name="resetinstock_log" Size="50,20">	<OnClick>	<submit next="GBDEDITinstock_log" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchinstock_log" Name="gsearchinstock_log" Size="50,20">	<OnClick>	
+<search next="instock_log_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITinstock_log" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVinstock_log" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="instock_log_vLst" ToolTip="ttp_instock_log_v" Size="700,450" Heading="medicineid,120;medicineno,200;bottleid,120;intype,120;receiveempid,120;receiveemp,200;stockno,120;locationno,120;bottleno,250;manufacturer,200;weight,90;validday,55;memo,250;inserttime,150;delemp,55;deltime,150;opera,55;inempid,55;inemp,200;instockid,100;" loadedclick="0">
+	<DbDetails >
+<Index>instockid</Index>
+<DbTable>his.instock_log i left join his.medicine_info m on i.medicineid=m.medicineid left join his.bottle_info b on i.bottleid=b.bottleid left join his.status_option s on i.intype=s.statuscode left join his.users u on i.receiveempid=u.user_id left join his.stockbaseinfo s0 on i.stockno=s0.stockid left join his.stocklocationinfo s1 on i.locationno=s1.locationid left join his.users u0 on i.opera=u0.user_id left join his.users u1 on i.inempid=u1.user_id left join his.users u2 on i.inemp=u2.user_id</DbTable>
+<Data>m.medicinenocn medicineid,i.medicineno,b.bottleno bottleid,s.statusname intype,u.user_name receiveempid,i.receiveemp,s0.stockname stockno,s1.location_name locationno,i.bottleno,i.manufacturer,i.weight,i.validday,i.memo,i.inserttime,i.delemp,i.deltime,u0.user_name opera,u1.user_name inempid,u2.user_name inemp,i.instockid</Data>
+<Order>instockid</Order></DbDetails>
+<OnClick><if cond="%{instock_log_vLst[instockid]}"><DbDetails><Where>instockid='%{instock_log_vLst[instockid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

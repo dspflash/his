@@ -1,0 +1,41 @@
+﻿<Language name="dispensary">
+<Lang name="dispensary" value="药房"/>
+<Lang name="dispensary_v" value="药房"/>
+<Lang name="TabEditdispensary" value="dispensary Edit"/>
+<Lang name="TabViewdispensary" value="dispensary View"/>
+<Lang name="dispensaryno" value="药房码"/>
+<Lang name="ttp_dispensaryno" value="药房码"/>
+<Lang name="dispensaryname" value="药房名"/>
+<Lang name="ttp_dispensaryname" value="药房名"/>
+<Lang name="memo" value="备注"/>
+<Lang name="ttp_memo" value="备注"/>
+<Lang name="delemp" value="删除人"/>
+<Lang name="ttp_delemp" value="删除人"/>
+<Lang name="deltime" value="删除时间"/>
+<Lang name="ttp_deltime" value="删除时间"/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value="状态"/>
+<Lang name="opera" value=""/>
+<Lang name="ttp_opera" value="操作员"/>
+<Lang name="uptime" value=""/>
+<Lang name="ttp_uptime" value="时间"/>
+<Lang name="dispensaryid" value=""/>
+<Lang name="ttp_dispensaryid" value=""/>
+<Lang name="hospitalid" value=""/>
+<Lang name="ttp_hospitalid" value=""/>
+<Lang name="ttp_operationdispensary" value=""/>
+<Lang name="ttp_createdispensary" value=""/>
+<Lang name="ttp_modifydispensary" value=""/>
+<Lang name="ttp_resetdispensary" value=""/>
+<Lang name="ttp_deletedispensary" value=""/>
+<Lang name="ttp_refreshdispensary" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

@@ -1,0 +1,70 @@
+﻿<GroupBox Name="GBDEDITmedi_trans"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medication_detailid"><Ctrls>
+<Label Align="Right" Text="medication_detailid" Name="lb_medication_detailid" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_medication_detailid" Name="medication_detailid" readonly="true" Size="170,20">
+	<DbDetails fcsm="true">
+<Index>medication_detailid</Index>
+<DbTable>his.mt_cc_b_m</DbTable>
+<Data>medicineno,medicineno medicineid,bottleno bottleid,equipmentname equipmentid,pos_idx equipment_posid,mqtt_pos,mqtt_ind_shangdai,mqtt_ind_fengdai,mqtt_ind_startstop,mqtt_getweight,equipment_pos_degree,jiliang qtyapply,weight1,weight2,mqtt_return_finish,transid,medication_detailid</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medicineid"><Ctrls>
+<Label Align="Right" Text="medicineid" Name="lb_medicineid" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_medicineid" Name="medicineid" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bottleid"><Ctrls>
+<Label Align="Right" Text="bottleid" Name="lb_bottleid" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_bottleid" Name="bottleid" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_equipmentid"><Ctrls>
+<Label Align="Right" Text="equipmentid" Name="lb_equipmentid" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_equipmentid" Name="equipmentid" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_equipment_posid"><Ctrls>
+<Label Align="Right" Text="equipment_posid" Name="lb_equipment_posid" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_equipment_posid" Name="equipment_posid" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_equipment_pos_degree"><Ctrls>
+<Label Align="Right" Text="equipment_pos_degree" Name="lb_equipment_pos_degree" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_equipment_pos_degree" Name="equipment_pos_degree" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_qtyapply"><Ctrls>
+<Label Align="Right" Text="qtyapply" Name="lb_qtyapply" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_qtyapply" Name="qtyapply" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_qtyrelease"><Ctrls>
+<Label Align="Right" Text="qtyrelease" Name="lb_qtyrelease" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_qtyrelease" Name="qtyrelease" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_uptime" Visible="false"><Ctrls>
+<Label Align="Right" Text="uptime" overlap="pre" Name="lb_uptime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_uptime" overlap="pre" Name="uptime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_transid" Visible="false"><Ctrls>
+<Label Align="Right" Text="transid" overlap="pre" Name="lb_transid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_transid" overlap="pre" Name="transid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{transid}'"><SetVisible name="insertmedi_trans" Visible="0"/><SetVisible name="modifymedi_trans" Visible="1"/><else/><SetVisible name="insertmedi_trans" Visible="1"/><SetVisible name="modifymedi_trans" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_weight1"><Ctrls>
+<Label Align="Right" Text="weight1" Name="lb_weight1" Size="60,20"/>
+<TextBox Weight="150" Text="" ToolTip="ttp_weight1" Name="weight1" Size="150,20"/>
+<MagicCtrl Name="refreshweight1" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><DbDetails> <DbDatabase>mqtt</DbDatabase> <datatype>mqtt</datatype> <queryFormat>set %{medication_detailid[mqtt_getweight]}='acquire'</queryFormat> </DbDetails><submit next="weight1" namelist="DbDetails"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_weight2"><Ctrls>
+<Label Align="Right" Text="weight2" Name="lb_weight2" Size="60,20"/>
+<TextBox Weight="150" Text="" ToolTip="ttp_weight2" Name="weight2" Size="150,20"><OnEnChange><if cond="'%{weight2}'"><assign name="qtyrelease" expr="js(%{weight1}-%{weight2})"/></if></OnEnChange></TextBox>
+<MagicCtrl Name="refreshweight2" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><DbDetails> <DbDatabase>mqtt</DbDatabase> <datatype>mqtt</datatype> <queryFormat>set %{medication_detailid[mqtt_getweight]}='acquire'</queryFormat> </DbDetails><submit next="weight2" namelist="DbDetails"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_status" Visible="false"><Ctrls>
+<Label Align="Right" Text="status" overlap="pre" Name="lb_status" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_status" overlap="pre" Name="status" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls> <Button Weight="100" text="ind_startstop" Name="ind_startstop" Size="100,20"><OnClick><DbDetails> <DbDatabase>mqtt</DbDatabase> <datatype>mqtt</datatype> <queryFormat>set %{medication_detailid[mqtt_ind_startstop]}='1'</queryFormat> </DbDetails><submit namelist="DbDetails"/></OnClick></Button></Ctrls></GroupBox></Ctrls></GroupBox>

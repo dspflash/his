@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbottle_loc_cabinet"><Ctrls>
+<ListCtrl Heading="bottleid,55;medicineid,55;medicineno,240;cabinetid,120;cellid,120;opera,55;uptime,150;locationid,100;" loadedclick="0" ToolTip="ttp_bottle_loc_cabinet" Name="bottle_loc_cabinetLst" Size="300,450" colsDisplay="7">
+	<DbDetails fcsm="1">
+<Index>locationid</Index>
+<DbTable>his.bottle_loc_cabinet b left join his.bottle_info b0 on b.bottleid=b0.bottleid left join his.medicine_info m on b.medicineid=m.medicineid left join his.cabinet c on b.cabinetid=c.cabinetid left join his.cabinet_cell c0 on b.cellid=c0.cellid left join his.users u on b.opera=u.user_id</DbTable>
+<Data>b0.bottleno bottleid,m.medicinenocn medicineid,b.medicineno,c.cabinetname cabinetid,concat(cell_row,'-',cell_col),u.user_name opera,b.uptime,b.locationid</Data>
+<Order>locationid</Order></DbDetails>%{}
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_loc_cabinet_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

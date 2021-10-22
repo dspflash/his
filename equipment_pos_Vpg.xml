@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGequipment_pos"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_equipment_pos" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>posid</Index>
+<DbTable>his.equipment_pos e left join his.users u on e.opera=u.user_id</DbTable>
+<Data>count(*) records</Data>
+<Order>posid</Order><Queryformat>select %{data} from (select e.posid from %{dbtable} %{where} GROUP BY e.posid  ORDER BY e.posid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_equipment_pos" expr="js(Math.ceil(%{records_equipment_pos}/%{equipment_pos_vLst[countsperpage]}))"/>
+<assign name="pgscb_equipment_pos" expr="js('1~'+Math.ceil(%{records_equipment_pos}/%{equipment_pos_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_equipment_pos" Size="60,20"><OnSelEndOK><submit next="equipment_pos_vLst" function="GetPage(%{pgscb_equipment_pos}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_equipment_pos" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_equipment_pos" Size="30,20"/>
+<Button Text="go2Page" Name="go2pageequipment_pos_vLst" Size="50,20"><OnClick><submit next="equipment_pos_vLst" function="GetPage(%{pgcur_equipment_pos}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

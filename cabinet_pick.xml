@@ -1,0 +1,22 @@
+﻿<WndTap Name="cabinet_pick" Text="cabinet_Pick">
+<var name="searchtmpl"><cabinetno format="(c.cabinetno like '%%{opvalue}%')"/><cabinetname format="(c.cabinetname like '%%{opvalue}%')"/><layout_row format="(c.layout_row like '%%{opvalue}%')"/><layout_col format="(c.layout_col like '%%{opvalue}%')"/><layout_rowwidth format="(c.layout_rowwidth like '%%{opvalue}%')"/><layout_rowheight format="(c.layout_rowheight like '%%{opvalue}%')"/><status format="c.status is %{opvalue}"/><cabinetid format="(c.cabinetid like '%%{opvalue}%')"/><uptime format="(c.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><opera format="c.opera='%{opvalue}'"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\cabinet.xml"/>
+<Ctrls><GroupBox  Name="GBcabinet" id="cabinet" Text="cabinet" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cabinet_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVcabinet" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetcabinet" Name="resetcabinet" Size="50,20">	<OnClick>	<submit next="GBDEDITcabinet" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchcabinet" Name="gsearchcabinet" Size="50,20">	<OnClick>	
+<search next="cabinet_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITcabinet" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVcabinet" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="cabinet_vLst" ToolTip="ttp_cabinet_v" Size="700,450" Heading="cabinetno,100;cabinetname,250;layout_row,20;layout_col,20;layout_rowwidth,30;layout_rowheight,30;status,60;cabinetid,55;uptime,150;opera,55;" loadedclick="0">
+	<DbDetails >
+<Index>cabinetid</Index>
+<DbTable>his.cabinet c left join his.users u on c.opera=u.user_id</DbTable>
+<Data>c.cabinetno,c.cabinetname,c.layout_row,c.layout_col,c.layout_rowwidth,c.layout_rowheight,c.status,c.cabinetid,c.uptime,u.user_name opera</Data>
+<Order>cabinetid</Order></DbDetails>
+<OnClick><if cond="%{cabinet_vLst[cabinetid]}"><DbDetails><Where>cabinetid='%{cabinet_vLst[cabinetid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

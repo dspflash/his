@@ -1,0 +1,13 @@
+﻿<WndTap Name="bottle_loc_cabinet" Text="bottle_loc_cabinet" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="bottleid[bottleid],cabinetid[cabinetid]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\bottle_loc_cabinet.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBbottle_loc_cabinet" id="bottle_loc_cabinet" Text="bottle_loc_cabinet" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_loc_cabinet_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_loc_cabinet_GBOPEm.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_loc_cabinet_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertbottle_loc_cabinet" Visible="1"/><SetVisible name="modifybottle_loc_cabinet" Visible="0"/></OnActivate>
+</WndTap>

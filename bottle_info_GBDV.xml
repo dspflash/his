@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbottle_info"><Ctrls>
+<ListCtrl Heading="bottleno,250;medicineid,100;medicineno,250;uses_flag,120;weight_initial,90;weight_last,90;weight_cur,90;weight_gross,90;weight_net,90;remark,250;opera,55;uptime,150;bottleid,100;" loadedclick="0" ToolTip="ttp_bottle_info" Name="bottle_infoLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>bottleid</Index>
+<DbTable>his.bottle_info b left join his.medicine_info m on b.medicineid=m.medicineid left join his.status_option s on b.uses_flag=s.statuscode left join his.users u on b.opera=u.user_id</DbTable>
+<Data>b.bottleno,m.medicinenocn medicineid,b.medicineno,s.statusname uses_flag,b.weight_initial,b.weight_last,b.weight_cur,b.weight_gross,b.weight_net,b.remark,u.user_name opera,b.uptime,b.bottleid,b.uses_flag usesflag,b.medicineid medicine_id</Data>
+<Order>bottleid</Order></DbDetails>%{}
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_info_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,36 @@
+﻿<GroupBox Name="GBDEDITmedi_trans" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_medication_detailid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medication_detailid" Size="60,20" Text="medication_detailid" Align="Right"/>
+<TextBox Name="medication_detailid" Size="170,20" Text="" Weight="170" ToolTip="ttp_medication_detailid">
+	<DbDetails fcsm="true">
+<Index>medication_detailid</Index>
+<DbTable>his.mt_cc_b_m</DbTable>
+<Data>medicineno,medicineno medicineid,bottleno bottleid,equipmentname equipmentid,pos_idx equipment_posid,mqtt_pos,mqtt_ind_shangdai,mqtt_ind_fengdai,mqtt_ind_startstop,mqtt_getweight,equipment_pos_degree,jiliang qtyapply,weight1,weight2,mqtt_return_finish,transid,medication_detailid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_medicineid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medicineid" Size="60,20" Text="medicineid" Align="Right"/>
+<TextBox Name="medicineid" Size="170,20" Text="" Weight="170" ToolTip="ttp_medicineid"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bottleid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bottleid" Size="60,20" Text="bottleid" Align="Right"/>
+<TextBox Name="bottleid" Size="170,20" Text="" Weight="170" ToolTip="ttp_bottleid"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_equipmentid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_equipmentid" Size="60,20" Text="equipmentid" Align="Right"/>
+<TextBox Name="equipmentid" Size="170,20" Text="" Weight="170" ToolTip="ttp_equipmentid"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_weight1" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_weight1" Size="60,20" Text="weight1" Align="Right"/>
+<TextBox Name="weight1" Size="150,20" Text="" Weight="150" ToolTip="ttp_weight1"></TextBox>
+<MagicCtrl Name="refreshweight1" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><DbDetails> <DbDatabase>mqtt</DbDatabase> <datatype>mqtt</datatype> <queryFormat>set %{medication_detailid[mqtt_getweight]}='acquire'</queryFormat> </DbDetails><submit next="weight1" namelist="DbDetails"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_weight2" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_weight2" Size="60,20" Text="weight2" Align="Right"/>
+<TextBox Name="weight2" Size="150,20" Text="" Weight="150" ToolTip="ttp_weight2"><OnEnChange><if cond="'%{weight2}'"><assign name="qtyrelease" expr="js(%{weight1}-%{weight2})"/></if></OnEnChange></TextBox>
+<MagicCtrl Name="refreshweight2" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><DbDetails> <DbDatabase>mqtt</DbDatabase> <datatype>mqtt</datatype> <queryFormat>set %{medication_detailid[mqtt_getweight]}='acquire'</queryFormat> </DbDetails><submit next="weight2" namelist="DbDetails"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right"/>
+<TextBox Name="status" Size="170,20" Text="" Weight="170" ToolTip="ttp_status"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

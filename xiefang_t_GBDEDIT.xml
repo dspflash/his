@@ -1,0 +1,72 @@
+﻿<GroupBox Name="GBDEDITxiefang_t"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_xiefang_no"><Ctrls>
+<Label Align="Right" Text="xiefang_no" Name="lb_xiefang_no" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_xiefang_no" Name="xiefang_no" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_xiefang_name"><Ctrls>
+<Label Align="Right" Text="xiefang_name" Name="lb_xiefang_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_xiefang_name" Name="xiefang_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_dept_category"><Ctrls>
+<Label Align="Right" Text="dept_category" onload="init" Name="lb_dept_category" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_dept_category" onload="init" Name="dept_category" Size="170,100">
+	<DbDetails>
+<Index>dept_categoryid</Index>
+<DbTable>his.dept_category</DbTable>
+<Data>dept_categoryname,dept_categoryid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medication_type"><Ctrls>
+<Label Align="Right" Text="medication_type" onload="init" Name="lb_medication_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_medication_type" onload="init" Name="medication_type" Size="170,100">
+	<DbDetails>
+<Index>statuscode</Index>
+<DbTable>his.status_option</DbTable>
+<Data>statusname,statuscode</Data>
+<Where>statustype=4</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_xiefang_forill"><Ctrls>
+<Label Align="Right" Text="xiefang_forill" Name="lb_xiefang_forill" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_xiefang_forill" Name="xiefang_forill" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_xiefang_jianyiji"><Ctrls>
+<Label Align="Right" Text="xiefang_jianyiji" Name="lb_xiefang_jianyiji" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_xiefang_jianyiji" Name="xiefang_jianyiji" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_xiefang_chuchu"><Ctrls>
+<Label Align="Right" Text="xiefang_chuchu" Name="lb_xiefang_chuchu" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_xiefang_chuchu" Name="xiefang_chuchu" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_huanzhe_fallill_time"><Ctrls>
+<Label Align="Right" Text="huanzhe_fallill_time" Name="lb_huanzhe_fallill_time" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_huanzhe_fallill_time" Name="huanzhe_fallill_time" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_status" Visible="false"><Ctrls>
+<Label Align="Right" Text="status" overlap="pre" Name="lb_status" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_status" overlap="pre" Name="status" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_deltime" Visible="false"><Ctrls>
+<Label Align="Right" Text="deltime" overlap="pre" Name="lb_deltime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_deltime" overlap="pre" Name="deltime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_delemp" Visible="false"><Ctrls>
+<Label Align="Right" Text="delemp" overlap="pre" Name="lb_delemp" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_delemp" overlap="pre" Name="delemp" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_xiefangid" Visible="false"><Ctrls>
+<Label Align="Right" Text="xiefangid" overlap="pre" Name="lb_xiefangid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_xiefangid" overlap="pre" Name="xiefangid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{xiefangid}'"><SetVisible name="insertxiefang_t" Visible="0"/><SetVisible name="modifyxiefang_t" Visible="1"/><else/><SetVisible name="insertxiefang_t" Visible="1"/><SetVisible name="modifyxiefang_t" Visible="0"/></if><if cond="'%{xiefangid}'"><DbDetails><Where>xiefangid='%{xiefangid}'</Where></DbDetails><submit next="xiefang_detail_vLst" namelist="DbDetails"/><else/><submit next="xiefang_detail_vLst" function="resetcontent"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

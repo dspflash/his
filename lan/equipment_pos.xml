@@ -1,0 +1,31 @@
+﻿<Language name="equipment_pos">
+<Lang name="equipment_pos" value="药机位"/>
+<Lang name="TabEditequipment_pos" value="equipment_pos Edit"/>
+<Lang name="TabViewequipment_pos" value="equipment_pos View"/>
+<Lang name="equipment_pos_degree" value="开口角度"/>
+<Lang name="pos_idx" value="机位"/>
+<Lang name="ttp_pos_idx" value=""/>
+<Lang name="opera" value=""/>
+<Lang name="ttp_opera" value=""/>
+<Lang name="uptime" value=""/>
+<Lang name="ttp_uptime" value=""/>
+<Lang name="posid" value=""/>
+<Lang name="ttp_posid" value=""/>
+<Lang name="equipmentid" value=""/>
+<Lang name="ttp_equipmentid" value=""/>
+<Lang name="ttp_operationequipment_pos" value=""/>
+<Lang name="ttp_createequipment_pos" value=""/>
+<Lang name="ttp_modifyequipment_pos" value=""/>
+<Lang name="ttp_resetequipment_pos" value=""/>
+<Lang name="ttp_deleteequipment_pos" value=""/>
+<Lang name="ttp_refreshequipment_pos" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

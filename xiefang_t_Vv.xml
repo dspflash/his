@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVxiefang_t" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="xiefang_t_vLst" ToolTip="ttp_xiefang_t_v" Size="700,450" OnLoad="init" Heading="xiefang_no,250;xiefang_name,250;dept_category,120;medication_type,120;xiefang_forill,250;xiefang_jianyiji,50;xiefang_chuchu,250;huanzhe_fallill_time,30;opera,55;status,20;deltime,150;delemp,100;xiefangid,55;" loadedclick="0">
+	<DbDetails >
+<Index>xiefangid</Index>
+<DbTable>his.xiefang_t x left join his.dept_category d on x.dept_category=d.dept_categoryid left join his.status_option s on x.medication_type=s.statuscode left join his.users u on x.opera=u.user_id</DbTable>
+<Data>x.xiefang_no,x.xiefang_name,d.dept_categoryname dept_category,s.statusname medication_type,x.xiefang_forill,x.xiefang_jianyiji,x.xiefang_chuchu,x.huanzhe_fallill_time,u.user_name opera,x.status,x.deltime,x.delemp,x.xiefangid</Data>
+<Order>xiefangid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>xiefangid='%{xiefang_t_vLst[xiefangid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.xiefang_t.xiefang_tLst"/><assign name="$this.xiefang_t.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.xiefang_t</DbTable>
+<Where>xiefangid='%{xiefang_t_vLst[xiefangid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_xiefang_t" expr="js(%{xiefang_t_vLst[currentpage]}+1)"/>
+<assign name="pgscb_xiefang_t" expr="js(%{xiefang_t_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

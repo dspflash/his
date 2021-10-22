@@ -1,0 +1,40 @@
+﻿<GroupBox Name="GBDEDITcabinet_cell"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cell_row"><Ctrls>
+<Label Align="Right" Text="cell_row" Name="lb_cell_row" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_cell_row" Name="cell_row" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cell_col"><Ctrls>
+<Label Align="Right" Text="cell_col" Name="lb_cell_col" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_cell_col" Name="cell_col" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_op_idx"><Ctrls>
+<Label Align="Right" Text="op_idx" Name="lb_op_idx" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_op_idx" Items="1~13" Name="op_idx" Size="170,100"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_op_code"><Ctrls>
+<Label Align="Right" Text="op_code" Name="lb_op_code" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_op_code" Items="0~15" Name="op_code" Size="170,100"><OnSelEndOk><assign name="cellopcode" expr="js(Math.pow(2,%{op_code}))"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_cabinetid" Visible="false"><Ctrls>
+<Label Align="Right" Text="cabinetid" overlap="pre" Name="lb_cabinetid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_cabinetid" overlap="pre" Name="cabinetid" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_cellid" Visible="false"><Ctrls>
+<Label Align="Right" Text="cellid" overlap="pre" Name="lb_cellid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_cellid" overlap="pre" Name="cellid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{cellid}'"><SetVisible name="insertcabinet_cell" Visible="0"/><SetVisible name="modifycabinet_cell" Visible="1"/><else/><SetVisible name="insertcabinet_cell" Visible="1"/><SetVisible name="modifycabinet_cell" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_uptime" Visible="false"><Ctrls>
+<Label Align="Right" Text="uptime" overlap="pre" Name="lb_uptime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_uptime" overlap="pre" Name="uptime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="cellopcode" readonly="true" Size="170,20" Visible="false"/></Ctrls></GroupBox>

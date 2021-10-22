@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd navtype="tab" debug="1" bgx="bg_gfcolors:2|4|2,0x7dafff|0x0,0xccbadb|0x64,0xccaadb|0x6464,ccaadb|0x6400,0x102,302" Title="中药智能调剂发药系统" icons="http://3ucs.com/biz/theme/delight-vtiger/vtiger/style.css">
+	<DbDetails>
+		<SubDriver>MySQL ODBC 3.51 Driver</SubDriver>
+		<Host>localhost</Host>
+		<database>his</database>
+		<sqlMode>NO_BACKSLASH_ESCAPES</sqlMode>
+		<User>i3u</User>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="pass" href="config/db.xml"/>
+		<config>SELECT 1 as computerid,1 as layid;</config>
+		</DbDetails>
+	<webconfig theme="../biz/theme/delight-vtiger/theme.html"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>	
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_loc_cabinet_Vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medication_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_transaction_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medi_trans_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_info_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medicine_info_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="equipment_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cabinet_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stockbaseinfo_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dispensary_v.xml"/>
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="computers_v.xml"/-->
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="equipment_type_v.xml"/-->
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hospital_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="users_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_role_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="department_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xiefang_t_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medicine_control_vm.xml"/>
+	</WndTaps>
+</XI3uWnd>

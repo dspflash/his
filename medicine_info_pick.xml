@@ -1,0 +1,23 @@
+﻿<WndTap Name="medicine_info_pick" Text="medicine_info_Pick">
+<var name="searchtmpl"><medicineno format="(m.medicineno like '%%{opvalue}%')"/><medicinenocn format="(m.medicinenocn like '%%{opvalue}%')"/><medicinenopy format="(m.medicinenopy like '%%{opvalue}%')"/><packno format="(m.packno like '%%{opvalue}%')"/><medicinecode format="(m.medicinecode like '%%{opvalue}%')"/><density format="(m.density like '%%{opvalue}%')"/><equivalent format="(m.equivalent like '%%{opvalue}%')"/><price format="(m.price like '%%{opvalue}%')"/><warningval_jiliang format="(m.warningval_jiliang like '%%{opvalue}%')"/><warningval_stock format="(m.warningval_stock like '%%{opvalue}%')"/><warningval_cabinet format="(m.warningval_cabinet like '%%{opvalue}%')"/><ispoison format="m.ispoison is %{opvalue}"/><isanesthetic format="m.isanesthetic is %{opvalue}"/><medicineid format="(m.medicineid like '%%{opvalue}%')"/><opera format="m.opera='%{opvalue}'"/><uptime format="(m.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><isdel format="m.isdel is %{opvalue}"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\medicine_info.xml"/>
+<Ctrls><GroupBox  Name="GBmedicine_info" id="medicine_info" Text="medicine_info" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medicine_info_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVmedicine_info" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetmedicine_info" Name="resetmedicine_info" Size="50,20">	<OnClick>	<submit next="GBDEDITmedicine_info" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchmedicine_info" Name="gsearchmedicine_info" Size="50,20">	<OnClick>	
+<search next="medicine_info_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITmedicine_info" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVmedicine_info" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="medicine_info_vLst" ToolTip="ttp_medicine_info_v" Size="700,450" Heading="medicineno,250;medicinenocn,250;medicinenopy,250;packno,250;medicinecode,250;density,50;equivalent,55;price,90;warningval_jiliang,90;warningval_stock,25;warningval_cabinet,25;ispoison,60;isanesthetic,60;medicineid,55;opera,55;uptime,150;isdel,60;" loadedclick="0">
+	<DbDetails >
+<Index>medicineid</Index>
+<DbTable>his.medicine_info m left join his.users u on m.opera=u.user_id</DbTable>
+<Data>m.medicineno,m.medicinenocn,m.medicinenopy,m.packno,m.medicinecode,m.density,m.equivalent,m.price,m.warningval_jiliang,m.warningval_stock,m.warningval_cabinet,m.ispoison,m.isanesthetic,m.medicineid,u.user_name opera,m.uptime,m.isdel</Data>
+<Order>medicineid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<OnClick><if cond="%{medicine_info_vLst[medicineid]}"><DbDetails><Where>medicineid='%{medicine_info_vLst[medicineid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

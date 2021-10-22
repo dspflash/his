@@ -1,0 +1,62 @@
+﻿<GroupBox Name="GBDEDITbottle_transaction"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bottleid"><Ctrls>
+<Label Align="Right" Text="bottleid" onload="init" Name="lb_bottleid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_bottleid" onload="init" Name="bottleid" Size="150,100">
+	<DbDetails>
+<Index>bottleid</Index>
+<DbTable>his.bottle_info</DbTable>
+<Data>bottleno,bottleid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshbottleid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="bottleid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medicineid"><Ctrls>
+<Label Align="Right" Text="medicineid" onload="init" Name="lb_medicineid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_medicineid" onload="init" Name="medicineid" Size="150,100">
+	<DbDetails>
+<Index>medicineid</Index>
+<DbTable>his.medicine_info</DbTable>
+<Data>medicinenocn,medicineid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshmedicineid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="medicineid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_uses_flag"><Ctrls>
+<Label Align="Right" Text="uses_flag" onload="init" Name="lb_uses_flag" readonly="true" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_uses_flag" onload="init" Name="uses_flag" readonly="true" Size="170,100">
+	<DbDetails>
+<Index>statuscode</Index>
+<DbTable>his.status_option</DbTable>
+<Data>statusname,statuscode</Data>
+<Where>statustype=1</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_weight_cur" Visible="false"><Ctrls>
+<Label Align="Right" Text="weight_cur" overlap="pre" Name="lb_weight_cur" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_weight_cur" overlap="pre" Name="weight_cur" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_uptime" Visible="false"><Ctrls>
+<Label Align="Right" Text="uptime" overlap="pre" Name="lb_uptime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_uptime" overlap="pre" Name="uptime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_reftbl" Visible="false"><Ctrls>
+<Label Align="Right" Text="reftbl" overlap="pre" Name="lb_reftbl" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_reftbl" overlap="pre" Name="reftbl" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_refid" Visible="false"><Ctrls>
+<Label Align="Right" Text="refid" overlap="pre" Name="lb_refid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_refid" overlap="pre" Name="refid" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_bottle_transactionid" Visible="false"><Ctrls>
+<Label Align="Right" Text="bottle_transactionid" overlap="pre" Name="lb_bottle_transactionid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_bottle_transactionid" overlap="pre" Name="bottle_transactionid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{bottle_transactionid}'"><SetVisible name="insertbottle_transaction" Visible="0"/><SetVisible name="modifybottle_transaction" Visible="1"/><else/><SetVisible name="insertbottle_transaction" Visible="1"/><SetVisible name="modifybottle_transaction" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

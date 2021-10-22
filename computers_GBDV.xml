@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVcomputers"><Ctrls>
+<ListCtrl Heading="computer_name,200;computer_mac,200;computer_ip,200;memo,250;delemp,55;deltime,150;valid,20;opera,55;uptime,150;computerid,55;dispensaryid,55;" loadedclick="0" ToolTip="ttp_computers" Name="computersLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>computerid</Index>
+<DbTable>his.computers c left join his.users u on c.delemp=u.user_id left join his.users u0 on c.opera=u0.user_id</DbTable>
+<Data>c.computer_name,c.computer_mac,c.computer_ip,c.memo,u.user_name delemp,c.deltime,c.valid,u0.user_name opera,c.uptime,c.computerid,c.dispensaryid</Data>
+<Order>computerid</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>computerid='%{computers_vLst[computerid]}'</Where></DbDetails><submit next="$this.computers.computersLst" namelist="DbDetails"/><assign name="$this.computers.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.computers</DbTable>
+<Where>computerid='%{computers_vLst[computerid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

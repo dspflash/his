@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDEDITequipment_type" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_equipmenttypeno" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_equipmenttypeno" Size="60,20" Text="equipmenttypeno" Align="Right"/>
+<TextBox Name="equipmenttypeno" Size="170,20" Text="" Weight="170" ToolTip="ttp_equipmenttypeno"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_equipmenttypename" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_equipmenttypename" Size="60,20" Text="equipmenttypename" Align="Right"/>
+<TextBox Name="equipmenttypename" Size="170,20" Text="" Weight="170" ToolTip="ttp_equipmenttypename"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVmedication_detail" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="medication_detailLst" ToolTip="ttp_medication_detail" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>medication_detailid</Index>
+<DbTable>his.medication_detail</DbTable>
+<Data>medicineid,medicineno,medicinenocn,price,jiliang,xiaoji,status,time1,medication_detailid,medicationid</Data>
+<Order>medication_detailid</Order></DbDetails>
+<OnClick><assign name="medicineid[medicineid]" expr="%{medication_detailLst[medicineid]}" function="SetSel"/><assign name="status[statuscode]" expr="%{medication_detailLst[status]}" function="SetSel"/>
+<if cond="'%{medication_detailid}'"><SetVisible name="insertmedication_detail" Visible="0"/><SetVisible name="modifymedication_detail" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

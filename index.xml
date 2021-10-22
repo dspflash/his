@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd>
+	<DbDetails>
+		<SubDriver>MySQL ODBC 3.51 Driver</SubDriver>
+		<Host>localhost</Host>
+		<database>his</database>
+		<sqlMode>NO_BACKSLASH_ESCAPES</sqlMode>
+		<User>i3u</User>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="pass" href="config/db.xml"/>
+		<config>SELECT user_pass password,layout,role_id,user_id AS operaid FROM users u JOIN user_role r ON r.role_id=u.user_role where user_name='%{UserName}';</config>
+		</DbDetails>
+<!--WndTaps>
+<WndTap Name="xbs_qa" Text="项目跟踪管理"><Ctrls>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Label Name="lb_code" Text="项目跟踪管理_网调中心通过PC端派发任务，设定任务内容、时间、地址等，通过数据接口点击相应目录来查看相关内容，该内容能够反映任务开始时间、地点、施工流程、项目名称、施工单位、人员、离开时间、任务完成情况等信息!" Size="500,120"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_album" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+	<MagicCtrl feature="carousel" onload="init" ToolTip="ttp_picview" Name="albumview" Size="230,20"><dfmap><map name="images" value="filename"/></dfmap>
+		<DbDetails>
+		<DbDatabase>D:\AppServ\www\i3u\files\images\crm\prj</DbDatabase> 
+		<datatype>dir</datatype> 
+		<queryFormat>select * from .</queryFormat> 
+		</DbDetails>
+	</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+<WndTap Name="xbs_mobile" Text="手机客户端"><Ctrls>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Label Name="lb_code" Text="手持终端用户一键接收任务，导航至目的地，开展工作，并进入工作状态，按照规范流程按部就班的提交相应信息（包括地点、人物、照片、文字、视频等）!" Size="500,120"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_album" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+	<MagicCtrl feature="carousel" onload="init" ToolTip="ttp_picview" Name="albumview" Size="230,20"><dfmap><map name="images" value="filename"/></dfmap>
+		<DbDetails>
+		<DbDatabase>D:\AppServ\www\i3u\files\images\crm\mobile</DbDatabase> 
+		<datatype>dir</datatype> 
+		<queryFormat>select * from .</queryFormat> 
+		</DbDetails>
+	</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+ </WndTaps--></XI3uWnd>

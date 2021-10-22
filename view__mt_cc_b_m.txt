@@ -1,0 +1,70 @@
+﻿view_md_mc_ctrl
+SELECT
+  `d`.`medicineid`           AS `medicineid`,
+  `d2`.`medicineid`          AS `medicineid2`,
+  `mct`.`relationtype`       AS `relationtype`,
+  `mc`.`controlid`           AS `controlid`,
+  `d`.`medication_detailid`  AS `medication_detailid`,
+  `d2`.`medication_detailid` AS `medication_detailid2`,
+  `d`.`medicationid`         AS `medicationid`
+FROM (((`medicine_control` `mc`
+     JOIN `medication_detail` `d`
+       ON ((`d`.`medicineid` = `mc`.`medicineid`)))
+    JOIN `medication_detail` `d2`
+      ON (((`d2`.`medicineid` = `mc`.`medicine2id`)
+           AND (`d`.`medicationid` = `d2`.`medicationid`))))
+   LEFT JOIN `medicine_control_type` `mct`
+     ON ((`mc`.`relation` = `mct`.`relationid`)))
+	 
+view_mt_cc_b_m
+SELECT `b`.`bottleno` AS `bottleno`,
+`m`.`medicineno` AS `medicineno`,
+`m`.`medicinenocn` AS `medicinenocn`,
+`m0`.`medicinenopy` AS `medicinenopy`,
+`m`.`jiliang` AS `jiliang`,
+`st`.`statusname` AS `statusname`,
+`c`.`cabinetname` AS `cabinetname`,
+CONCAT(`cc`.`cell_row`,_utf8'-',`cc`.`cell_col`) AS `cell`,
+`e`.`equipmentname` AS `equipmentname`,
+`ep`.`pos_idx` AS `pos_idx`,
+IFNULL(`mt`.`equipment_pos_degree`,IF(m0.density IS NULL,NULL,m.jiliang/m0.density)) AS `equipment_pos_degree`,
+`mt`.`qtyapply` AS `qtyapply`,
+`mt`.`qtyrelease` AS `qtyrelease`,
+`mt`.`weight1` AS `weight1`,
+`mt`.`weight2` AS `weight2`,
+`cc`.`op_idx` AS `op_idx`,
+`cc`.`op_code` AS `op_code`,
+`m`.`price` AS `price`,
+`m`.`xiaoji` AS `xiaoji`,
+`m`.`medication_no` AS `medication_no`,
+`cp`.`computer_name` AS `computer_name`,
+IFNULL(`mt`.`status`,`m`.`status`) AS `status`,
+`m`.`time1` AS `time1`,
+`e`.`equipmentid` AS `equipmentid`,
+`mt`.`equipment_posid` AS `equipment_posid`,
+CONCAT('devices/',cabinetno,'/light',op_idx) mqtt_light,
+CONCAT('devices/',e.equipmentno,'/plc_pos',pos_idx) mqtt_pos,
+CONCAT('devices/',e.equipmentno,'/ind_shangdai') mqtt_ind_shangdai,
+CONCAT('devices/',e.equipmentno,'/ind_fengdai') mqtt_ind_fengdai,
+CONCAT('devices/',e.equipmentno,'/ind_startstop') mqtt_ind_startstop,
+CONCAT('devices/',e.equipmentno,'/getweight') mqtt_getweight,
+CONCAT('devices/',e.equipmentno,'/return_finish') mqtt_return_finish,
+mt.transid,
+`cp`.`computerid` AS `computerid`,
+`c`.`cabinetid` AS `cabinetid`,
+`cc`.`cellid` AS `cellid`,
+`b`.`bottleid` AS `bottleid`,
+`m`.`medicineid` AS `medicineid`,
+`m`.`medication_detailid` AS `medication_detailid`,
+`m`.`medicationid` AS `medicationid` FROM
+`medication_detail` `m` 
+LEFT JOIN `medicine_info` `m0` ON`m`.`medicineid` = `m0`.`medicineid` 
+LEFT JOIN `bottle_loc_cabinet` `bc` ON`bc`.`medicineid` = `m0`.`medicineid` 
+LEFT JOIN `cabinet_cell` `cc` ON`cc`.`cellid` = `bc`.`cellid` 
+LEFT JOIN `cabinet` `c` ON`c`.`cabinetid` = `cc`.`cabinetid` 
+LEFT JOIN `bottle_info` `b` ON`b`.`bottleid` = `bc`.`bottleid` 
+LEFT JOIN `medi_trans` `mt` ON`mt`.`medication_detailid` = `m`.`medication_detailid` 
+LEFT JOIN `status_option` `st` ON IFNULL(`mt`.`status`,`m`.`status`) = `st`.`statuscode` 
+LEFT JOIN `equipment` `e` ON`e`.`cabinetid` = `c`.`cabinetid` 
+LEFT JOIN `equipment_pos` `ep` ON`ep`.`posid` = `mt`.`equipment_posid` 
+LEFT JOIN `computers` `cp` ON`cp`.`computerid` = `e`.`computerid`

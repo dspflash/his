@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVmedicine_info" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="medicine_info_vLst" ToolTip="ttp_medicine_info_v" Size="700,450" OnLoad="init" Heading="medicineno,250;medicinenocn,250;medicinenopy,250;packno,250;medicinecode,250;density,50;equivalent,55;price,90;warningval_jiliang,90;warningval_stock,25;warningval_cabinet,25;ispoison,60;isanesthetic,60;medicineid,55;opera,55;uptime,150;isdel,60;" loadedclick="0">
+	<DbDetails >
+<Index>medicineid</Index>
+<DbTable>his.medicine_info m left join his.users u on m.opera=u.user_id</DbTable>
+<Data>m.medicineno,m.medicinenocn,m.medicinenopy,m.packno,m.medicinecode,m.density,m.equivalent,m.price,m.warningval_jiliang,m.warningval_stock,m.warningval_cabinet,m.ispoison,m.isanesthetic,m.medicineid,u.user_name opera,m.uptime,m.isdel</Data>
+<Order>medicineid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>medicineid='%{medicine_info_vLst[medicineid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.medicine_info.medicine_infoLst"/><assign name="$this.medicine_info.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.medicine_info</DbTable>
+<Where>medicineid='%{medicine_info_vLst[medicineid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_medicine_info" expr="js(%{medicine_info_vLst[currentpage]}+1)"/>
+<assign name="pgscb_medicine_info" expr="js(%{medicine_info_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

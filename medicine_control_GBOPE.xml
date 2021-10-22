@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEmedicine_control" Size="100,100"><Ctrls>
+<Button sqlpkinsert="controlid" Text="create" ToolTip="ttp_createmedicine_control" Name="insertmedicine_control" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>his.medicine_control</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>medicineid[medicineid],relation[relationid],medicine2id[medicineid],explains</Data>
+<DataEx>uptime,opera;now(),'%{operaid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertmedicine_control[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="medicine_controlLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.medicine_control_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifymedicine_control" Name="modifymedicine_control" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>his.medicine_control</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>medicineid[medicineid],relation[relationid],medicine2id[medicineid],explains</Data>
+<DataEx>uptime,opera;now(),'%{operaid}'</DataEx>
+<Where>controlid='%{controlid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifymedicine_control[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="medicine_controlLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.medicine_control_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetmedicine_control" Name="resetmedicine_control" Size="50,20">
+<OnClick>
+<submit next="GBDEDITmedicine_control" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchmedicine_control" Name="gsearchmedicine_control" Size="50,20" visible="false">
+<OnClick>
+<search next="medicine_controlLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITmedicine_control" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

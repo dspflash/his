@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDEDITcabinet" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_cabinetno" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cabinetno" Size="60,20" Text="cabinetno" Align="Right"/>
+<TextBox Name="cabinetno" Size="170,20" Text="" Weight="170" ToolTip="ttp_cabinetno"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cabinetname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cabinetname" Size="60,20" Text="cabinetname" Align="Right"/>
+<TextBox Name="cabinetname" Size="170,20" Text="" Weight="170" ToolTip="ttp_cabinetname"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

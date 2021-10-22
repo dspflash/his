@@ -1,0 +1,23 @@
+﻿<WndTap Name="xiefang_t_pick" Text="xiefang_t_Pick">
+<var name="searchtmpl"><xiefang_no format="(x.xiefang_no like '%%{opvalue}%')"/><xiefang_name format="(x.xiefang_name like '%%{opvalue}%')"/><dept_category format="x.dept_category='%{opvalue}'"/><medication_type format="x.medication_type='%{opvalue}'"/><xiefang_forill format="(x.xiefang_forill like '%%{opvalue}%')"/><xiefang_jianyiji format="(x.xiefang_jianyiji like '%%{opvalue}%')"/><xiefang_chuchu format="(x.xiefang_chuchu like '%%{opvalue}%')"/><huanzhe_fallill_time format="(x.huanzhe_fallill_time like '%%{opvalue}%')"/><opera format="x.opera='%{opvalue}'"/><status format="(x.status like '%%{opvalue}%')"/><deltime format="(x.deltime between '%{deltime[datetime]}' and '%{deltime[datetime2]}')"/><delemp format="(x.delemp like '%%{opvalue}%')"/><xiefangid format="(x.xiefangid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\xiefang_t.xml"/>
+<Ctrls><GroupBox  Name="GBxiefang_t" id="xiefang_t" Text="xiefang_t" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xiefang_t_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVxiefang_t" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetxiefang_t" Name="resetxiefang_t" Size="50,20">	<OnClick>	<submit next="GBDEDITxiefang_t" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchxiefang_t" Name="gsearchxiefang_t" Size="50,20">	<OnClick>	
+<search next="xiefang_t_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITxiefang_t" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVxiefang_t" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="xiefang_t_vLst" ToolTip="ttp_xiefang_t_v" Size="700,450" Heading="xiefang_no,250;xiefang_name,250;dept_category,120;medication_type,120;xiefang_forill,250;xiefang_jianyiji,50;xiefang_chuchu,250;huanzhe_fallill_time,30;opera,55;status,20;deltime,150;delemp,100;xiefangid,55;" loadedclick="0">
+	<DbDetails >
+<Index>xiefangid</Index>
+<DbTable>his.xiefang_t x left join his.dept_category d on x.dept_category=d.dept_categoryid left join his.status_option s on x.medication_type=s.statuscode left join his.users u on x.opera=u.user_id</DbTable>
+<Data>x.xiefang_no,x.xiefang_name,d.dept_categoryname dept_category,s.statusname medication_type,x.xiefang_forill,x.xiefang_jianyiji,x.xiefang_chuchu,x.huanzhe_fallill_time,u.user_name opera,x.status,x.deltime,x.delemp,x.xiefangid</Data>
+<Order>xiefangid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<OnClick><if cond="%{xiefang_t_vLst[xiefangid]}"><DbDetails><Where>xiefangid='%{xiefang_t_vLst[xiefangid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

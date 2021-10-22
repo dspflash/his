@@ -1,0 +1,43 @@
+﻿<Language name="xiefang_t">
+<Lang name="xiefang_t" value="协方"/>
+<Lang name="xiefang_t_v" value="协方"/>
+<Lang name="TabEditxiefang_t" value="xiefang_t Edit"/>
+<Lang name="TabViewxiefang_t" value="xiefang_t View"/>
+<Lang name="xiefang_no" value="协方编号"/>
+<Lang name="ttp_xiefang_no" value="协方编号"/>
+<Lang name="xiefang_name" value="协方名"/>
+<Lang name="ttp_xiefang_name" value="协方名"/>
+<Lang name="xiefang_forill" value="协方针对"/>
+<Lang name="ttp_xiefang_forill" value="协方针对"/>
+<Lang name="xiefang_jianyiji" value="协方建议剂次"/>
+<Lang name="ttp_xiefang_jianyiji" value="协方建议剂次"/>
+<Lang name="xiefang_chuchu" value="协方出处"/>
+<Lang name="ttp_xiefang_chuchu" value="协方出处"/>
+<Lang name="huanzhe_fallill_time" value=""/>
+<Lang name="ttp_huanzhe_fallill_time" value=""/>
+<Lang name="opera" value=""/>
+<Lang name="ttp_opera" value="操作员"/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value="状态"/>
+<Lang name="deltime" value=""/>
+<Lang name="ttp_deltime" value="删除时间"/>
+<Lang name="delemp" value=""/>
+<Lang name="ttp_delemp" value="删除人"/>
+<Lang name="xiefangid" value=""/>
+<Lang name="ttp_xiefangid" value=""/>
+<Lang name="ttp_operationxiefang_t" value=""/>
+<Lang name="ttp_createxiefang_t" value=""/>
+<Lang name="ttp_modifyxiefang_t" value=""/>
+<Lang name="ttp_resetxiefang_t" value=""/>
+<Lang name="ttp_deletexiefang_t" value=""/>
+<Lang name="ttp_refreshxiefang_t" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

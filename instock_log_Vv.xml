@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVinstock_log" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="instock_log_vLst" ToolTip="ttp_instock_log_v" Size="700,450" OnLoad="init" Heading="medicineid,120;medicineno,200;bottleid,120;intype,120;receiveempid,120;receiveemp,200;stockno,120;locationno,120;bottleno,250;manufacturer,200;weight,90;validday,55;memo,250;inserttime,150;delemp,55;deltime,150;opera,55;inempid,55;inemp,200;instockid,100;" loadedclick="0">
+	<DbDetails >
+<Index>instockid</Index>
+<DbTable>his.instock_log i left join his.medicine_info m on i.medicineid=m.medicineid left join his.bottle_info b on i.bottleid=b.bottleid left join his.status_option s on i.intype=s.statuscode left join his.users u on i.receiveempid=u.user_id left join his.stockbaseinfo s0 on i.stockno=s0.stockid left join his.stocklocationinfo s1 on i.locationno=s1.locationid left join his.users u0 on i.opera=u0.user_id left join his.users u1 on i.inempid=u1.user_id left join his.users u2 on i.inemp=u2.user_id</DbTable>
+<Data>m.medicinenocn medicineid,i.medicineno,b.bottleno bottleid,s.statusname intype,u.user_name receiveempid,i.receiveemp,s0.stockname stockno,s1.location_name locationno,i.bottleno,i.manufacturer,i.weight,i.validday,i.memo,i.inserttime,i.delemp,i.deltime,u0.user_name opera,u1.user_name inempid,u2.user_name inemp,i.instockid</Data>
+<Order>instockid</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>instockid='%{instock_log_vLst[instockid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.instock_log.instock_logLst"/><assign name="$this.instock_log.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.instock_log</DbTable>
+<Where>instockid='%{instock_log_vLst[instockid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_instock_log" expr="js(%{instock_log_vLst[currentpage]}+1)"/>
+<assign name="pgscb_instock_log" expr="js(%{instock_log_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

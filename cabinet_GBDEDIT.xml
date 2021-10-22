@@ -1,0 +1,47 @@
+﻿<GroupBox Name="GBDEDITcabinet"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cabinetno"><Ctrls>
+<Label Align="Right" Text="cabinetno" Name="lb_cabinetno" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_cabinetno" Name="cabinetno" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cabinetname"><Ctrls>
+<Label Align="Right" Text="cabinetname" Name="lb_cabinetname" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_cabinetname" Name="cabinetname" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_layout_row"><Ctrls>
+<Label Align="Right" Text="layout_row" Name="lb_layout_row" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_layout_row" Name="layout_row" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_layout_col"><Ctrls>
+<Label Align="Right" Text="layout_col" Name="lb_layout_col" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_layout_col" Name="layout_col" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_layout_rowwidth"><Ctrls>
+<Label Align="Right" Text="layout_rowwidth" Name="lb_layout_rowwidth" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_layout_rowwidth" Name="layout_rowwidth" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_layout_rowheight"><Ctrls>
+<Label Align="Right" Text="layout_rowheight" Name="lb_layout_rowheight" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_layout_rowheight" Name="layout_rowheight" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_status" Visible="false"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" overlap="pre" Name="status" readonly="true" Size="230,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_cabinetid" Visible="false"><Ctrls>
+<Label Align="Right" Text="cabinetid" overlap="pre" Name="lb_cabinetid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_cabinetid" overlap="pre" Name="cabinetid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{cabinetid}'"><SetVisible name="insertcabinet" Visible="0"/><SetVisible name="modifycabinet" Visible="1"/><else/><SetVisible name="insertcabinet" Visible="1"/><SetVisible name="modifycabinet" Visible="0"/></if><if cond="'%{cabinetid}'"><DbDetails><Where>cabinetid='%{cabinetid}'</Where></DbDetails><submit next="cabinet_cell_vLst" namelist="DbDetails"/><else/><submit next="cabinet_cell_vLst" function="resetcontent"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_uptime" Visible="false"><Ctrls>
+<Label Align="Right" Text="uptime" overlap="pre" Name="lb_uptime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_uptime" overlap="pre" Name="uptime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

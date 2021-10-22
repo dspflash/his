@@ -1,0 +1,50 @@
+﻿<GroupBox Name="GBDEDITusers"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_user_name"><Ctrls>
+<Label Align="Right" Text="user_name" Name="lb_user_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_user_name" Name="user_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_user_pass"><Ctrls>
+<Label Align="Right" Text="user_pass" Name="lb_user_pass" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_user_pass" Name="user_pass" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_user_role"><Ctrls>
+<Label Align="Right" Text="user_role" onload="init" Name="lb_user_role" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_user_role" onload="init" Name="user_role" Size="150,100">
+	<DbDetails>
+<Index>role_id</Index>
+<DbTable>his.user_role</DbTable>
+<Data>role_name,role_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshuser_role" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="user_role"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_real_name"><Ctrls>
+<Label Align="Right" Text="real_name" Name="lb_real_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_real_name" Name="real_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_memo"><Ctrls>
+<Label Align="Right" Text="memo" Name="lb_memo" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_memo" Name="memo" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_dept_info"><Ctrls>
+<Label Align="Right" Text="dept_info" onload="init" Name="lb_dept_info" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_dept_info" onload="init" Name="dept_info" Size="150,100">
+	<DbDetails>
+<Index>departmentid</Index>
+<DbTable>his.department</DbTable>
+<Data>departname,departmentid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshdept_info" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="dept_info"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_ap_name"><Ctrls>
+<Label Align="Right" Text="ap_name" Name="lb_ap_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_ap_name" Name="ap_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_user_str"><Ctrls>
+<Label Align="Right" Text="user_str" Name="lb_user_str" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_user_str" Name="user_str" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_user_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="user_id" overlap="pre" Name="lb_user_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_user_id" overlap="pre" Name="user_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{user_id}'"><SetVisible name="insertusers" Visible="0"/><SetVisible name="modifyusers" Visible="1"/><else/><SetVisible name="insertusers" Visible="1"/><SetVisible name="modifyusers" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

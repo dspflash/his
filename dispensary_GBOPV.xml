@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVdispensary" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletedispensary" Name="deletedispensary" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>his.dispensary</DbTable>
+<Where>dispensaryid='%{dispensaryLst[dispensaryid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchdispensary" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshdispensary" Name="searchdispensary" Size="50,20">
+			  <OnClick><submit next="dispensaryLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPdispensaryLst" OnClick="(dispensaryLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREdispensaryLst" OnClick="(dispensaryLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPdispensaryLst" OnClick="(dispensaryLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

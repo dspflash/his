@@ -1,0 +1,42 @@
+﻿<Language name="medication_detail">
+<Lang name="medication_detail" value="medication_detail"/>
+<Lang name="TabEditmedication_detail" value="medication_detail Edit"/>
+<Lang name="TabViewmedication_detail" value="medication_detail View"/>
+<Lang name="medicineid" value="药品"/>
+<Lang name="ttp_medicineid" value=""/>
+<Lang name="medicineno" value="药编号"/>
+<Lang name="ttp_medicineno" value="药编号"/>
+<Lang name="medication_no" value="处方号"/>
+<Lang name="ttp_medication_no" value="处方号"/>
+<Lang name="medicinenocn" value="药名"/>
+<Lang name="ttp_medicinenocn" value="药名"/>
+<Lang name="price" value="价格"/>
+<Lang name="ttp_price" value="价格"/>
+<Lang name="jiliang" value="剂量"/>
+<Lang name="ttp_jiliang" value="剂量"/>
+<Lang name="xiaoji" value="小计"/>
+<Lang name="ttp_xiaoji" value="小计"/>
+<Lang name="status" value="状态"/>
+<Lang name="ttp_status" value="状态"/>
+<Lang name="time1" value="时间"/>
+<Lang name="ttp_time1" value="时间"/>
+<Lang name="medication_detailid" value=""/>
+<Lang name="ttp_medication_detailid" value=""/>
+<Lang name="medicationid" value=""/>
+<Lang name="ttp_medicationid" value=""/>
+<Lang name="ttp_operationmedication_detail" value=""/>
+<Lang name="ttp_createmedication_detail" value=""/>
+<Lang name="ttp_modifymedication_detail" value=""/>
+<Lang name="ttp_resetmedication_detail" value=""/>
+<Lang name="ttp_deletemedication_detail" value=""/>
+<Lang name="ttp_refreshmedication_detail" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

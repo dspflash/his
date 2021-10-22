@@ -1,0 +1,51 @@
+﻿<Language name="medi_trans">
+<Lang name="medi_trans" value="发药日志"/>
+<Lang name="medi_trans_v" value="发药日志"/>
+<Lang name="TabEditmedi_trans" value="medi_trans Edit"/>
+<Lang name="TabViewmedi_trans" value="medi_trans View"/>
+<Lang name="medicationid" value="处方"/>
+<Lang name="ttp_medicationid" value=""/>
+<Lang name="medication_detailid" value="处方药"/>
+<Lang name="ttp_medication_detailid" value=""/>
+<Lang name="medicineid" value="药品"/>
+<Lang name="ttp_medicineid" value=""/>
+<Lang name="bottleid" value="药瓶"/>
+<Lang name="ttp_bottleid" value=""/>
+<Lang name="cabinetid" value="药柜"/>
+<Lang name="ttp_cabinetid" value=""/>
+<Lang name="cabinet_cellid" value="药格"/>
+<Lang name="ttp_cabinet_cellid" value=""/>
+<Lang name="equipmentid" value="药机"/>
+<Lang name="ttp_equipmentid" value=""/> 
+<Lang name="equipment_posid" value="机位"/>
+<Lang name="ttp_equipment_posid" value=""/>
+<Lang name="equipment_pos_degree" value="开口角度"/>
+<Lang name="ttp_equipment_pos_degree" value=""/>
+<Lang name="qtyapply" value="申请量"/>
+<Lang name="ttp_qtyapply" value=""/>
+<Lang name="qtyrelease" value="发放量"/>
+<Lang name="ttp_qtyrelease" value=""/>
+<Lang name="weight1" value="上机重量"/>
+<Lang name="weight2" value="下机重量"/>
+<Lang name="opera" value=""/>
+<Lang name="ttp_opera" value=""/>
+<Lang name="uptime" value=""/>
+<Lang name="ttp_uptime" value=""/>
+<Lang name="transid" value=""/>
+<Lang name="ttp_transid" value=""/>
+<Lang name="ttp_operationmedi_trans" value=""/>
+<Lang name="ttp_createmedi_trans" value=""/>
+<Lang name="ttp_modifymedi_trans" value=""/>
+<Lang name="ttp_resetmedi_trans" value=""/>
+<Lang name="ttp_deletemedi_trans" value=""/>
+<Lang name="ttp_refreshmedi_trans" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

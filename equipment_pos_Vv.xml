@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVequipment_pos" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="equipment_pos_vLst" ToolTip="ttp_equipment_pos_v" Size="700,450" Heading="pos_idx,20;opera,55;uptime,150;posid,55;equipmentid,55;" loadedclick="0">
+	<DbDetails >
+<Index>posid</Index>
+<DbTable>his.equipment_pos e left join his.users u on e.opera=u.user_id</DbTable>
+<Data>e.pos_idx,u.user_name opera,e.uptime,e.posid,e.equipmentid</Data>
+<Order>posid</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="addone" mustselected="0"><if cond="!%{equipmentid}"><alert expr="equipmentid is Empty!"/><else/><submit next="$parent.equipment_pos.GBDEDITequipment_pos" function="reset"/><assign name="$parent.equipment_pos.equipmentid" expr="%{equipmentid}"/><assign name="$parent.equipment_pos.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>posid='%{equipment_pos_vLst[posid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.equipment_pos.equipment_posLst"/><assign name="$parent.equipment_pos.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.equipment_pos</DbTable>
+<Where>posid='%{equipment_pos_vLst[posid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

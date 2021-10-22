@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVcabinet"><Ctrls>
+<ListCtrl Heading="cabinetno,100;cabinetname,250;layout_row,20;layout_col,20;layout_rowwidth,30;layout_rowheight,30;status,60;cabinetid,55;uptime,150;opera,55;" loadedclick="0" ToolTip="ttp_cabinet" Name="cabinetLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>cabinetid</Index>
+<DbTable>his.cabinet c left join his.users u on c.opera=u.user_id</DbTable>
+<Data>c.cabinetno,c.cabinetname,c.layout_row,c.layout_col,c.layout_rowwidth,c.layout_rowheight,c.status,c.cabinetid,c.uptime,u.user_name opera</Data>
+<Order>cabinetid</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>cabinetid='%{cabinet_vLst[cabinetid]}'</Where></DbDetails><submit next="$this.cabinet.cabinetLst" namelist="DbDetails"/><assign name="$this.cabinet.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.cabinet</DbTable>
+<Where>cabinetid='%{cabinet_vLst[cabinetid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

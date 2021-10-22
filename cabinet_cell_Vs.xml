@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDEDITcabinet_cell" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_cell_row" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cell_row" Size="60,20" Text="cell_row" Align="Right"/>
+<TextBox Name="cell_row" Size="170,20" Text="" Weight="170" ToolTip="ttp_cell_row"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cell_col" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cell_col" Size="60,20" Text="cell_col" Align="Right"/>
+<TextBox Name="cell_col" Size="170,20" Text="" Weight="170" ToolTip="ttp_cell_col"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_op_idx" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_op_idx" Size="60,20" Text="op_idx" Align="Right"/>
+<TextBox Name="op_idx" Size="170,20" Text="" Weight="170" ToolTip="ttp_op_idx"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_op_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_op_code" Size="60,20" Text="op_code" Align="Right"/>
+<TextBox Name="op_code" Size="170,20" Text="" Weight="170" ToolTip="ttp_op_code"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

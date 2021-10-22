@@ -1,0 +1,22 @@
+﻿<WndTap Name="medi_trans_cabinet_pick" Text="medi_trans_cabinet_Pick">
+<var name="searchtmpl"><medication_detailid format="m.medication_detailid='%{opvalue}'"/><medicineid format="(m.medicineid like '%%{opvalue}%')"/><bottleid format="(m.bottleid like '%%{opvalue}%')"/><cabinetid format="(m.cabinetid like '%%{opvalue}%')"/><cabinet_cellid format="(m.cabinet_cellid like '%%{opvalue}%')"/><opera format="m.opera='%{opvalue}'"/><uptime format="(m.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><transid format="(m.transid like '%%{opvalue}%')"/><status format="(m.status like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\medi_trans_cabinet.xml"/>
+<Ctrls><GroupBox  Name="GBmedi_trans" id="medi_trans" Text="medi_trans" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medi_trans_cabinet_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVmedi_trans" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetmedi_trans" Name="resetmedi_trans" Size="50,20">	<OnClick>	<submit next="GBDEDITmedi_trans" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchmedi_trans" Name="gsearchmedi_trans" Size="50,20">	<OnClick>	
+<search next="medi_trans_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITmedi_trans" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVmedi_trans" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="medi_trans_vLst" ToolTip="ttp_medi_trans_v" Size="700,450" Heading="medication_detailid,100;medicineid,55;bottleid,55;cabinetid,55;cabinet_cellid,55;opera,55;uptime,150;transid,100;status,30;" loadedclick="0">
+	<DbDetails >
+<Index>transid</Index>
+<DbTable>his.medi_trans m left join his.mt_cc_b_m m0 on m.medication_detailid=m0.medication_detailid left join his.users u on m.opera=u.user_id</DbTable>
+<Data>m0.medicineno medication_detailid,m.medicineid,m.bottleid,m.cabinetid,m.cabinet_cellid,u.user_name opera,m.uptime,m.transid,m.status</Data>
+<Order>transid</Order></DbDetails>
+<OnClick><if cond="%{medi_trans_vLst[transid]}"><DbDetails><Where>transid='%{medi_trans_vLst[transid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

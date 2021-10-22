@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVequipment_type"><Ctrls>
+<ListCtrl Heading="equipmenttypeno,250;equipmenttypename,250;equipmenttypeid,20;opera,55;uptime,150;" loadedclick="0" ToolTip="ttp_equipment_type" Name="equipment_typeLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>equipmenttypeid</Index>
+<DbTable>his.equipment_type e left join his.users u on e.opera=u.user_id</DbTable>
+<Data>e.equipmenttypeno,e.equipmenttypename,e.equipmenttypeid,u.user_name opera,e.uptime</Data>
+<Order>equipmenttypeid</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>equipmenttypeid='%{equipment_type_vLst[equipmenttypeid]}'</Where></DbDetails><submit next="$this.equipment_type.equipment_typeLst" namelist="DbDetails"/><assign name="$this.equipment_type.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.equipment_type</DbTable>
+<Where>equipmenttypeid='%{equipment_type_vLst[equipmenttypeid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

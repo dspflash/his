@@ -1,0 +1,124 @@
+﻿<GroupBox Name="GBDEDITmedi_trans"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medicationid"><Ctrls>
+<Label Align="Right" Text="medicationid" onload="init" Name="lb_medicationid" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_medicationid" onload="init" Name="medicationid" Size="150,100" selectedIndex="0">
+	<DbDetails>
+<Index>medicationid</Index>
+<DbTable>his.medication</DbTable>
+<Data>medication_no,medicationid</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="medication_detailid"/></OnSelEndOk></ComboBox>
+<MagicCtrl Name="refreshmedicationid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="medicationid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medication_detailid"><Ctrls>
+<Label Align="Right" Text="medication_detailid" Name="lb_medication_detailid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_medication_detailid" Name="medication_detailid" Size="150,100">
+	<DbDetails>
+<Index>medication_detailid</Index>
+<DbTable>his.medication_detail</DbTable>
+<Data>medicineno,medicineid,medication_detailid</Data>
+<Where>medicationid='%{medicationid[medicationid]}'</Where>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="medicineid"/><submit next="bottleid"/></OnSelEndOk></ComboBox>
+<MagicCtrl Name="refreshmedication_detailid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="medication_detailid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medicineid"><Ctrls>
+<Label Align="Right" Text="medicineid" Name="lb_medicineid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_medicineid" Name="medicineid" Size="150,100">
+	<DbDetails>
+<Index>medicineid</Index>
+<DbTable>his.medicine_info</DbTable>
+<Data>medicinenocn,medicineid</Data>
+<Where>medicineid='%{medication_detailid[medicineid]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshmedicineid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="medicineid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bottleid"><Ctrls>
+<Label Align="Right" Text="bottleid" Name="lb_bottleid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_bottleid" Name="bottleid" Size="150,100">
+	<DbDetails>
+<Index>bottleid</Index>
+<DbTable>his.bottle_info</DbTable>
+<Data>bottleno,bottleid</Data>
+<Where>medicineid='%{medication_detailid[medicineid]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshbottleid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="bottleid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cabinetid"><Ctrls>
+<Label Align="Right" Text="cabinetid" onload="init" Name="lb_cabinetid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_cabinetid" onload="init" Name="cabinetid" Size="150,100">
+	<DbDetails>
+<Index>cabinetid</Index>
+<DbTable>his.cabinet</DbTable>
+<Data>cabinetname,cabinetid</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="cabinet_cellid"/></OnSelEndOk></ComboBox>
+<MagicCtrl Name="refreshcabinetid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="cabinetid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cabinet_cellid"><Ctrls>
+<Label Align="Right" Text="cabinet_cellid" Name="lb_cabinet_cellid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_cabinet_cellid" Name="cabinet_cellid" Size="150,100">
+	<DbDetails>
+<Index>cellid</Index>
+<DbTable>his.cabinet_cell</DbTable>
+<Data>concat(cell_row,'-',cell_col),cellid</Data>
+<Where>cabinetid='%{cabinetid}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshcabinet_cellid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="cabinet_cellid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_equipmentid"><Ctrls>
+<Label Align="Right" Text="equipmentid" onload="init" Name="lb_equipmentid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_equipmentid" onload="init" Name="equipmentid" Size="150,100">
+	<DbDetails>
+<Index>equipmentid</Index>
+<DbTable>his.equipment</DbTable>
+<Data>equipmentno,equipmentid</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="equipment_posid"/></OnSelEndOk></ComboBox>
+<MagicCtrl Name="refreshequipmentid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="equipmentid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_equipment_posid"><Ctrls>
+<Label Align="Right" Text="equipment_posid" Name="lb_equipment_posid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_equipment_posid" Name="equipment_posid" Size="150,100">
+	<DbDetails>
+<Index>equipmentid</Index>
+<DbTable>his.equipment_pos</DbTable>
+<Data>pos_idx,equipmentid</Data>
+<Where>equipmentid='%{equipmentid}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshequipment_posid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="equipment_posid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_equipment_pos_degree"><Ctrls>
+<Label Align="Right" Text="equipment_pos_degree" Name="lb_equipment_pos_degree" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_equipment_pos_degree" Name="equipment_pos_degree" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_qtyapply"><Ctrls>
+<Label Align="Right" Text="qtyapply" Name="lb_qtyapply" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_qtyapply" Name="qtyapply" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_qtyrelease"><Ctrls>
+<Label Align="Right" Text="qtyrelease" Name="lb_qtyrelease" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_qtyrelease" Name="qtyrelease" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_uptime" Visible="false"><Ctrls>
+<Label Align="Right" Text="uptime" overlap="pre" Name="lb_uptime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_uptime" overlap="pre" Name="uptime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_transid" Visible="false"><Ctrls>
+<Label Align="Right" Text="transid" overlap="pre" Name="lb_transid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_transid" overlap="pre" Name="transid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{transid}'"><SetVisible name="insertmedi_trans" Visible="0"/><SetVisible name="modifymedi_trans" Visible="1"/><else/><SetVisible name="insertmedi_trans" Visible="1"/><SetVisible name="modifymedi_trans" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_weight1"><Ctrls>
+<Label Align="Right" Text="weight1" Name="lb_weight1" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_weight1" Name="weight1" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_weight2"><Ctrls>
+<Label Align="Right" Text="weight2" Name="lb_weight2" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_weight2" Name="weight2" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" Name="lb_status" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_status" Name="status" Size="170,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

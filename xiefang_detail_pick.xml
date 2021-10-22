@@ -1,0 +1,22 @@
+﻿<WndTap Name="xiefang_detail_pick" Text="xiefang_detail_Pick">
+<var name="searchtmpl"><medicineid format="x.medicineid='%{opvalue}'"/><medicinenopy format="(x.medicinenopy like '%%{opvalue}%')"/><medicinenocn format="(x.medicinenocn like '%%{opvalue}%')"/><medicine_pweight format="(x.medicine_pweight like '%%{opvalue}%')"/><medicineno format="(x.medicineno like '%%{opvalue}%')"/><delemp format="(x.delemp like '%%{opvalue}%')"/><deltime format="(x.deltime between '%{deltime[datetime]}' and '%{deltime[datetime2]}')"/><xiefangid format="(x.xiefangid like '%%{opvalue}%')"/><xiefang_detailid format="(x.xiefang_detailid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\xiefang_detail.xml"/>
+<Ctrls><GroupBox  Name="GBxiefang_detail" id="xiefang_detail" Text="xiefang_detail" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xiefang_detail_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVxiefang_detail" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetxiefang_detail" Name="resetxiefang_detail" Size="50,20">	<OnClick>	<submit next="GBDEDITxiefang_detail" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchxiefang_detail" Name="gsearchxiefang_detail" Size="50,20">	<OnClick>	
+<search next="xiefang_detail_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITxiefang_detail" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVxiefang_detail" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="xiefang_detail_vLst" ToolTip="ttp_xiefang_detail_v" Size="700,450" Heading="medicineid,55;medicinenopy,250;medicinenocn,250;medicine_pweight,50;medicineno,250;delemp,55;deltime,150;xiefangid,55;xiefang_detailid,55;" loadedclick="0">
+	<DbDetails >
+<Index>xiefang_detailid</Index>
+<DbTable>his.xiefang_detail x left join his.medicine_info m on x.medicineid=m.medicineid</DbTable>
+<Data>m.medicineno medicineid,x.medicinenopy,x.medicinenocn,x.medicine_pweight,x.medicineno,x.delemp,x.deltime,x.xiefangid,x.xiefang_detailid</Data>
+<Order>xiefang_detailid</Order></DbDetails>
+<OnClick><if cond="%{xiefang_detail_vLst[xiefang_detailid]}"><DbDetails><Where>xiefang_detailid='%{xiefang_detail_vLst[xiefang_detailid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

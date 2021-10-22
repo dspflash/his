@@ -1,0 +1,22 @@
+﻿<WndTap Name="equipment_type_pick" Text="equipment_type_Pick">
+<var name="searchtmpl"><equipmenttypeno format="(e.equipmenttypeno like '%%{opvalue}%')"/><equipmenttypename format="(e.equipmenttypename like '%%{opvalue}%')"/><equipmenttypeid format="(e.equipmenttypeid like '%%{opvalue}%')"/><opera format="e.opera='%{opvalue}'"/><uptime format="(e.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\equipment_type.xml"/>
+<Ctrls><GroupBox  Name="GBequipment_type" id="equipment_type" Text="equipment_type" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="equipment_type_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVequipment_type" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetequipment_type" Name="resetequipment_type" Size="50,20">	<OnClick>	<submit next="GBDEDITequipment_type" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchequipment_type" Name="gsearchequipment_type" Size="50,20">	<OnClick>	
+<search next="equipment_type_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITequipment_type" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVequipment_type" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="equipment_type_vLst" ToolTip="ttp_equipment_type_v" Size="700,450" Heading="equipmenttypeno,250;equipmenttypename,250;equipmenttypeid,20;opera,55;uptime,150;" loadedclick="0">
+	<DbDetails >
+<Index>equipmenttypeid</Index>
+<DbTable>his.equipment_type e left join his.users u on e.opera=u.user_id</DbTable>
+<Data>e.equipmenttypeno,e.equipmenttypename,e.equipmenttypeid,u.user_name opera,e.uptime</Data>
+<Order>equipmenttypeid</Order></DbDetails>
+<OnClick><if cond="%{equipment_type_vLst[equipmenttypeid]}"><DbDetails><Where>equipmenttypeid='%{equipment_type_vLst[equipmenttypeid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

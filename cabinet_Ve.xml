@@ -1,0 +1,16 @@
+﻿<WndTap Name="cabinet" Text="cabinet" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\cabinet.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\cabinet_cell.xml"/>
+<Ctrls>
+<GroupBox  Name="GBcabinet" id="cabinet" Text="cabinet" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cabinet_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cabinet_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cabinet_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cabinet_cell_Vv.xml"/>
+</Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertcabinet" Visible="1"/><SetVisible name="modifycabinet" Visible="0"/></OnActivate>
+</WndTap>

@@ -1,0 +1,20 @@
+﻿<WndTap Name="user_role_v" Text="user_role_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_role_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><role_name format="(u.role_name like '%%{opvalue}%')"/><layout format="(u.layout like '%%{opvalue}%')"/><insert_time format="(u.insert_time between '%{insert_time[datetime]}' and '%{insert_time[datetime2]}')"/><insert_emp format="(u.insert_emp like '%%{opvalue}%')"/><del_opera format="(u.del_opera like '%%{opvalue}%')"/><del_time format="(u.del_time between '%{del_time[datetime]}' and '%{del_time[datetime2]}')"/><opera format="u.opera='%{opvalue}'"/><role_id format="(u.role_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\user_role.xml"/>
+<Ctrls><GroupBox  Name="GBuser_role" id="user_role" Text="user_role" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_role_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVuser_role" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.user_role.GBDEDITuser_role" function="reset"/><assign name="$this.user_role.frmwndctrl" expr="%{$this.user_role_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetuser_role" Name="resetuser_role" Size="50,20">	<OnClick>	<submit next="GBDEDITuser_role" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchuser_role" Name="gsearchuser_role" Size="50,20">	<OnClick>	
+<search next="user_role_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITuser_role" namelist="search" function="search"/>	
+<search next="records_user_role" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITuser_role" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_role_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_role_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_role_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

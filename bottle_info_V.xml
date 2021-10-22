@@ -1,0 +1,20 @@
+﻿<WndTap Name="bottle_info_v" Text="bottle_info_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_info_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><bottleno format="(b.bottleno like '%%{opvalue}%')"/><medicineid format="b.medicineid='%{opvalue}'"/><medicineno format="(b.medicineno like '%%{opvalue}%')"/><uses_flag format="b.uses_flag='%{opvalue}'"/><weight_initial format="(b.weight_initial like '%%{opvalue}%')"/><weight_last format="(b.weight_last like '%%{opvalue}%')"/><weight_cur format="(b.weight_cur like '%%{opvalue}%')"/><weight_gross format="(b.weight_gross like '%%{opvalue}%')"/><weight_net format="(b.weight_net like '%%{opvalue}%')"/><remark format="(b.remark like '%%{opvalue}%')"/><opera format="b.opera='%{opvalue}'"/><uptime format="(b.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><bottleid format="(b.bottleid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bottle_info.xml"/>
+<Ctrls><GroupBox  Name="GBbottle_info" id="bottle_info" Text="bottle_info" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_info_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVbottle_info" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.bottle_info.GBDEDITbottle_info" function="reset"/><assign name="$this.bottle_info.frmwndctrl" expr="%{$this.bottle_info_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetbottle_info" Name="resetbottle_info" Size="50,20">	<OnClick>	<submit next="GBDEDITbottle_info" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchbottle_info" Name="gsearchbottle_info" Size="50,20">	<OnClick>	
+<search next="bottle_info_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITbottle_info" namelist="search" function="search"/>	
+<search next="records_bottle_info" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITbottle_info" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_info_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_info_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_info_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

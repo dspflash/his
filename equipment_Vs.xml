@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDEDITequipment" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_equipmentno" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_equipmentno" Size="60,20" Text="equipmentno" Align="Right"/>
+<TextBox Name="equipmentno" Size="170,20" Text="" Weight="170" ToolTip="ttp_equipmentno"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_equipmentname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_equipmentname" Size="60,20" Text="equipmentname" Align="Right"/>
+<TextBox Name="equipmentname" Size="170,20" Text="" Weight="170" ToolTip="ttp_equipmentname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_computerid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_computerid" Size="60,20" Text="computerid" Align="Right"  onload="init"/>
+<ComboBox Name="computerid" Size="170,100" Text="" Weight="170"  ToolTip="ttp_computerid"  onload="init">
+	<DbDetails>
+<Index>computerid</Index>
+<DbTable>his.computers</DbTable>
+<Data>computer_name,computerid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

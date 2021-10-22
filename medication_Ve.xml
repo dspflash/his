@@ -1,0 +1,16 @@
+﻿<WndTap Name="medication" Text="medication" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="medication_no,jici,dispensaryid[dispensaryid],dept_category[dept_categoryid],type[statuscode],doctor_no,doctory_diagnosis"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\medication.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\medication_detail.xml"/>
+<Ctrls>
+<GroupBox  Name="GBmedication" id="medication" Text="medication" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medication_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medication_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medication_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medication_detail_Vv.xml"/>
+</Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertmedication" Visible="1"/><SetVisible name="modifymedication" Visible="0"/></OnActivate>
+</WndTap>

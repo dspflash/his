@@ -1,0 +1,64 @@
+﻿<GroupBox Name="GBDEDITbottle_loc_cabinet"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bottleid"><Ctrls>
+<Label Align="Right" Text="bottleid" Name="lb_bottleid" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_bottleid" Name="bottleid" Size="170,20">
+	<DbDetails>
+<Index>bottleid</Index>
+<DbTable>his.bottle_info</DbTable>
+<Data>bottleno,medicineid,bottleid</Data>
+<Where/>
+<queryFormat/></DbDetails><OnEnChange><submit next="medicineid"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medicineid"><Ctrls>
+<Label Align="Right" Text="medicineid" Name="lb_medicineid" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_medicineid" Name="medicineid" Size="170,20">
+	<DbDetails fcsm="true">
+<Index>medicineid</Index>
+<DbTable>his.medicine_info</DbTable>
+<Data>medicinenocn,medicineno,medicineid</Data>
+<Where>medicineid='%{bottleid[medicineid]}'</Where>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_medicineno" Visible="false"><Ctrls>
+<Label Align="Right" Text="medicineno" overlap="pre" Name="lb_medicineno" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_medicineno" overlap="pre" Name="medicineno" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cabinetid"><Ctrls>
+<Label Align="Right" Text="cabinetid" onload="init" Name="lb_cabinetid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_cabinetid" onload="init" Name="cabinetid" Size="150,100">
+	<DbDetails>
+<Index>cabinetid</Index>
+<DbTable>his.cabinet</DbTable>
+<Data>cabinetname,cabinetno,cabinetid</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="cellid"/></OnSelEndOk></ComboBox>
+<MagicCtrl Name="refreshcabinetid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="cabinetid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cellid"><Ctrls>
+<Label Align="Right" Text="cellid" Name="lb_cellid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_cellid" Name="cellid" Size="150,100">
+	<DbDetails>
+<Index>cellid</Index>
+<DbTable>his.cabinet_cell</DbTable>
+<Data>concat(cell_row,'-',cell_col),op_idx,power(2,op_code) op_code,cellid</Data>
+<Where>cabinetid='%{cabinetid[cabinetid]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshcellid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="cellid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_uptime" Visible="false"><Ctrls>
+<Label Align="Right" Text="uptime" overlap="pre" Name="lb_uptime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_uptime" overlap="pre" Name="uptime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_locationid" Visible="false"><Ctrls>
+<Label Align="Right" Text="locationid" overlap="pre" Name="lb_locationid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_locationid" overlap="pre" Name="locationid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{locationid}'"><SetVisible name="insertbottle_loc_cabinet" Visible="0"/><SetVisible name="modifybottle_loc_cabinet" Visible="1"/><else/><SetVisible name="insertbottle_loc_cabinet" Visible="1"/><SetVisible name="modifybottle_loc_cabinet" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

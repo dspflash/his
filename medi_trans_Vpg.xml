@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGmedi_trans"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_medi_trans" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>transid</Index>
+<DbTable>his.medi_trans m left join his.medication m0 on m.medicationid=m0.medicationid left join his.medication_detail m1 on m.medication_detailid=m1.medication_detailid left join his.medicine_info m2 on m.medicineid=m2.medicineid left join his.bottle_info b on m.bottleid=b.bottleid left join his.cabinet c on m.cabinetid=c.cabinetid left join his.cabinet_cell c0 on m.cabinet_cellid=c0.cellid left join his.equipment e on m.equipmentid=e.equipmentid left join his.equipment_pos e0 on m.equipment_posid=e0.equipmentid left join his.users u on m.opera=u.user_id</DbTable>
+<Data>count(*) records</Data>
+<Order>transid</Order><Queryformat>select %{data} from (select m.transid from %{dbtable} %{where} GROUP BY m.transid  ORDER BY m.transid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_medi_trans" expr="js(Math.ceil(%{records_medi_trans}/%{medi_trans_vLst[countsperpage]}))"/>
+<assign name="pgscb_medi_trans" expr="js('1~'+Math.ceil(%{records_medi_trans}/%{medi_trans_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_medi_trans" Size="60,20"><OnSelEndOK><submit next="medi_trans_vLst" function="GetPage(%{pgscb_medi_trans}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_medi_trans" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_medi_trans" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagemedi_trans_vLst" Size="50,20"><OnClick><submit next="medi_trans_vLst" function="GetPage(%{pgcur_medi_trans}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

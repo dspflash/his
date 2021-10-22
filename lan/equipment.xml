@@ -1,0 +1,41 @@
+﻿<Language name="equipment">
+<Lang name="equipment" value="发药机"/>
+<Lang name="equipment_v" value="发药机"/>
+<Lang name="TabEditequipment" value="equipment Edit"/>
+<Lang name="TabViewequipment" value="equipment View"/>
+<Lang name="equipmentno" value="设备编号"/>
+<Lang name="ttp_equipmentno" value="设备编号"/>
+<Lang name="equipmentname" value="设备名"/>
+<Lang name="ttp_equipmentname" value="设备名"/>
+<Lang name="ip" value=""/>
+<Lang name="ttp_ip" value="ip"/>
+<Lang name="cabinetid" value="药柜号"/>
+<Lang name="ttp_cabinetid" value="药柜号"/>
+<Lang name="equipmenttypeid" value="设备类型"/>
+<Lang name="ttp_equipmenttypeid" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value="状态"/>
+<Lang name="equipmentid" value=""/>
+<Lang name="ttp_equipmentid" value="序号"/>
+<Lang name="opera" value=""/>
+<Lang name="ttp_opera" value="操作者"/>
+<Lang name="uptime" value=""/>
+<Lang name="ttp_uptime" value="时间"/>
+<Lang name="computerid" value="绑定电脑"/>
+<Lang name="ttp_computerid" value=""/>
+<Lang name="ttp_operationequipment" value=""/>
+<Lang name="ttp_createequipment" value=""/>
+<Lang name="ttp_modifyequipment" value=""/>
+<Lang name="ttp_resetequipment" value=""/>
+<Lang name="ttp_deleteequipment" value=""/>
+<Lang name="ttp_refreshequipment" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

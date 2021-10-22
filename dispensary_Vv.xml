@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVdispensary" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="dispensary_vLst" ToolTip="ttp_dispensary_v" Size="700,450" OnLoad="init" Heading="dispensaryno,25;dispensaryname,250;memo,250;delemp,55;deltime,150;status,20;opera,55;uptime,150;dispensaryid,55;hospitalid,55;" loadedclick="0">
+	<DbDetails >
+<Index>dispensaryid</Index>
+<DbTable>his.dispensary d left join his.users u on d.opera=u.user_id</DbTable>
+<Data>d.dispensaryno,d.dispensaryname,d.memo,d.delemp,d.deltime,d.status,u.user_name opera,d.uptime,d.dispensaryid,d.hospitalid</Data>
+<Order>dispensaryid</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>dispensaryid='%{dispensary_vLst[dispensaryid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.dispensary.dispensaryLst"/><assign name="$this.dispensary.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.dispensary</DbTable>
+<Where>dispensaryid='%{dispensary_vLst[dispensaryid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_dispensary" expr="js(%{dispensary_vLst[currentpage]}+1)"/>
+<assign name="pgscb_dispensary" expr="js(%{dispensary_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

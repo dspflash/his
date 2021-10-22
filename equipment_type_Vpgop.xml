@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVequipment_type"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialequipment_type" Size="50,20">
+<OnClick><submit next="equipment_type_vLst" function="initial"/><submit next="records_equipment_type" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPequipment_type_vLst" Size="50,20">
+<OnClick><submit next="equipment_type_vLst" function="GetPage(first)"/><submit next="records_equipment_type"/></OnClick></Button>
+<Button Text="prepage" Name="PREequipment_type_vLst" Size="50,20">
+<OnClick><submit next="equipment_type_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPequipment_type_vLst" Size="50,20">
+<OnClick><submit next="equipment_type_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

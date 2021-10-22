@@ -1,0 +1,22 @@
+﻿<WndTap Name="bottle_transaction_op_pick" Text="bottle_transaction_op_Pick">
+<var name="searchtmpl"><bottleid format="b.bottleid='%{opvalue}'"/><medicineid format="b.medicineid='%{opvalue}'"/><opera format="b.opera='%{opvalue}'"/><uptime format="(b.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><weight_cur format="(b.weight_cur like '%%{opvalue}%')"/><uses_flag format="(b.uses_flag like '%%{opvalue}%')"/><reftbl format="(b.reftbl like '%%{opvalue}%')"/><refid format="(b.refid like '%%{opvalue}%')"/><bottle_transactionid format="(b.bottle_transactionid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bottle_transaction_op.xml"/>
+<Ctrls><GroupBox  Name="GBbottle_transaction" id="bottle_transaction" Text="bottle_transaction" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_transaction_op_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVbottle_transaction" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetbottle_transaction" Name="resetbottle_transaction" Size="50,20">	<OnClick>	<submit next="GBDEDITbottle_transaction" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchbottle_transaction" Name="gsearchbottle_transaction" Size="50,20">	<OnClick>	
+<search next="bottle_transaction_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITbottle_transaction" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVbottle_transaction" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bottle_transaction_vLst" ToolTip="ttp_bottle_transaction_v" Size="700,450" Heading="bottleid,100;medicineid,100;opera,55;uptime,150;weight_cur,90;uses_flag,20;reftbl,250;refid,100;bottle_transactionid,100;" loadedclick="0">
+	<DbDetails >
+<Index>bottle_transactionid</Index>
+<DbTable>his.bottle_transaction b left join his.bottle_info b0 on b.bottleid=b0.bottleid left join his.medicine_info m on b.medicineid=m.medicineid left join his.users u on b.opera=u.user_id</DbTable>
+<Data>b0.bottleno bottleid,m.medicinenocn medicineid,u.user_name opera,b.uptime,b.weight_cur,b.uses_flag,b.reftbl,b.refid,b.bottle_transactionid</Data>
+<Order>bottle_transactionid</Order></DbDetails>
+<OnClick><if cond="%{bottle_transaction_vLst[bottle_transactionid]}"><DbDetails><Where>bottle_transactionid='%{bottle_transaction_vLst[bottle_transactionid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

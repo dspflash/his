@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVmedicine_control"><Ctrls>
+<ListCtrl Heading="medicineid,55;relation,120;medicine2id,55;explains,240;uptime,150;opera,55;controlid,55;" loadedclick="0" ToolTip="ttp_medicine_control" Name="medicine_controlLst" Size="300,450">
+	<DbDetails fcsm="1">
+<Index>controlid</Index>
+<DbTable>his.medicine_control m left join his.medicine_info m0 on m.medicineid=m0.medicineid left join his.medicine_control_type m1 on m.relation=m1.relationid left join his.medicine_info m2 on m.medicine2id=m2.medicineid left join his.users u on m.opera=u.user_id</DbTable>
+<Data>m0.medicinenocn medicineid,m1.relationtype relation,m2.medicinenocn medicine2id,m.explains,m.uptime,u.user_name opera,m.controlid</Data>
+<Order>controlid</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>controlid='%{medicine_control_vLst[controlid]}'</Where></DbDetails><submit next="$this.medicine_control.medicine_controlLst" namelist="DbDetails"/><assign name="$this.medicine_control.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.medicine_control</DbTable>
+<Where>controlid='%{medicine_control_vLst[controlid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

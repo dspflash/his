@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVusers" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="users_vLst" ToolTip="ttp_users_v" Size="700,450" OnLoad="init" Heading="user_name,150;user_pass,250;user_role,120;real_name,150;memo,500;dept_info,120;ap_name,150;user_str,500;user_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>user_id</Index>
+<DbTable>his.users u left join his.user_role u0 on u.user_role=u0.role_id left join his.department d on u.dept_info=d.departmentid</DbTable>
+<Data>u.user_name,u.user_pass,u0.role_name user_role,u.real_name,u.memo,d.departname dept_info,u.ap_name,u.user_str,u.user_id</Data>
+<Order>user_id</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>user_id='%{users_vLst[user_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.users.usersLst"/><assign name="$this.users.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.users</DbTable>
+<Where>user_id='%{users_vLst[user_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_users" expr="js(%{users_vLst[currentpage]}+1)"/>
+<assign name="pgscb_users" expr="js(%{users_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

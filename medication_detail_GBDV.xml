@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVmedication_detail"><Ctrls>
+<ListCtrl Heading="medicineid,55;medicineno,240;medicinenocn,240;price,50;jiliang,50;xiaoji,50;status,120;time1,150;medication_detailid,100;medicationid,100;" loadedclick="0" ToolTip="ttp_medication_detail" Name="medication_detailLst" Size="300,450">
+	<DbDetails fcsm="1">
+<Index>medication_detailid</Index>
+<DbTable>his.medication_detail m left join his.medicine_info m0 on m.medicineid=m0.medicineid left join his.status_option s on m.status=s.statuscode</DbTable>
+<Data>m0.medicineno medicineid,m.medicineno,m.medicinenocn,m.price,m.jiliang,m.xiaoji,s.statusname status,m.time1,m.medication_detailid,m.medicationid,m.medicineid medichine_id</Data>
+<Order>medication_detailid</Order></DbDetails>%{}
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medication_detail_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

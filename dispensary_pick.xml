@@ -1,0 +1,22 @@
+﻿<WndTap Name="dispensary_pick" Text="dispensary_Pick">
+<var name="searchtmpl"><dispensaryno format="(d.dispensaryno like '%%{opvalue}%')"/><dispensaryname format="(d.dispensaryname like '%%{opvalue}%')"/><memo format="(d.memo like '%%{opvalue}%')"/><delemp format="(d.delemp like '%%{opvalue}%')"/><deltime format="(d.deltime between '%{deltime[datetime]}' and '%{deltime[datetime2]}')"/><status format="(d.status like '%%{opvalue}%')"/><opera format="d.opera='%{opvalue}'"/><uptime format="(d.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><dispensaryid format="(d.dispensaryid like '%%{opvalue}%')"/><hospitalid format="(d.hospitalid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\dispensary.xml"/>
+<Ctrls><GroupBox  Name="GBdispensary" id="dispensary" Text="dispensary" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dispensary_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVdispensary" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetdispensary" Name="resetdispensary" Size="50,20">	<OnClick>	<submit next="GBDEDITdispensary" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchdispensary" Name="gsearchdispensary" Size="50,20">	<OnClick>	
+<search next="dispensary_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITdispensary" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVdispensary" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="dispensary_vLst" ToolTip="ttp_dispensary_v" Size="700,450" Heading="dispensaryno,25;dispensaryname,250;memo,250;delemp,55;deltime,150;status,20;opera,55;uptime,150;dispensaryid,55;hospitalid,55;" loadedclick="0">
+	<DbDetails >
+<Index>dispensaryid</Index>
+<DbTable>his.dispensary d left join his.users u on d.opera=u.user_id</DbTable>
+<Data>d.dispensaryno,d.dispensaryname,d.memo,d.delemp,d.deltime,d.status,u.user_name opera,d.uptime,d.dispensaryid,d.hospitalid</Data>
+<Order>dispensaryid</Order></DbDetails>
+<OnClick><if cond="%{dispensary_vLst[dispensaryid]}"><DbDetails><Where>dispensaryid='%{dispensary_vLst[dispensaryid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

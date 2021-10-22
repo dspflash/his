@@ -1,0 +1,73 @@
+﻿<GroupBox Name="GBDEDITmedicine_info"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medicineno"><Ctrls>
+<Label Align="Right" Text="medicineno" Name="lb_medicineno" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_medicineno" Name="medicineno" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medicinenocn"><Ctrls>
+<Label Align="Right" Text="medicinenocn" Name="lb_medicinenocn" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_medicinenocn" Name="medicinenocn" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medicinenopy"><Ctrls>
+<Label Align="Right" Text="medicinenopy" Name="lb_medicinenopy" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_medicinenopy" Name="medicinenopy" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_packno"><Ctrls>
+<Label Align="Right" Text="packno" Name="lb_packno" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_packno" Name="packno" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medicinecode"><Ctrls>
+<Label Align="Right" Text="medicinecode" Name="lb_medicinecode" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_medicinecode" Name="medicinecode" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_density"><Ctrls>
+<Label Align="Right" Text="density" Name="lb_density" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_density" Name="density" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_equivalent"><Ctrls>
+<Label Align="Right" Text="equivalent" Name="lb_equivalent" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_equivalent" Name="equivalent" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_price"><Ctrls>
+<Label Align="Right" Text="price" Name="lb_price" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_price" Name="price" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_warningval_jiliang"><Ctrls>
+<Label Align="Right" Text="warningval_jiliang" Name="lb_warningval_jiliang" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_warningval_jiliang" Name="warningval_jiliang" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_warningval_stock"><Ctrls>
+<Label Align="Right" Text="warningval_stock" Name="lb_warningval_stock" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_warningval_stock" Name="warningval_stock" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_warningval_cabinet"><Ctrls>
+<Label Align="Right" Text="warningval_cabinet" Name="lb_warningval_cabinet" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_warningval_cabinet" Name="warningval_cabinet" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_ispoison"><Ctrls>
+<CheckBox Text="ispoison" ToolTip="ttp_ispoison" Name="ispoison" Size="230,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_isanesthetic"><Ctrls>
+<CheckBox Text="isanesthetic" ToolTip="ttp_isanesthetic" Name="isanesthetic" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_medicineid" Visible="false"><Ctrls>
+<Label Align="Right" Text="medicineid" overlap="pre" Name="lb_medicineid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_medicineid" overlap="pre" Name="medicineid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{medicineid}'"><SetVisible name="insertmedicine_info" Visible="0"/><SetVisible name="modifymedicine_info" Visible="1"/><else/><SetVisible name="insertmedicine_info" Visible="1"/><SetVisible name="modifymedicine_info" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_uptime" Visible="false"><Ctrls>
+<Label Align="Right" Text="uptime" overlap="pre" Name="lb_uptime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_uptime" overlap="pre" Name="uptime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_isdel" Visible="false"><Ctrls>
+<CheckBox Text="isdel" ToolTip="ttp_isdel" overlap="pre" Name="isdel" readonly="true" Size="230,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

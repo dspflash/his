@@ -1,0 +1,22 @@
+﻿<WndTap Name="equipment_pick" Text="equipment_Pick">
+<var name="searchtmpl"><equipmentno format="(e.equipmentno like '%%{opvalue}%')"/><equipmentname format="(e.equipmentname like '%%{opvalue}%')"/><ip format="(e.ip like '%%{opvalue}%')"/><cabinetid format="e.cabinetid='%{opvalue}'"/><equipmenttypeid format="e.equipmenttypeid='%{opvalue}'"/><status format="e.status is %{opvalue}"/><equipmentid format="(e.equipmentid like '%%{opvalue}%')"/><opera format="e.opera='%{opvalue}'"/><uptime format="(e.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><computerid format="e.computerid='%{opvalue}'"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\equipment.xml"/>
+<Ctrls><GroupBox  Name="GBequipment" id="equipment" Text="equipment" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="equipment_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVequipment" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetequipment" Name="resetequipment" Size="50,20">	<OnClick>	<submit next="GBDEDITequipment" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchequipment" Name="gsearchequipment" Size="50,20">	<OnClick>	
+<search next="equipment_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITequipment" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVequipment" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="equipment_vLst" ToolTip="ttp_equipment_v" Size="700,450" Heading="equipmentno,100;equipmentname,250;ip,250;cabinetid,120;equipmenttypeid,120;status,60;equipmentid,55;opera,55;uptime,150;computerid,120;" loadedclick="0">
+	<DbDetails >
+<Index>equipmentid</Index>
+<DbTable>his.equipment e left join his.cabinet c on e.cabinetid=c.cabinetid left join his.equipment_type e0 on e.equipmenttypeid=e0.equipmenttypeid left join his.users u on e.opera=u.user_id left join his.computers c0 on e.computerid=c0.computerid</DbTable>
+<Data>e.equipmentno,e.equipmentname,e.ip,c.cabinetname cabinetid,e0.equipmenttypeno equipmenttypeid,e.status,e.equipmentid,u.user_name opera,e.uptime,c0.computer_name computerid</Data>
+<Order>equipmentid</Order></DbDetails>
+<OnClick><if cond="%{equipment_vLst[equipmentid]}"><DbDetails><Where>equipmentid='%{equipment_vLst[equipmentid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

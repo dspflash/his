@@ -1,0 +1,31 @@
+﻿<Language name="hospital">
+<Lang name="hospital" value="医院信息"/>
+<Lang name="hospital_v" value="医院信息"/>
+<Lang name="TabEdithospital" value="hospital Edit"/>
+<Lang name="TabViewhospital" value="hospital View"/>
+<Lang name="hospitalname" value="医院名"/>
+<Lang name="ttp_hospitalname" value="医院名"/>
+<Lang name="hospitalno" value="医院编号"/>
+<Lang name="ttp_hospitalno" value="医院编号"/>
+<Lang name="hospitalid" value=""/>
+<Lang name="ttp_hospitalid" value=""/>
+<Lang name="opera" value=""/>
+<Lang name="ttp_opera" value="工号"/>
+<Lang name="uptime" value=""/>
+<Lang name="ttp_uptime" value="时间"/>
+<Lang name="ttp_operationhospital" value=""/>
+<Lang name="ttp_createhospital" value=""/>
+<Lang name="ttp_modifyhospital" value=""/>
+<Lang name="ttp_resethospital" value=""/>
+<Lang name="ttp_deletehospital" value=""/>
+<Lang name="ttp_refreshhospital" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

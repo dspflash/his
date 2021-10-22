@@ -1,0 +1,22 @@
+﻿<WndTap Name="medi_trans_pick" Text="medi_trans_Pick">
+<var name="searchtmpl"><medicationid format="m.medicationid='%{opvalue}'"/><medication_detailid format="m.medication_detailid='%{opvalue}'"/><medicineid format="m.medicineid='%{opvalue}'"/><bottleid format="m.bottleid='%{opvalue}'"/><cabinetid format="m.cabinetid='%{opvalue}'"/><cabinet_cellid format="m.cabinet_cellid='%{opvalue}'"/><equipmentid format="m.equipmentid='%{opvalue}'"/><equipment_posid format="m.equipment_posid='%{opvalue}'"/><equipment_pos_degree format="(m.equipment_pos_degree like '%%{opvalue}%')"/><qtyapply format="(m.qtyapply like '%%{opvalue}%')"/><qtyrelease format="(m.qtyrelease like '%%{opvalue}%')"/><opera format="m.opera='%{opvalue}'"/><uptime format="(m.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><transid format="(m.transid like '%%{opvalue}%')"/><weight1 format="(m.weight1 like '%%{opvalue}%')"/><weight2 format="(m.weight2 like '%%{opvalue}%')"/><status format="(m.status like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\medi_trans.xml"/>
+<Ctrls><GroupBox  Name="GBmedi_trans" id="medi_trans" Text="medi_trans" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medi_trans_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVmedi_trans" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetmedi_trans" Name="resetmedi_trans" Size="50,20">	<OnClick>	<submit next="GBDEDITmedi_trans" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchmedi_trans" Name="gsearchmedi_trans" Size="50,20">	<OnClick>	
+<search next="medi_trans_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITmedi_trans" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVmedi_trans" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="medi_trans_vLst" ToolTip="ttp_medi_trans_v" Size="700,450" Heading="medicationid,120;medication_detailid,120;medicineid,120;bottleid,120;cabinetid,120;cabinet_cellid,120;equipmentid,120;equipment_posid,120;equipment_pos_degree,30;qtyapply,90;qtyrelease,90;opera,55;uptime,150;transid,100;weight1,90;weight2,90;status,30;" loadedclick="0">
+	<DbDetails >
+<Index>transid</Index>
+<DbTable>his.medi_trans m left join his.medication m0 on m.medicationid=m0.medicationid left join his.medication_detail m1 on m.medication_detailid=m1.medication_detailid left join his.medicine_info m2 on m.medicineid=m2.medicineid left join his.bottle_info b on m.bottleid=b.bottleid left join his.cabinet c on m.cabinetid=c.cabinetid left join his.cabinet_cell c0 on m.cabinet_cellid=c0.cellid left join his.equipment e on m.equipmentid=e.equipmentid left join his.equipment_pos e0 on m.equipment_posid=e0.equipmentid left join his.users u on m.opera=u.user_id</DbTable>
+<Data>m0.medication_no medicationid,m1.medicineno medication_detailid,m2.medicinenocn medicineid,b.bottleno bottleid,c.cabinetname cabinetid,concat(cell_row,'-',cell_col),e.equipmentno equipmentid,e0.pos_idx equipment_posid,m.equipment_pos_degree,m.qtyapply,m.qtyrelease,u.user_name opera,m.uptime,m.transid,m.weight1,m.weight2,m.status</Data>
+<Order>transid</Order></DbDetails>
+<OnClick><if cond="%{medi_trans_vLst[transid]}"><DbDetails><Where>transid='%{medi_trans_vLst[transid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

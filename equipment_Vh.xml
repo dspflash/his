@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVequipment" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="equipmentLst" ToolTip="ttp_equipment" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>equipmentid</Index>
+<DbTable>his.equipment</DbTable>
+<Data>equipmentno,equipmentname,ip,cabinetid,equipmenttypeid,status,equipmentid,opera,uptime,computerid</Data>
+<Order>equipmentid</Order></DbDetails>
+<OnClick><assign name="cabinetid[cabinetid]" expr="%{equipmentLst[cabinetid]}" function="SetSel"/><assign name="equipmenttypeid[equipmenttypeid]" expr="%{equipmentLst[equipmenttypeid]}" function="SetSel"/><assign name="opera[user_id]" expr="%{equipmentLst[opera]}" function="SetSel"/><assign name="computerid[computerid]" expr="%{equipmentLst[computerid]}" function="SetSel"/>
+<if cond="'%{equipmentid}'"><SetVisible name="insertequipment" Visible="0"/><SetVisible name="modifyequipment" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

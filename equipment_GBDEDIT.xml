@@ -1,0 +1,65 @@
+﻿<GroupBox Name="GBDEDITequipment"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_equipmentno"><Ctrls>
+<Label Align="Right" Text="equipmentno" Name="lb_equipmentno" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_equipmentno" Name="equipmentno" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_equipmentname"><Ctrls>
+<Label Align="Right" Text="equipmentname" Name="lb_equipmentname" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_equipmentname" Name="equipmentname" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_ip"><Ctrls>
+<Label Align="Right" Text="ip" Name="lb_ip" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_ip" Name="ip" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cabinetid"><Ctrls>
+<Label Align="Right" Text="cabinetid" onload="init" Name="lb_cabinetid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_cabinetid" onload="init" Name="cabinetid" Size="150,100">
+	<DbDetails>
+<Index>cabinetid</Index>
+<DbTable>his.cabinet</DbTable>
+<Data>cabinetname,cabinetid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshcabinetid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="cabinetid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_equipmenttypeid"><Ctrls>
+<Label Align="Right" Text="equipmenttypeid" onload="init" Name="lb_equipmenttypeid" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_equipmenttypeid" onload="init" Name="equipmenttypeid" Size="150,100">
+	<DbDetails>
+<Index>equipmenttypeid</Index>
+<DbTable>his.equipment_type</DbTable>
+<Data>equipmenttypeno,equipmenttypeid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshequipmenttypeid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="equipmenttypeid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_status" Visible="false"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" overlap="pre" Name="status" readonly="true" Size="230,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_equipmentid" Visible="false"><Ctrls>
+<Label Align="Right" Text="equipmentid" overlap="pre" Name="lb_equipmentid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_equipmentid" overlap="pre" Name="equipmentid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{equipmentid}'"><SetVisible name="insertequipment" Visible="0"/><SetVisible name="modifyequipment" Visible="1"/><else/><SetVisible name="insertequipment" Visible="1"/><SetVisible name="modifyequipment" Visible="0"/></if><if cond="'%{equipmentid}'"><DbDetails><Where>equipmentid='%{equipmentid}'</Where></DbDetails><submit next="equipment_pos_vLst" namelist="DbDetails"/><else/><submit next="equipment_pos_vLst" function="resetcontent"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_uptime" Visible="false"><Ctrls>
+<Label Align="Right" Text="uptime" overlap="pre" Name="lb_uptime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_uptime" overlap="pre" Name="uptime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_computerid"><Ctrls>
+<Label Align="Right" Text="computerid" onload="init" Name="lb_computerid" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_computerid" onload="init" Name="computerid" Size="170,100">
+	<DbDetails>
+<Index>computerid</Index>
+<DbTable>his.computers</DbTable>
+<Data>computer_name,computerid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

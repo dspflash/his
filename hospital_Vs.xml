@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDEDIThospital" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_hospitalname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hospitalname" Size="60,20" Text="hospitalname" Align="Right"/>
+<TextBox Name="hospitalname" Size="170,20" Text="" Weight="170" ToolTip="ttp_hospitalname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hospitalno" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hospitalno" Size="60,20" Text="hospitalno" Align="Right"/>
+<TextBox Name="hospitalno" Size="170,20" Text="" Weight="170" ToolTip="ttp_hospitalno"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,19 @@
+﻿<WndTap Name="medi_trans_v" Text="medi_trans_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medi_trans_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><medicationid format="m.medicationid='%{opvalue}'"/><medication_detailid format="m.medication_detailid='%{opvalue}'"/><medicineid format="m.medicineid='%{opvalue}'"/><bottleid format="m.bottleid='%{opvalue}'"/><cabinetid format="m.cabinetid='%{opvalue}'"/><cabinet_cellid format="m.cabinet_cellid='%{opvalue}'"/><equipmentid format="m.equipmentid='%{opvalue}'"/><equipment_posid format="m.equipment_posid='%{opvalue}'"/><equipment_pos_degree format="(m.equipment_pos_degree like '%%{opvalue}%')"/><qtyapply format="(m.qtyapply like '%%{opvalue}%')"/><qtyrelease format="(m.qtyrelease like '%%{opvalue}%')"/><opera format="m.opera='%{opvalue}'"/><uptime format="(m.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><transid format="(m.transid like '%%{opvalue}%')"/><weight1 format="(m.weight1 like '%%{opvalue}%')"/><weight2 format="(m.weight2 like '%%{opvalue}%')"/><status format="(m.status like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\medi_trans.xml"/>
+<Ctrls><GroupBox  Name="GBmedi_trans" id="medi_trans" Text="medi_trans" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medi_trans_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVmedi_trans" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetmedi_trans" Name="resetmedi_trans" Size="50,20">	<OnClick>	<submit next="GBDEDITmedi_trans" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchmedi_trans" Name="gsearchmedi_trans" Size="50,20">	<OnClick>	
+<search next="medi_trans_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITmedi_trans" namelist="search" function="search"/>	
+<search next="records_medi_trans" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITmedi_trans" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medi_trans_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medi_trans_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medi_trans_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

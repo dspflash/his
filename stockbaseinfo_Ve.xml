@@ -1,0 +1,16 @@
+﻿<WndTap Name="stockbaseinfo" Text="stockbaseinfo" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="dispensaryid"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\stockbaseinfo.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\stocklocationinfo.xml"/>
+<Ctrls>
+<GroupBox  Name="GBstockbaseinfo" id="stockbaseinfo" Text="stockbaseinfo" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stockbaseinfo_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stockbaseinfo_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stockbaseinfo_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stocklocationinfo_Vv.xml"/>
+</Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertstockbaseinfo" Visible="1"/><SetVisible name="modifystockbaseinfo" Visible="0"/></OnActivate>
+</WndTap>

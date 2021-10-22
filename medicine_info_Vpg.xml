@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGmedicine_info"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_medicine_info" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>medicineid</Index>
+<DbTable>his.medicine_info m left join his.users u on m.opera=u.user_id</DbTable>
+<Data>count(*) records</Data>
+<Order>medicineid</Order><Queryformat>select %{data} from (select m.medicineid from %{dbtable} %{where} GROUP BY m.medicineid  ORDER BY m.medicineid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_medicine_info" expr="js(Math.ceil(%{records_medicine_info}/%{medicine_info_vLst[countsperpage]}))"/>
+<assign name="pgscb_medicine_info" expr="js('1~'+Math.ceil(%{records_medicine_info}/%{medicine_info_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_medicine_info" Size="60,20"><OnSelEndOK><submit next="medicine_info_vLst" function="GetPage(%{pgscb_medicine_info}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_medicine_info" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_medicine_info" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagemedicine_info_vLst" Size="50,20"><OnClick><submit next="medicine_info_vLst" function="GetPage(%{pgcur_medicine_info}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

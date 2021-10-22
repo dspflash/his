@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="1" Title="中药智能调剂发药系统" navtype="tab" bgx="bg_gfcolors:2|4|2,0x7dafff|0x0,0xccbadb|0x64,0xccaadb|0x6464,ccaadb|0x6400,0x102,302" icons="http://3ucs.com/biz/theme/delight-vtiger/vtiger/style.css">
+	<DbDetails>
+		<SubDriver>MySQL ODBC 3.51 Driver</SubDriver>
+		<Host>localhost</Host>
+		<database>his</database>
+		<sqlMode>NO_BACKSLASH_ESCAPES</sqlMode>
+		<User>i3u</User>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="pass" href="config/db.xml"/>
+		<config>SELECT 0 as computerid,3 as layid;</config>
+		</DbDetails>
+	<webconfig theme="../biz/theme/delight-vtiger/theme.html"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>	
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medication_v4doctor.xml"/>
+	</WndTaps>
+</XI3uWnd>

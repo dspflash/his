@@ -1,0 +1,22 @@
+﻿<WndTap Name="equipment_pos_pick" Text="equipment_pos_Pick">
+<var name="searchtmpl"><pos_idx format="(e.pos_idx like '%%{opvalue}%')"/><opera format="e.opera='%{opvalue}'"/><uptime format="(e.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><posid format="(e.posid like '%%{opvalue}%')"/><equipmentid format="(e.equipmentid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\equipment_pos.xml"/>
+<Ctrls><GroupBox  Name="GBequipment_pos" id="equipment_pos" Text="equipment_pos" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="equipment_pos_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVequipment_pos" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetequipment_pos" Name="resetequipment_pos" Size="50,20">	<OnClick>	<submit next="GBDEDITequipment_pos" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchequipment_pos" Name="gsearchequipment_pos" Size="50,20">	<OnClick>	
+<search next="equipment_pos_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITequipment_pos" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVequipment_pos" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="equipment_pos_vLst" ToolTip="ttp_equipment_pos_v" Size="700,450" Heading="pos_idx,20;opera,55;uptime,150;posid,55;equipmentid,55;" loadedclick="0">
+	<DbDetails >
+<Index>posid</Index>
+<DbTable>his.equipment_pos e left join his.users u on e.opera=u.user_id</DbTable>
+<Data>e.pos_idx,u.user_name opera,e.uptime,e.posid,e.equipmentid</Data>
+<Order>posid</Order></DbDetails>
+<OnClick><if cond="%{equipment_pos_vLst[posid]}"><DbDetails><Where>posid='%{equipment_pos_vLst[posid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

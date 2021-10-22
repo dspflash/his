@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEhospital" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hospitalid" Text="create" ToolTip="ttp_createhospital" Name="inserthospital" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>his.hospital</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>hospitalname,hospitalno</Data>
+<DataEx>opera;'%{operaid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{inserthospital[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hospitalLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hospital_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhospital" Name="modifyhospital" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>his.hospital</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>hospitalname,hospitalno</Data>
+<DataEx>opera;'%{operaid}'</DataEx>
+<Where>hospitalid='%{hospitalid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyhospital[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hospitalLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hospital_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethospital" Name="resethospital" Size="50,20">
+<OnClick>
+<submit next="GBDEDIThospital" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchhospital" Name="gsearchhospital" Size="50,20" visible="false">
+<OnClick>
+<search next="hospitalLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDIThospital" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,22 @@
+﻿<WndTap Name="user_info_pick" Text="user_info_Pick">
+<var name="searchtmpl"><role_name format="(u.role_name like '%%{opvalue}%')"/><layout format="(u.layout like '%%{opvalue}%')"/><insert_time format="(u.insert_time between '%{insert_time[datetime]}' and '%{insert_time[datetime2]}')"/><insert_emp format="(u.insert_emp like '%%{opvalue}%')"/><del_opera format="(u.del_opera like '%%{opvalue}%')"/><del_time format="(u.del_time between '%{del_time[datetime]}' and '%{del_time[datetime2]}')"/><opera format="u.opera='%{opvalue}'"/><role_id format="(u.role_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\user_info.xml"/>
+<Ctrls><GroupBox  Name="GBuser_role" id="user_role" Text="user_role" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_info_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVuser_role" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetuser_role" Name="resetuser_role" Size="50,20">	<OnClick>	<submit next="GBDEDITuser_role" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchuser_role" Name="gsearchuser_role" Size="50,20">	<OnClick>	
+<search next="user_role_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITuser_role" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVuser_role" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="user_role_vLst" ToolTip="ttp_user_role_v" Size="700,450" Heading="role_name,250;layout,250;insert_time,150;insert_emp,55;del_opera,55;del_time,150;opera,55;role_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>role_id</Index>
+<DbTable>his.user_role u left join his.users u0 on u.opera=u0.user_id</DbTable>
+<Data>u.role_name,u.layout,u.insert_time,u.insert_emp,u.del_opera,u.del_time,u0.user_name opera,u.role_id</Data>
+<Order>role_id</Order></DbDetails>
+<OnClick><if cond="%{user_role_vLst[role_id]}"><DbDetails><Where>role_id='%{user_role_vLst[role_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

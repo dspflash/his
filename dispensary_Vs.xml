@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDEDITdispensary" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_dispensaryno" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_dispensaryno" Size="60,20" Text="dispensaryno" Align="Right"/>
+<TextBox Name="dispensaryno" Size="170,20" Text="" Weight="170" ToolTip="ttp_dispensaryno"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_dispensaryname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_dispensaryname" Size="60,20" Text="dispensaryname" Align="Right"/>
+<TextBox Name="dispensaryname" Size="170,20" Text="" Weight="170" ToolTip="ttp_dispensaryname"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

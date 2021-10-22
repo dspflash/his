@@ -1,0 +1,22 @@
+﻿<WndTap Name="bottle_info_pick" Text="bottle_info_Pick">
+<var name="searchtmpl"><stockno format="(s.stockno like '%%{opvalue}%')"/><location_no format="(s.location_no like '%%{opvalue}%')"/><location_name format="(s.location_name like '%%{opvalue}%')"/><location_guige format="(s.location_guige like '%%{opvalue}%')"/><location_status format="(s.location_status like '%%{opvalue}%')"/><memo format="(s.memo like '%%{opvalue}%')"/><insert_time format="(s.insert_time between '%{insert_time[datetime]}' and '%{insert_time[datetime2]}')"/><delemp format="(s.delemp like '%%{opvalue}%')"/><deltime format="(s.deltime between '%{deltime[datetime]}' and '%{deltime[datetime2]}')"/><opera format="s.opera='%{opvalue}'"/><locationid format="(s.locationid like '%%{opvalue}%')"/><stockid format="(s.stockid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\stocklocationinfo.xml"/>
+<Ctrls><GroupBox  Name="GBstocklocationinfo" id="stocklocationinfo" Text="stocklocationinfo" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stocklocationinfo_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVstocklocationinfo" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetstocklocationinfo" Name="resetstocklocationinfo" Size="50,20">	<OnClick>	<submit next="GBDEDITstocklocationinfo" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchstocklocationinfo" Name="gsearchstocklocationinfo" Size="50,20">	<OnClick>	
+<search next="stocklocationinfo_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITstocklocationinfo" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVstocklocationinfo" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="stocklocationinfo_vLst" ToolTip="ttp_stocklocationinfo_v" Size="700,450" Heading="stockno,25;location_no,250;location_name,250;location_guige,250;location_status,20;memo,250;insert_time,150;delemp,55;deltime,150;opera,55;locationid,55;stockid,55;" loadedclick="0">
+	<DbDetails >
+<Index>locationid</Index>
+<DbTable>his.stocklocationinfo s left join his.users u on s.opera=u.user_id</DbTable>
+<Data>s.stockno,s.location_no,s.location_name,s.location_guige,s.location_status,s.memo,s.insert_time,s.delemp,s.deltime,u.user_name opera,s.locationid,s.stockid</Data>
+<Order>locationid</Order></DbDetails>
+<OnClick><if cond="%{stocklocationinfo_vLst[locationid]}"><DbDetails><Where>locationid='%{stocklocationinfo_vLst[locationid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

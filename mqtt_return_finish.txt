@@ -1,0 +1,1 @@
+﻿ <Button text="return_finish" Name="return_finish" Size="100,20" Weight="100"><OnClick><DbDetails> <DbDatabase>mqtt</DbDatabase> <datatype>mqtt</datatype> <queryFormat>set %{medication_detailid[mqtt_return_finish]}='accquire'</queryFormat> </DbDetails><submit namelist="DbDetails"/></OnClick></Button> 

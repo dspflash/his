@@ -1,0 +1,6 @@
+﻿<GroupBox Name="GBDEDITequipment_pos" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_pos_idx" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_pos_idx" Size="60,20" Text="pos_idx" Align="Right"/>
+<TextBox Name="pos_idx" Size="170,20" Text="" Weight="170" ToolTip="ttp_pos_idx"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

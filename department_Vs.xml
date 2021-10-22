@@ -1,0 +1,6 @@
+﻿<GroupBox Name="GBDEDITdepartment" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_departname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_departname" Size="60,20" Text="departname" Align="Right"/>
+<TextBox Name="departname" Size="170,20" Text="" Weight="170" ToolTip="ttp_departname"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

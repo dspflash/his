@@ -1,0 +1,22 @@
+﻿<WndTap Name="department_pick" Text="department_Pick">
+<var name="searchtmpl"><departname format="(d.departname like '%%{opvalue}%')"/><opera format="d.opera='%{opvalue}'"/><uptime format="(d.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><departmentid format="(d.departmentid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\department.xml"/>
+<Ctrls><GroupBox  Name="GBdepartment" id="department" Text="department" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="department_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVdepartment" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetdepartment" Name="resetdepartment" Size="50,20">	<OnClick>	<submit next="GBDEDITdepartment" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchdepartment" Name="gsearchdepartment" Size="50,20">	<OnClick>	
+<search next="department_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITdepartment" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVdepartment" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="department_vLst" ToolTip="ttp_department_v" Size="700,450" Heading="departname,250;opera,55;uptime,150;departmentid,30;" loadedclick="0">
+	<DbDetails >
+<Index>departmentid</Index>
+<DbTable>his.department d left join his.users u on d.opera=u.user_id</DbTable>
+<Data>d.departname,u.user_name opera,d.uptime,d.departmentid</Data>
+<Order>departmentid</Order></DbDetails>
+<OnClick><if cond="%{department_vLst[departmentid]}"><DbDetails><Where>departmentid='%{department_vLst[departmentid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

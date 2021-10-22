@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGbottle_transaction"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_bottle_transaction" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>bottle_transactionid</Index>
+<DbTable>his.bottle_transaction b left join his.bottle_info b0 on b.bottleid=b0.bottleid left join his.medicine_info m on b.medicineid=m.medicineid left join his.status_option s on b.uses_flag=s.statuscode left join his.users u on b.opera=u.user_id</DbTable>
+<Data>count(*) records</Data>
+<Order>bottle_transactionid</Order><Queryformat>select %{data} from (select b.bottle_transactionid from %{dbtable} %{where} GROUP BY b.bottle_transactionid  ORDER BY b.bottle_transactionid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_bottle_transaction" expr="js(Math.ceil(%{records_bottle_transaction}/%{bottle_transaction_vLst[countsperpage]}))"/>
+<assign name="pgscb_bottle_transaction" expr="js('1~'+Math.ceil(%{records_bottle_transaction}/%{bottle_transaction_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_bottle_transaction" Size="60,20"><OnSelEndOK><submit next="bottle_transaction_vLst" function="GetPage(%{pgscb_bottle_transaction}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_bottle_transaction" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_bottle_transaction" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagebottle_transaction_vLst" Size="50,20"><OnClick><submit next="bottle_transaction_vLst" function="GetPage(%{pgcur_bottle_transaction}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

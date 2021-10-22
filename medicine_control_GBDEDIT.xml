@@ -1,0 +1,54 @@
+﻿<GroupBox Name="GBDEDITmedicine_control"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medicineid"><Ctrls>
+<Label Align="Right" Text="medicineid" Name="lb_medicineid" Size="60,20"/>
+<TextBox Weight="150" Text="" ToolTip="ttp_medicineid" Name="medicineid" Size="150,20">
+	<DbDetails fcsm="true">
+<Index>medicineid</Index>
+<DbTable>his.medicine_info</DbTable>
+<Data>medicinenocn,medicineno,medicineid</Data>
+<Where>!isdel</Where>
+<queryFormat/></DbDetails></TextBox>
+<MagicCtrl Name="pickmedicineid" Link="tip:Pick" images=",data/search.png" button="type:0" Size="20,20"><OnClick><assign name="$parent.medicine_info_pick.frmwndctrl" expr="medicine_control.medicineid"/><DbDetails><Where/></DbDetails><submit next="$parent.medicine_info_pick.medicine_info_vLst" namelist="DbDetails"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_relation"><Ctrls>
+<Label Align="Right" Text="relation" onload="init" Name="lb_relation" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_relation" onload="init" Name="relation" Size="170,100">
+	<DbDetails>
+<Index>relationid</Index>
+<DbTable>his.medicine_control_type</DbTable>
+<Data>relationtype,relationid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medicine2id"><Ctrls>
+<Label Align="Right" Text="medicine2id" Name="lb_medicine2id" Size="60,20"/>
+<TextBox Weight="150" Text="" ToolTip="ttp_medicine2id" Name="medicine2id" Size="150,20">
+	<DbDetails>
+<Index>medicineid</Index>
+<DbTable>his.medicine_info</DbTable>
+<Data>medicinenocn,medicineno,medicineid</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+<MagicCtrl Name="pickmedicine2id" Link="tip:Pick" images=",data/search.png" button="type:0" Size="20,20"><OnClick><assign name="$parent.medicine_info_pick.frmwndctrl" expr="medicine_control.medicine2id"/><DbDetails><Where/></DbDetails><submit next="$parent.medicine_info_pick.medicine_info_vLst" namelist="DbDetails"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_explains"><Ctrls>
+<Label Align="Right" Text="explains" Name="lb_explains" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_explains" Name="explains" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_uptime" Visible="false"><Ctrls>
+<Label Align="Right" Text="uptime" overlap="pre" Name="lb_uptime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_uptime" overlap="pre" Name="uptime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_controlid" Visible="false"><Ctrls>
+<Label Align="Right" Text="controlid" overlap="pre" Name="lb_controlid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_controlid" overlap="pre" Name="controlid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{controlid}'"><SetVisible name="insertmedicine_control" Visible="0"/><SetVisible name="modifymedicine_control" Visible="1"/><else/><SetVisible name="insertmedicine_control" Visible="1"/><SetVisible name="modifymedicine_control" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

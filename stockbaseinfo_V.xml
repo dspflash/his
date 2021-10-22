@@ -1,0 +1,21 @@
+﻿<WndTap Name="stockbaseinfo_v" Text="stockbaseinfo_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stockbaseinfo_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stocklocationinfo_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><stockno format="(s.stockno like '%%{opvalue}%')"/><stockname format="(s.stockname like '%%{opvalue}%')"/><guige format="(s.guige like '%%{opvalue}%')"/><locations format="(s.locations like '%%{opvalue}%')"/><memo format="(s.memo like '%%{opvalue}%')"/><delemp format="(s.delemp like '%%{opvalue}%')"/><deltime format="(s.deltime between '%{deltime[datetime]}' and '%{deltime[datetime2]}')"/><status format="(s.status like '%%{opvalue}%')"/><opera format="s.opera='%{opvalue}'"/><uptime format="(s.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><stockid format="(s.stockid like '%%{opvalue}%')"/><dispensaryid format="(s.dispensaryid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\stockbaseinfo.xml"/>
+<Ctrls><GroupBox  Name="GBstockbaseinfo" id="stockbaseinfo" Text="stockbaseinfo" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stockbaseinfo_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVstockbaseinfo" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.stockbaseinfo.GBDEDITstockbaseinfo" function="reset"/><assign name="$this.stockbaseinfo.frmwndctrl" expr="%{$this.stockbaseinfo_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetstockbaseinfo" Name="resetstockbaseinfo" Size="50,20">	<OnClick>	<submit next="GBDEDITstockbaseinfo" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchstockbaseinfo" Name="gsearchstockbaseinfo" Size="50,20">	<OnClick>	
+<search next="stockbaseinfo_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITstockbaseinfo" namelist="search" function="search"/>	
+<search next="records_stockbaseinfo" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITstockbaseinfo" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stockbaseinfo_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stockbaseinfo_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stockbaseinfo_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

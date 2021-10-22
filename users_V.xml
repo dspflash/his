@@ -1,0 +1,20 @@
+﻿<WndTap Name="users_v" Text="users_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="users_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><user_name format="(u.user_name like '%%{opvalue}%')"/><user_pass format="(u.user_pass like '%%{opvalue}%')"/><user_role format="u.user_role='%{opvalue}'"/><real_name format="(u.real_name like '%%{opvalue}%')"/><memo format="(u.memo like '%%{opvalue}%')"/><dept_info format="u.dept_info='%{opvalue}'"/><ap_name format="(u.ap_name like '%%{opvalue}%')"/><user_str format="(u.user_str like '%%{opvalue}%')"/><user_id format="(u.user_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\users.xml"/>
+<Ctrls><GroupBox  Name="GBusers" id="users" Text="users" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="users_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVusers" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.users.GBDEDITusers" function="reset"/><assign name="$this.users.frmwndctrl" expr="%{$this.users_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetusers" Name="resetusers" Size="50,20">	<OnClick>	<submit next="GBDEDITusers" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchusers" Name="gsearchusers" Size="50,20">	<OnClick>	
+<search next="users_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITusers" namelist="search" function="search"/>	
+<search next="records_users" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITusers" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="users_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="users_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="users_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

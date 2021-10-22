@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhospital" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hospitalLst" ToolTip="ttp_hospital" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hospitalid</Index>
+<DbTable>his.hospital</DbTable>
+<Data>hospitalname,hospitalno,hospitalid,opera,uptime</Data>
+<Order>hospitalid</Order></DbDetails>
+<OnClick><assign name="opera[user_id]" expr="%{hospitalLst[opera]}" function="SetSel"/>
+<if cond="'%{hospitalid}'"><SetVisible name="inserthospital" Visible="0"/><SetVisible name="modifyhospital" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

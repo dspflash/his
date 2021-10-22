@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDVbottle_loc_cabinet" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bottle_loc_cabinet_vLst" ToolTip="ttp_bottle_loc_cabinet_v" Size="700,450" OnLoad="init" Heading="bottleid,55;medicineid,55;medicineno,250;cabinetid,120;cellid,120;opera,55;uptime,150;locationid,100;"   colsDisplay="7" loadedclick="0">
+	<DbDetails >
+<Index>locationid</Index>
+<DbTable>his.bottle_loc_cabinet b left join his.bottle_info b0 on b.bottleid=b0.bottleid left join his.medicine_info m on b.medicineid=m.medicineid left join his.cabinet c on b.cabinetid=c.cabinetid left join his.cabinet_cell c0 on b.cellid=c0.cellid left join his.users u on b.opera=u.user_id</DbTable>
+<Data>b0.bottleno bottleid,m.medicinenocn medicineid,b.medicineno,c.cabinetname cabinetid,concat(cell_row,'-',cell_col),u.user_name opera,b.uptime,b.locationid</Data>
+<Order>locationid</Order></DbDetails>
+<DbDetails><Where>where !m.isdel</Where><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_loc_cabinet_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_bottle_loc_cabinet" expr="js(%{bottle_loc_cabinet_vLst[currentpage]}+1)"/>
+<assign name="pgscb_bottle_loc_cabinet" expr="js(%{bottle_loc_cabinet_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

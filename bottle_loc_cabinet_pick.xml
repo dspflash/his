@@ -1,0 +1,23 @@
+﻿<WndTap Name="bottle_loc_cabinet_pick" Text="bottle_loc_cabinet_Pick">
+<var name="searchtmpl"><bottleid format="b.bottleid='%{opvalue}'"/><medicineid format="b.medicineid='%{opvalue}'"/><medicineno format="(b.medicineno like '%%{opvalue}%')"/><cabinetid format="b.cabinetid='%{opvalue}'"/><cellid format="b.cellid='%{opvalue}'"/><opera format="b.opera='%{opvalue}'"/><uptime format="(b.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><locationid format="(b.locationid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bottle_loc_cabinet.xml"/>
+<Ctrls><GroupBox  Name="GBbottle_loc_cabinet" id="bottle_loc_cabinet" Text="bottle_loc_cabinet" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bottle_loc_cabinet_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVbottle_loc_cabinet" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetbottle_loc_cabinet" Name="resetbottle_loc_cabinet" Size="50,20">	<OnClick>	<submit next="GBDEDITbottle_loc_cabinet" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchbottle_loc_cabinet" Name="gsearchbottle_loc_cabinet" Size="50,20">	<OnClick>	
+<search next="bottle_loc_cabinet_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITbottle_loc_cabinet" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVbottle_loc_cabinet" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bottle_loc_cabinet_vLst" ToolTip="ttp_bottle_loc_cabinet_v" Size="700,450" Heading="bottleid,55;medicineid,55;medicineno,250;cabinetid,120;cellid,120;opera,55;uptime,150;locationid,100;"   colsDisplay="7" loadedclick="0">
+	<DbDetails >
+<Index>locationid</Index>
+<DbTable>his.bottle_loc_cabinet b left join his.bottle_info b0 on b.bottleid=b0.bottleid left join his.medicine_info m on b.medicineid=m.medicineid left join his.cabinet c on b.cabinetid=c.cabinetid left join his.cabinet_cell c0 on b.cellid=c0.cellid left join his.users u on b.opera=u.user_id</DbTable>
+<Data>b0.bottleno bottleid,m.medicinenocn medicineid,b.medicineno,c.cabinetname cabinetid,concat(cell_row,'-',cell_col),u.user_name opera,b.uptime,b.locationid</Data>
+<Order>locationid</Order></DbDetails>
+<DbDetails><Where>where !m.isdel</Where><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<OnClick><if cond="%{bottle_loc_cabinet_vLst[locationid]}"><DbDetails><Where>locationid='%{bottle_loc_cabinet_vLst[locationid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

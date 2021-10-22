@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVmedicine_info"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialmedicine_info" Size="50,20">
+<OnClick><submit next="medicine_info_vLst" function="initial"/><submit next="records_medicine_info" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPmedicine_info_vLst" Size="50,20">
+<OnClick><submit next="medicine_info_vLst" function="GetPage(first)"/><submit next="records_medicine_info"/></OnClick></Button>
+<Button Text="prepage" Name="PREmedicine_info_vLst" Size="50,20">
+<OnClick><submit next="medicine_info_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPmedicine_info_vLst" Size="50,20">
+<OnClick><submit next="medicine_info_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

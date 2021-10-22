@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVstockbaseinfo" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="stockbaseinfo_vLst" ToolTip="ttp_stockbaseinfo_v" Size="700,450" OnLoad="init" Heading="stockno,25;stockname,250;guige,250;locations,250;memo,250;delemp,55;deltime,150;status,20;opera,55;uptime,150;stockid,55;dispensaryid,55;" loadedclick="0">
+	<DbDetails >
+<Index>stockid</Index>
+<DbTable>his.stockbaseinfo s left join his.users u on s.opera=u.user_id</DbTable>
+<Data>s.stockno,s.stockname,s.guige,s.locations,s.memo,s.delemp,s.deltime,s.status,u.user_name opera,s.uptime,s.stockid,s.dispensaryid</Data>
+<Order>stockid</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>stockid='%{stockbaseinfo_vLst[stockid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.stockbaseinfo.stockbaseinfoLst"/><assign name="$this.stockbaseinfo.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.stockbaseinfo</DbTable>
+<Where>stockid='%{stockbaseinfo_vLst[stockid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_stockbaseinfo" expr="js(%{stockbaseinfo_vLst[currentpage]}+1)"/>
+<assign name="pgscb_stockbaseinfo" expr="js(%{stockbaseinfo_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

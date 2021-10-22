@@ -1,0 +1,8 @@
+﻿<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<!--op text="modify"><DbDetails><Where>locationid='%{bottle_loc_cabinet_vLst[locationid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bottle_loc_cabinet.bottle_loc_cabinetLst"/><assign name="$this.bottle_loc_cabinet.frmwndctrl" expr="%{this}"/></op-->
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.bottle_loc_cabinet</DbTable>
+<Where>locationid='%{bottle_loc_cabinet_vLst[locationid]}'</Where>
+<queryFormat>update %{table} set isdel=true,opera='%{operaid}',uptime=now() where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

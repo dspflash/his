@@ -1,0 +1,22 @@
+﻿<WndTap Name="hospital_pick" Text="hospital_Pick">
+<var name="searchtmpl"><hospitalname format="(h.hospitalname like '%%{opvalue}%')"/><hospitalno format="(h.hospitalno like '%%{opvalue}%')"/><hospitalid format="(h.hospitalid like '%%{opvalue}%')"/><opera format="h.opera='%{opvalue}'"/><uptime format="(h.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hospital.xml"/>
+<Ctrls><GroupBox  Name="GBhospital" id="hospital" Text="hospital" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hospital_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVhospital" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resethospital" Name="resethospital" Size="50,20">	<OnClick>	<submit next="GBDEDIThospital" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchhospital" Name="gsearchhospital" Size="50,20">	<OnClick>	
+<search next="hospital_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDIThospital" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVhospital" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hospital_vLst" ToolTip="ttp_hospital_v" Size="700,450" Heading="hospitalname,250;hospitalno,100;hospitalid,55;opera,55;uptime,150;" loadedclick="0">
+	<DbDetails >
+<Index>hospitalid</Index>
+<DbTable>his.hospital h left join his.users u on h.opera=u.user_id</DbTable>
+<Data>h.hospitalname,h.hospitalno,h.hospitalid,u.user_name opera,h.uptime</Data>
+<Order>hospitalid</Order></DbDetails>
+<OnClick><if cond="%{hospital_vLst[hospitalid]}"><DbDetails><Where>hospitalid='%{hospital_vLst[hospitalid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVmedi_trans" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="medi_trans_vLst" ToolTip="ttp_medi_trans_v" Size="700,450" OnLoad="init" Heading="medicationid,55;medication_detailid,120;medicineid,55;bottleid,55;cabinetid,55;cabinet_cellid,55;equipmentid,120;equipment_posid,120;equipment_pos_degree,30;qtyapply,90;qtyrelease,90;opera,55;uptime,150;transid,100;" loadedclick="0">
+	<DbDetails >
+<Index>transid</Index>
+<DbTable>his.medi_trans m left join his.medication m0 on m.medicationid=m0.medicationid left join his.mt_cc_b_m m1 on m.medication_detailid=m1.medication_detailid left join his.medicine_info m2 on m.medicineid=m2.medicineid left join his.bottle_info b on m.bottleid=b.bottleid left join his.cabinet c on m.cabinetid=c.cabinetid left join his.cabinet_cell c0 on m.cabinet_cellid=c0.cellid left join his.equipment e on m.equipmentid=e.equipmentid left join his.equipment_pos e0 on m.equipment_posid=e0.equipmentid left join his.users u on m.opera=u.user_id</DbTable>
+<Data>m0.medication_no medicationid,m1.medicinenocn medication_detailid,m2.medicinenocn medicineid,b.bottleno bottleid,c.cabinetname cabinetid,concat(cell_row,'-',cell_col),e.equipmentno equipmentid,e0.pos_idx equipment_posid,m.equipment_pos_degree,m.qtyapply,m.qtyrelease,u.user_name opera,m.uptime,m.transid</Data>
+<Order>transid</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>transid='%{medi_trans_vLst[transid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.medication_detail_op.medi_transLst"/><assign name="$this.medication_detail_op.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.medi_trans</DbTable>
+<Where>transid='%{medi_trans_vLst[transid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_medi_trans" expr="js(%{medi_trans_vLst[currentpage]}+1)"/>
+<assign name="pgscb_medi_trans" expr="js(%{medi_trans_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVinstock_log" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="instock_logLst" ToolTip="ttp_instock_log" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>instockid</Index>
+<DbTable>his.instock_log</DbTable>
+<Data>medicineid,medicineno,bottleid,intype,receiveempid,receiveemp,stockno,locationno,bottleno,manufacturer,weight,validday,memo,inserttime,delemp,deltime,opera,inempid,inemp,instockid</Data>
+<Order>instockid</Order></DbDetails>
+<OnClick><assign name="medicineid[medicineid]" expr="%{instock_logLst[medicineid]}" function="SetSel"/><assign name="bottleid[bottleid]" expr="%{instock_logLst[bottleid]}" function="SetSel"/><assign name="intype[statuscode]" expr="%{instock_logLst[intype]}" function="SetSel"/><assign name="receiveempid[user_id]" expr="%{instock_logLst[receiveempid]}" function="SetSel"/><assign name="stockno[stockid]" expr="%{instock_logLst[stockno]}" function="SetSel"/><assign name="locationno[locationid]" expr="%{instock_logLst[locationno]}" function="SetSel"/><assign name="opera[user_id]" expr="%{instock_logLst[opera]}" function="SetSel"/><assign name="inempid[user_id]" expr="%{instock_logLst[inempid]}" function="SetSel"/><assign name="inemp[user_id]" expr="%{instock_logLst[inemp]}" function="SetSel"/>
+<if cond="'%{instockid}'"><SetVisible name="insertinstock_log" Visible="0"/><SetVisible name="modifyinstock_log" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

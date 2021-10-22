@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVhospital" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletehospital" Name="deletehospital" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>his.hospital</DbTable>
+<Where>hospitalid='%{hospitalLst[hospitalid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhospital" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshhospital" Name="searchhospital" Size="50,20">
+			  <OnClick><submit next="hospitalLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPhospitalLst" OnClick="(hospitalLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREhospitalLst" OnClick="(hospitalLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPhospitalLst" OnClick="(hospitalLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

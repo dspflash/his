@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVdepartment" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="department_vLst" ToolTip="ttp_department_v" Size="700,450" OnLoad="init" Heading="departname,250;opera,55;uptime,150;departmentid,30;" loadedclick="0">
+	<DbDetails >
+<Index>departmentid</Index>
+<DbTable>his.department d left join his.users u on d.opera=u.user_id</DbTable>
+<Data>d.departname,u.user_name opera,d.uptime,d.departmentid</Data>
+<Order>departmentid</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>departmentid='%{department_vLst[departmentid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.department.departmentLst"/><assign name="$this.department.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.department</DbTable>
+<Where>departmentid='%{department_vLst[departmentid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_department" expr="js(%{department_vLst[currentpage]}+1)"/>
+<assign name="pgscb_department" expr="js(%{department_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

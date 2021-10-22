@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVdepartment"><Ctrls>
+<ListCtrl Heading="departname,250;opera,55;uptime,150;departmentid,30;" loadedclick="0" ToolTip="ttp_department" Name="departmentLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>departmentid</Index>
+<DbTable>his.department d left join his.users u on d.opera=u.user_id</DbTable>
+<Data>d.departname,u.user_name opera,d.uptime,d.departmentid</Data>
+<Order>departmentid</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>departmentid='%{department_vLst[departmentid]}'</Where></DbDetails><submit next="$this.department.departmentLst" namelist="DbDetails"/><assign name="$this.department.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.department</DbTable>
+<Where>departmentid='%{department_vLst[departmentid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

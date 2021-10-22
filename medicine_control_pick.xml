@@ -1,0 +1,22 @@
+﻿<WndTap Name="medicine_control_pick" Text="medicine_control_Pick">
+<var name="searchtmpl"><medicineid format="m.medicineid='%{opvalue}'"/><relation format="m.relation='%{opvalue}'"/><medicine2id format="m.medicine2id='%{opvalue}'"/><explains format="(m.explains like '%%{opvalue}%')"/><uptime format="(m.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><opera format="m.opera='%{opvalue}'"/><controlid format="(m.controlid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\medicine_control.xml"/>
+<Ctrls><GroupBox  Name="GBmedicine_control" id="medicine_control" Text="medicine_control" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medicine_control_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVmedicine_control" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetmedicine_control" Name="resetmedicine_control" Size="50,20">	<OnClick>	<submit next="GBDEDITmedicine_control" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchmedicine_control" Name="gsearchmedicine_control" Size="50,20">	<OnClick>	
+<search next="medicine_control_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITmedicine_control" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVmedicine_control" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="medicine_control_vLst" ToolTip="ttp_medicine_control_v" Size="700,450" Heading="medicineid,55;relation,120;medicine2id,55;explains,250;uptime,150;opera,55;controlid,55;" loadedclick="0">
+	<DbDetails >
+<Index>controlid</Index>
+<DbTable>his.medicine_control m left join his.medicine_info m0 on m.medicineid=m0.medicineid left join his.medicine_control_type m1 on m.relation=m1.relationid left join his.medicine_info m2 on m.medicine2id=m2.medicineid left join his.users u on m.opera=u.user_id</DbTable>
+<Data>m0.medicinenocn medicineid,m1.relationtype relation,m2.medicinenocn medicine2id,m.explains,m.uptime,u.user_name opera,m.controlid</Data>
+<Order>controlid</Order></DbDetails>
+<OnClick><if cond="%{medicine_control_vLst[controlid]}"><DbDetails><Where>controlid='%{medicine_control_vLst[controlid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

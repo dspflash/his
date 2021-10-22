@@ -1,0 +1,35 @@
+﻿<Language name="bottle_loc_cabinet">
+<Lang name="bottle_loc_cabinet" value="药柜药品信息"/>
+<Lang name="bottle_loc_cabinet_v" value="药柜药品信息"/>
+<Lang name="TabEditbottle_loc_cabinet" value="bottle_loc_cabinet Edit"/>
+<Lang name="TabViewbottle_loc_cabinet" value="bottle_loc_cabinet View"/>
+<Lang name="bottleid" value="药瓶"/>
+<Lang name="ttp_bottleid" value="药瓶"/>
+<Lang name="bottleno" value="药瓶编码"/>
+<Lang name="ttp_bottleno" value="药瓶编码"/>
+<Lang name="cabinetid" value="药柜"/>
+<Lang name="ttp_cabinetid" value="药柜"/>
+<Lang name="cellid" value="药柜柜格"/>
+<Lang name="ttp_cellid" value="药柜柜格"/>
+<Lang name="locationid" value=""/>
+<Lang name="ttp_locationid" value=""/>
+<Lang name="opera" value=""/>
+<Lang name="ttp_opera" value="操作员"/>
+<Lang name="uptime" value=""/>
+<Lang name="ttp_uptime" value="更新时间"/>
+<Lang name="ttp_operationbottle_loc_cabinet" value=""/>
+<Lang name="ttp_createbottle_loc_cabinet" value=""/>
+<Lang name="ttp_modifybottle_loc_cabinet" value=""/>
+<Lang name="ttp_resetbottle_loc_cabinet" value=""/>
+<Lang name="ttp_deletebottle_loc_cabinet" value=""/>
+<Lang name="ttp_refreshbottle_loc_cabinet" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

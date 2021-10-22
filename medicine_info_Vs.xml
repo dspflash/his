@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDEDITmedicine_info" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_medicineno" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medicineno" Size="60,20" Text="medicineno" Align="Right"/>
+<TextBox Name="medicineno" Size="170,20" Text="" Weight="170" ToolTip="ttp_medicineno"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_medicinenocn" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medicinenocn" Size="60,20" Text="medicinenocn" Align="Right"/>
+<TextBox Name="medicinenocn" Size="170,20" Text="" Weight="170" ToolTip="ttp_medicinenocn"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_medicinenopy" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medicinenopy" Size="60,20" Text="medicinenopy" Align="Right"/>
+<TextBox Name="medicinenopy" Size="170,20" Text="" Weight="170" ToolTip="ttp_medicinenopy"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,50 @@
+﻿<GroupBox Name="GBDEDITmedi_trans"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medication_detailid"><Ctrls>
+<Label Align="Right" Text="medication_detailid" Name="lb_medication_detailid" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_medication_detailid" Name="medication_detailid" readonly="true" Size="170,20">
+	<DbDetails fcsm="true">
+<Index>medication_detailid</Index>
+<DbTable>his.mt_cc_b_m</DbTable>
+<Data>medicineno,medicineno medicineid,bottleno bottleid,cabinetname cabinetid,cell cabinet_cellid,mqtt_light,pow(2,op_code) op_code,transid,medication_detailid</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_medicineid"><Ctrls>
+<Label Align="Right" Text="medicineid" Name="lb_medicineid" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_medicineid" Name="medicineid" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bottleid"><Ctrls>
+<Label Align="Right" Text="bottleid" Name="lb_bottleid" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_bottleid" Name="bottleid" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cabinetid"><Ctrls>
+<Label Align="Right" Text="cabinetid" Name="lb_cabinetid" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_cabinetid" Name="cabinetid" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cabinet_cellid"><Ctrls>
+<Label Align="Right" Text="cabinet_cellid" Name="lb_cabinet_cellid" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_cabinet_cellid" Name="cabinet_cellid" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_uptime" Visible="false"><Ctrls>
+<Label Align="Right" Text="uptime" overlap="pre" Name="lb_uptime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_uptime" overlap="pre" Name="uptime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_transid" Visible="false"><Ctrls>
+<Label Align="Right" Text="transid" overlap="pre" Name="lb_transid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_transid" overlap="pre" Name="transid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{transid}'"><SetVisible name="insertmedi_trans" Visible="0"/><SetVisible name="modifymedi_trans" Visible="1"/><else/><SetVisible name="insertmedi_trans" Visible="1"/><SetVisible name="modifymedi_trans" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_status" Visible="false"><Ctrls>
+<Label Align="Right" Text="status" overlap="pre" Name="lb_status" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_status" overlap="pre" Name="status" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

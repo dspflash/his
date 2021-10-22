@@ -1,0 +1,26 @@
+﻿<GroupBox Name="GBDEDITstocklocationinfo" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_stockno" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_stockno" Size="60,20" Text="stockno" Align="Right"/>
+<TextBox Name="stockno" Size="170,20" Text="" Weight="170" ToolTip="ttp_stockno"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_location_no" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_location_no" Size="60,20" Text="location_no" Align="Right"/>
+<TextBox Name="location_no" Size="170,20" Text="" Weight="170" ToolTip="ttp_location_no"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_location_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_location_name" Size="60,20" Text="location_name" Align="Right"/>
+<TextBox Name="location_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_location_name"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_location_guige" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_location_guige" Size="60,20" Text="location_guige" Align="Right"/>
+<TextBox Name="location_guige" Size="170,20" Text="" Weight="170" ToolTip="ttp_location_guige"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_location_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_location_status" Size="60,20" Text="location_status" Align="Right"/>
+<TextBox Name="location_status" Size="170,20" Text="" Weight="170" ToolTip="ttp_location_status"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_memo" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_memo" Size="60,20" Text="memo" Align="Right"/>
+<TextBox Name="memo" Size="170,20" Text="" Weight="170" ToolTip="ttp_memo"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

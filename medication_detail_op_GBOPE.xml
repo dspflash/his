@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEmedi_trans" Size="100,100"><Ctrls>
+<Button sqlpkinsert="transid" Text="create" ToolTip="ttp_createmedi_trans" Name="insertmedi_trans" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>his.medi_trans</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>medicationid[medicationid],medication_detailid[medication_detailid],medicineid[medicineid],bottleid[bottleid],cabinetid[cabinetid],cabinet_cellid[cellid],equipmentid[equipmentid],equipment_posid[equipmentid],equipment_pos_degree,qtyapply,qtyrelease</Data>
+<DataEx>opera,uptime;'%{operaid}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertmedi_trans[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="medi_transLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.medi_trans_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifymedi_trans" Name="modifymedi_trans" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>his.medi_trans</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>medicationid[medicationid],medication_detailid[medication_detailid],medicineid[medicineid],bottleid[bottleid],cabinetid[cabinetid],cabinet_cellid[cellid],equipmentid[equipmentid],equipment_posid[equipmentid],equipment_pos_degree,qtyapply,qtyrelease</Data>
+<DataEx>uptime;now()</DataEx>
+<Where>transid='%{transid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifymedi_trans[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="medi_transLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.medi_trans_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetmedi_trans" Name="resetmedi_trans" Size="50,20">
+<OnClick>
+<submit next="GBDEDITmedi_trans" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchmedi_trans" Name="gsearchmedi_trans" Size="50,20" visible="false">
+<OnClick>
+<search next="medi_transLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITmedi_trans" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

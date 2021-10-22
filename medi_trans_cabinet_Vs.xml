@@ -1,0 +1,28 @@
+﻿<GroupBox Name="GBDEDITmedi_trans" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_medication_detailid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medication_detailid" Size="60,20" Text="medication_detailid" Align="Right"/>
+<TextBox Name="medication_detailid" Size="170,20" Text="" Weight="170" ToolTip="ttp_medication_detailid">
+	<DbDetails fcsm="true">
+<Index>medication_detailid</Index>
+<DbTable>his.mt_cc_b_m</DbTable>
+<Data>medicineno,medicineno medicineid,bottleno bottleid,cabinetname cabinetid,cell cabinet_cellid,mqtt_light,op_code,transid,medication_detailid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_medicineid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medicineid" Size="60,20" Text="medicineid" Align="Right"/>
+<TextBox Name="medicineid" Size="170,20" Text="" Weight="170" ToolTip="ttp_medicineid"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bottleid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bottleid" Size="60,20" Text="bottleid" Align="Right"/>
+<TextBox Name="bottleid" Size="170,20" Text="" Weight="170" ToolTip="ttp_bottleid"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_cabinetid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cabinetid" Size="60,20" Text="cabinetid" Align="Right"/>
+<TextBox Name="cabinetid" Size="170,20" Text="" Weight="170" ToolTip="ttp_cabinetid"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right"/>
+<TextBox Name="status" Size="170,20" Text="" Weight="170" ToolTip="ttp_status"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

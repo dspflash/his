@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVcabinet_cell" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletecabinet_cell" Name="deletecabinet_cell" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>his.cabinet_cell</DbTable>
+<Where>cellid='%{cabinet_cellLst[cellid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchcabinet_cell" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshcabinet_cell" Name="searchcabinet_cell" Size="50,20">
+			  <OnClick><submit next="cabinet_cellLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPcabinet_cellLst" OnClick="(cabinet_cellLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREcabinet_cellLst" OnClick="(cabinet_cellLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPcabinet_cellLst" OnClick="(cabinet_cellLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

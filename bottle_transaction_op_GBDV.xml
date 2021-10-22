@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbottle_transaction"><Ctrls>
+<ListCtrl Heading="bottleid,100;medicineid,100;opera,55;uptime,150;weight_cur,90;uses_flag,20;reftbl,240;refid,100;bottle_transactionid,100;" loadedclick="0" ToolTip="ttp_bottle_transaction" Name="bottle_transactionLst" Size="300,450">
+	<DbDetails fcsm="1">
+<Index>bottle_transactionid</Index>
+<DbTable>his.bottle_transaction b left join his.bottle_info b0 on b.bottleid=b0.bottleid left join his.medicine_info m on b.medicineid=m.medicineid left join his.users u on b.opera=u.user_id</DbTable>
+<Data>b0.bottleno bottleid,m.medicinenocn medicineid,u.user_name opera,b.uptime,b.weight_cur,b.uses_flag,b.reftbl,b.refid,b.bottle_transactionid</Data>
+<Order>bottle_transactionid</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>bottle_transactionid='%{bottle_transaction_vLst[bottle_transactionid]}'</Where></DbDetails><submit next="$this.bottle_transaction_op.bottle_transactionLst" namelist="DbDetails"/><assign name="$this.bottle_transaction_op.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.bottle_transaction</DbTable>
+<Where>bottle_transactionid='%{bottle_transaction_vLst[bottle_transactionid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

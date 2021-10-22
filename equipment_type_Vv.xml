@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVequipment_type" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="equipment_type_vLst" ToolTip="ttp_equipment_type_v" Size="700,450" OnLoad="init" Heading="equipmenttypeno,250;equipmenttypename,250;equipmenttypeid,20;opera,55;uptime,150;" loadedclick="0">
+	<DbDetails >
+<Index>equipmenttypeid</Index>
+<DbTable>his.equipment_type e left join his.users u on e.opera=u.user_id</DbTable>
+<Data>e.equipmenttypeno,e.equipmenttypename,e.equipmenttypeid,u.user_name opera,e.uptime</Data>
+<Order>equipmenttypeid</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>equipmenttypeid='%{equipment_type_vLst[equipmenttypeid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.equipment_type.equipment_typeLst"/><assign name="$this.equipment_type.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.equipment_type</DbTable>
+<Where>equipmenttypeid='%{equipment_type_vLst[equipmenttypeid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_equipment_type" expr="js(%{equipment_type_vLst[currentpage]}+1)"/>
+<assign name="pgscb_equipment_type" expr="js(%{equipment_type_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,62 @@
+﻿<GroupBox Name="GBDEDITmedi_trans" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_medicationid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medicationid" Size="60,20" Text="medicationid" Align="Right"  onload="init" selectedIndex="0"/>
+<ComboBox Name="medicationid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_medicationid"  onload="init" selectedIndex="0">
+	<DbDetails>
+<Index>medicationid</Index>
+<DbTable>his.medication</DbTable>
+<Data>medication_no,medicationid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="medication_detailid"/></OnSelEndOk></ComboBox>
+<MagicCtrl Name="refreshmedicationid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="medicationid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_medication_detailid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medication_detailid" Size="60,20" Text="medication_detailid" Align="Right"/>
+<ComboBox Name="medication_detailid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_medication_detailid">
+	<DbDetails>
+<Index>medication_detailid</Index>
+<DbTable>his.medication_detail</DbTable>
+<Data>medicineno,medicineid,medication_detailid</Data>
+<Where>medicationid='%{medicationid[medicationid]}'</Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="medicineid"/><submit next="bottleid"/></OnSelEndOk></ComboBox>
+<MagicCtrl Name="refreshmedication_detailid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="medication_detailid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_medicineid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medicineid" Size="60,20" Text="medicineid" Align="Right"/>
+<ComboBox Name="medicineid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_medicineid">
+	<DbDetails>
+<Index>medicineid</Index>
+<DbTable>his.medicine_info</DbTable>
+<Data>medicinenocn,medicineid</Data>
+<Where>medicineid='%{medication_detailid[medicineid]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshmedicineid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="medicineid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_bottleid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bottleid" Size="60,20" Text="bottleid" Align="Right"/>
+<ComboBox Name="bottleid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_bottleid">
+	<DbDetails>
+<Index>bottleid</Index>
+<DbTable>his.bottle_info</DbTable>
+<Data>bottleno,bottleid</Data>
+<Where>medicineid='%{medication_detailid[medicineid]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshbottleid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="bottleid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_cabinetid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cabinetid" Size="60,20" Text="cabinetid" Align="Right"  onload="init"/>
+<ComboBox Name="cabinetid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_cabinetid"  onload="init">
+	<DbDetails>
+<Index>cabinetid</Index>
+<DbTable>his.cabinet</DbTable>
+<Data>cabinetname,cabinetid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="cabinet_cellid"/></OnSelEndOk></ComboBox>
+<MagicCtrl Name="refreshcabinetid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="cabinetid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_equipmentid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_equipmentid" Size="60,20" Text="equipmentid" Align="Right"  onload="init"/>
+<ComboBox Name="equipmentid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_equipmentid"  onload="init">
+	<DbDetails>
+<Index>equipmentid</Index>
+<DbTable>his.equipment</DbTable>
+<Data>equipmentno,equipmentid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="equipment_posid"/></OnSelEndOk></ComboBox>
+<MagicCtrl Name="refreshequipmentid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="equipmentid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEstockbaseinfo" Size="100,100"><Ctrls>
+<Button sqlpkinsert="stockid" Text="create" ToolTip="ttp_createstockbaseinfo" Name="insertstockbaseinfo" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>his.stockbaseinfo</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>stockno,stockname,guige,locations,memo,status,dispensaryid</Data>
+<DataEx>opera;'%{operaid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertstockbaseinfo[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="stockbaseinfoLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="0"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.stockbaseinfo_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifystockbaseinfo" Name="modifystockbaseinfo" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>his.stockbaseinfo</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>stockno,stockname,guige,locations,memo,status,dispensaryid</Data>
+<DataEx>opera;'%{operaid}'</DataEx>
+<Where>stockid='%{stockid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifystockbaseinfo[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="stockbaseinfoLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.stockbaseinfo_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetstockbaseinfo" Name="resetstockbaseinfo" Size="50,20">
+<OnClick>
+<submit next="GBDEDITstockbaseinfo" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchstockbaseinfo" Name="gsearchstockbaseinfo" Size="50,20" visible="false">
+<OnClick>
+<search next="stockbaseinfoLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITstockbaseinfo" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

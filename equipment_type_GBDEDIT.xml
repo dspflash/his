@@ -1,0 +1,28 @@
+﻿<GroupBox Name="GBDEDITequipment_type"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_equipmenttypeno"><Ctrls>
+<Label Align="Right" Text="equipmenttypeno" Name="lb_equipmenttypeno" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_equipmenttypeno" Name="equipmenttypeno" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_equipmenttypename"><Ctrls>
+<Label Align="Right" Text="equipmenttypename" Name="lb_equipmenttypename" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_equipmenttypename" Name="equipmenttypename" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_equipmenttypeid" Visible="false"><Ctrls>
+<Label Align="Right" Text="equipmenttypeid" overlap="pre" Name="lb_equipmenttypeid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_equipmenttypeid" overlap="pre" Name="equipmenttypeid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{equipmenttypeid}'"><SetVisible name="insertequipment_type" Visible="0"/><SetVisible name="modifyequipment_type" Visible="1"/><else/><SetVisible name="insertequipment_type" Visible="1"/><SetVisible name="modifyequipment_type" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_uptime" Visible="false"><Ctrls>
+<Label Align="Right" Text="uptime" overlap="pre" Name="lb_uptime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_uptime" overlap="pre" Name="uptime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

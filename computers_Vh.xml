@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVcomputers" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="computersLst" ToolTip="ttp_computers" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>computerid</Index>
+<DbTable>his.computers</DbTable>
+<Data>computer_name,computer_mac,computer_ip,memo,delemp,deltime,valid,opera,uptime,computerid,dispensaryid</Data>
+<Order>computerid</Order></DbDetails>
+<OnClick><assign name="delemp[user_id]" expr="%{computersLst[delemp]}" function="SetSel"/><assign name="opera[user_id]" expr="%{computersLst[opera]}" function="SetSel"/>
+<if cond="'%{computerid}'"><SetVisible name="insertcomputers" Visible="0"/><SetVisible name="modifycomputers" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,41 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEcabinet_cell" Size="100,100"><Ctrls>
+<Button sqlpkinsert="cellid" Text="create" ToolTip="ttp_createcabinet_cell" Name="insertcabinet_cell" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>his.cabinet_cell</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>cell_row,cell_col,op_idx,op_code,cabinetid</Data>
+<DataEx>uptime,opera;now(),'%{operaid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertcabinet_cell[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="cabinet_cellLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.cabinet_cell_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifycabinet_cell" Name="modifycabinet_cell" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>his.cabinet_cell</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>cell_row,cell_col,op_idx,op_code,cabinetid</Data>
+<DataEx>uptime,opera;now(),'%{operaid}'</DataEx>
+<Where>cellid='%{cellid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifycabinet_cell[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="cabinet_cellLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.cabinet_cell_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetcabinet_cell" Name="resetcabinet_cell" Size="50,20">
+<OnClick>
+<submit next="GBDEDITcabinet_cell" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchcabinet_cell" Name="gsearchcabinet_cell" Size="50,20" visible="false">
+<OnClick>
+<search next="cabinet_cellLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITcabinet_cell" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="light" ToolTip="ttp_light_cabinet" Name="light_cabinet" Size="100,20">
+<OnClick>
+<DbDetails> <DbDatabase>mqtt</DbDatabase> <datatype>mqtt</datatype> <queryFormat>set devices/%{$parent.cabinet.cabinetno}/light%{op_idx}='%{cellopcode}'</queryFormat> </DbDetails><submit namelist="DbDetails"/>	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

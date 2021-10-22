@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVxiefang_detail" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletexiefang_detail" Name="deletexiefang_detail" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>his.xiefang_detail</DbTable>
+<Where>xiefang_detailid='%{xiefang_detailLst[xiefang_detailid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchxiefang_detail" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshxiefang_detail" Name="searchxiefang_detail" Size="50,20">
+			  <OnClick><submit next="xiefang_detailLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPxiefang_detailLst" OnClick="(xiefang_detailLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PRExiefang_detailLst" OnClick="(xiefang_detailLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPxiefang_detailLst" OnClick="(xiefang_detailLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,39 @@
+﻿<Language name="bottle_transaction">
+<Lang name="bottle_transaction" value="药瓶日志"/>
+<Lang name="bottle_transaction_v" value="药瓶日志"/>
+<Lang name="TabEditbottle_transaction" value="bottle_transaction Edit"/>
+<Lang name="TabViewbottle_transaction" value="bottle_transaction View"/>
+<!--Lang name="bottleid" value="药瓶"/>
+<Lang name="ttp_bottleid" value=""/>
+<Lang name="medicineid" value="药品"/>
+<Lang name="ttp_medicineid" value=""/>
+<Lang name="opera" value="操作者"/>
+<Lang name="ttp_opera" value="操作者"/>
+<Lang name="uptime" value="更新时间"/>
+<Lang name="ttp_uptime" value="更新时间"/>
+<Lang name="weight_cur" value="当前重量"/>
+<Lang name="ttp_weight_cur" value="当前重量"/>
+<Lang name="uses_flag" value="使用状态"/>
+<Lang name="ttp_uses_flag" value="使用状态"/>
+<Lang name="reftbl" value=""/>
+<Lang name="ttp_reftbl" value=""/>
+<Lang name="refid" value=""/>
+<Lang name="ttp_refid" value=""/>
+<Lang name="bottle_transactionid" value=""/>
+<Lang name="ttp_bottle_transactionid" value=""/>
+<Lang name="ttp_operationbottle_transaction" value=""/>
+<Lang name="ttp_createbottle_transaction" value=""/>
+<Lang name="ttp_modifybottle_transaction" value=""/>
+<Lang name="ttp_resetbottle_transaction" value=""/>
+<Lang name="ttp_deletebottle_transaction" value=""/>
+<Lang name="ttp_refreshbottle_transaction" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/-->
+</Language>

@@ -1,0 +1,47 @@
+﻿<GroupBox Name="GBDEDITmedication" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="medication" Text="medication" feature="tab"><Ctrls>
+<GroupBox Name="GB_medication_no" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medication_no" Size="60,20" Text="medication_no" Align="Right"/>
+<TextBox Name="medication_no" Size="170,20" Text="" Weight="170" ToolTip="ttp_medication_no"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_dispensaryid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_dispensaryid" Size="60,20" Text="dispensaryid" Align="Right"  onload="init"/>
+<ComboBox Name="dispensaryid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_dispensaryid"  onload="init">
+	<DbDetails>
+<Index>dispensaryid</Index>
+<DbTable>his.dispensary</DbTable>
+<Data>dispensaryname,dispensaryid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshdispensaryid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="dispensaryid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_dept_category" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_dept_category" Size="60,20" Text="dept_category" Align="Right"  onload="init"/>
+<ComboBox Name="dept_category" Size="150,100" Text="" Weight="150"  ToolTip="ttp_dept_category"  onload="init">
+	<DbDetails>
+<Index>dept_categoryid</Index>
+<DbTable>his.dept_category</DbTable>
+<Data>dept_categoryname,dept_categoryid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshdept_category" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="dept_category"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right"  onload="init"/>
+<ComboBox Name="status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_status"  onload="init">
+	<DbDetails>
+<Index>statuscode</Index>
+<DbTable>his.status_option</DbTable>
+<Data>statusname,statuscode</Data>
+<Where>statustype=2</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_doctor_no" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_doctor_no" Size="60,20" Text="doctor_no" Align="Right"/>
+<TextBox Name="doctor_no" Size="170,20" Text="" Weight="170" ToolTip="ttp_doctor_no"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR NULLHeight="1"/><GroupBox Name="patient" Text="patient" feature="tab"><Ctrls>
+<GroupBox Name="GB_patient_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_patient_name" Size="60,20" Text="patient_name" Align="Right"/>
+<TextBox Name="patient_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_patient_name"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox></Ctrls></GroupBox>

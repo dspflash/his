@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVequipment" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="equipment_vLst" ToolTip="ttp_equipment_v" Size="700,450" OnLoad="init" Heading="equipmentno,100;equipmentname,250;ip,250;cabinetid,120;equipmenttypeid,120;status,60;equipmentid,55;opera,55;uptime,150;computerid,120;" loadedclick="0">
+	<DbDetails >
+<Index>equipmentid</Index>
+<DbTable>his.equipment e left join his.cabinet c on e.cabinetid=c.cabinetid left join his.equipment_type e0 on e.equipmenttypeid=e0.equipmenttypeid left join his.users u on e.opera=u.user_id left join his.computers c0 on e.computerid=c0.computerid</DbTable>
+<Data>e.equipmentno,e.equipmentname,e.ip,c.cabinetname cabinetid,e0.equipmenttypeno equipmenttypeid,e.status,e.equipmentid,u.user_name opera,e.uptime,c0.computer_name computerid</Data>
+<Order>equipmentid</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>equipmentid='%{equipment_vLst[equipmentid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.equipment.equipmentLst"/><assign name="$this.equipment.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.equipment</DbTable>
+<Where>equipmentid='%{equipment_vLst[equipmentid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_equipment" expr="js(%{equipment_vLst[currentpage]}+1)"/>
+<assign name="pgscb_equipment" expr="js(%{equipment_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

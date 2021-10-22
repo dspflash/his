@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVdispensary" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="dispensaryLst" ToolTip="ttp_dispensary" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>dispensaryid</Index>
+<DbTable>his.dispensary</DbTable>
+<Data>dispensaryno,dispensaryname,memo,delemp,deltime,status,opera,uptime,dispensaryid,hospitalid</Data>
+<Order>dispensaryid</Order></DbDetails>
+<OnClick><assign name="opera[user_id]" expr="%{dispensaryLst[opera]}" function="SetSel"/>
+<if cond="'%{dispensaryid}'"><SetVisible name="insertdispensary" Visible="0"/><SetVisible name="modifydispensary" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

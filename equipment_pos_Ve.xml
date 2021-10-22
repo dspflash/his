@@ -1,0 +1,13 @@
+﻿<WndTap Name="equipment_pos" Text="equipment_pos" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="equipmentid"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\equipment_pos.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBequipment_pos" id="equipment_pos" Text="equipment_pos" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="equipment_pos_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="equipment_pos_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="equipment_pos_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertequipment_pos" Visible="1"/><SetVisible name="modifyequipment_pos" Visible="0"/></OnActivate>
+</WndTap>

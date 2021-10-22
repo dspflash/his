@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGxiefang_t"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_xiefang_t" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>xiefangid</Index>
+<DbTable>his.xiefang_t x left join his.dept_category d on x.dept_category=d.dept_categoryid left join his.status_option s on x.medication_type=s.statuscode left join his.users u on x.opera=u.user_id</DbTable>
+<Data>count(*) records</Data>
+<Order>xiefangid</Order><Queryformat>select %{data} from (select x.xiefangid from %{dbtable} %{where} GROUP BY x.xiefangid  ORDER BY x.xiefangid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_xiefang_t" expr="js(Math.ceil(%{records_xiefang_t}/%{xiefang_t_vLst[countsperpage]}))"/>
+<assign name="pgscb_xiefang_t" expr="js('1~'+Math.ceil(%{records_xiefang_t}/%{xiefang_t_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_xiefang_t" Size="60,20"><OnSelEndOK><submit next="xiefang_t_vLst" function="GetPage(%{pgscb_xiefang_t}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_xiefang_t" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_xiefang_t" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagexiefang_t_vLst" Size="50,20"><OnClick><submit next="xiefang_t_vLst" function="GetPage(%{pgcur_xiefang_t}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

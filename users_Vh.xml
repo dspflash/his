@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVusers" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="usersLst" ToolTip="ttp_users" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_pass,user_role,real_name,memo,dept_info,ap_name,user_str,user_id</Data>
+<Order>user_id</Order></DbDetails>
+<OnClick><assign name="user_role[role_id]" expr="%{usersLst[user_role]}" function="SetSel"/><assign name="dept_info[departmentid]" expr="%{usersLst[dept_info]}" function="SetSel"/>
+<if cond="'%{user_id}'"><SetVisible name="insertusers" Visible="0"/><SetVisible name="modifyusers" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

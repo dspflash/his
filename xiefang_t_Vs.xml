@@ -1,0 +1,34 @@
+﻿<GroupBox Name="GBDEDITxiefang_t" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_xiefang_no" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_xiefang_no" Size="60,20" Text="xiefang_no" Align="Right"/>
+<TextBox Name="xiefang_no" Size="170,20" Text="" Weight="170" ToolTip="ttp_xiefang_no"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_xiefang_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_xiefang_name" Size="60,20" Text="xiefang_name" Align="Right"/>
+<TextBox Name="xiefang_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_xiefang_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_dept_category" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_dept_category" Size="60,20" Text="dept_category" Align="Right"  onload="init"/>
+<ComboBox Name="dept_category" Size="170,100" Text="" Weight="170"  ToolTip="ttp_dept_category"  onload="init">
+	<DbDetails>
+<Index>dept_categoryid</Index>
+<DbTable>his.dept_category</DbTable>
+<Data>dept_categoryname,dept_categoryid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_medication_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medication_type" Size="60,20" Text="medication_type" Align="Right"  onload="init"/>
+<ComboBox Name="medication_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_medication_type"  onload="init">
+	<DbDetails>
+<Index>statuscode</Index>
+<DbTable>his.status_option</DbTable>
+<Data>statusname,statuscode</Data>
+<Where>statustype=4</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_xiefang_forill" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_xiefang_forill" Size="60,20" Text="xiefang_forill" Align="Right"/>
+<TextBox Name="xiefang_forill" Size="170,20" Text="" Weight="170" ToolTip="ttp_xiefang_forill"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

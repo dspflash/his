@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVmedicine_control" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="medicine_control_vLst" ToolTip="ttp_medicine_control_v" Size="700,450" OnLoad="init" Heading="medicineid,55;relation,120;medicine2id,55;explains,250;uptime,150;opera,55;controlid,55;" loadedclick="0">
+	<DbDetails >
+<Index>controlid</Index>
+<DbTable>his.medicine_control m left join his.medicine_info m0 on m.medicineid=m0.medicineid left join his.medicine_control_type m1 on m.relation=m1.relationid left join his.medicine_info m2 on m.medicine2id=m2.medicineid left join his.users u on m.opera=u.user_id</DbTable>
+<Data>m0.medicinenocn medicineid,m1.relationtype relation,m2.medicinenocn medicine2id,m.explains,m.uptime,u.user_name opera,m.controlid</Data>
+<Order>controlid</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>controlid='%{medicine_control_vLst[controlid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.medicine_control.medicine_controlLst"/><assign name="$this.medicine_control.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.medicine_control</DbTable>
+<Where>controlid='%{medicine_control_vLst[controlid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_medicine_control" expr="js(%{medicine_control_vLst[currentpage]}+1)"/>
+<assign name="pgscb_medicine_control" expr="js(%{medicine_control_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

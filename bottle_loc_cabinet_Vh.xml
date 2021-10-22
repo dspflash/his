@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbottle_loc_cabinet" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bottle_loc_cabinetLst" ToolTip="ttp_bottle_loc_cabinet" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>locationid</Index>
+<DbTable>his.bottle_loc_cabinet</DbTable>
+<Data>bottleid,medicineid,medicineno,cabinetid,cellid,opera,uptime,locationid</Data>
+<Order>locationid</Order></DbDetails>
+<OnClick><assign name="bottleid[bottleid]" expr="%{bottle_loc_cabinetLst[bottleid]}" function="SetSel"/><assign name="medicineid[medicineid]" expr="%{bottle_loc_cabinetLst[medicineid]}" function="SetSel"/><assign name="cabinetid[cabinetid]" expr="%{bottle_loc_cabinetLst[cabinetid]}" function="SetSel"/><assign name="cellid[cellid]" expr="%{bottle_loc_cabinetLst[cellid]}" function="SetSel"/><assign name="opera[user_id]" expr="%{bottle_loc_cabinetLst[opera]}" function="SetSel"/>
+<if cond="'%{locationid}'"><SetVisible name="insertbottle_loc_cabinet" Visible="0"/><SetVisible name="modifybottle_loc_cabinet" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

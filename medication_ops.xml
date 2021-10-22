@@ -1,0 +1,18 @@
+﻿<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<EvalTbl rules="" table="medication_ops">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/medication_ops.xml"/></rules>
+<inputs status="%{medication_vLst[statusid]}" layid="%{layid}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="check" needconfirm="1"><DbDetails>
+<DbTable>his.medication</DbTable>
+<Where>medicationid='%{medication_vLst[medicationid]}'</Where>
+<queryFormat>UPDATE medication m LEFT JOIN md_mc_ctrl c ON m.medicationid=c.medicationid SET m.status=204 WHERE m.%{where} AND c.controlid IS null</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+<op text="issue"><DbDetails><Where>medicationid='%{medication_vLst[medicationid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.medication_print.medicationLst"/><assign name="$this.medication_print.frmwndctrl" expr="%{this}"/></op>
+<op text="modify"><DbDetails><Where>medicationid='%{medication_vLst[medicationid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.medication.medicationLst"/><assign name="$this.medication.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.medication</DbTable>
+<Where>medicationid='%{medication_vLst[medicationid]}'</Where>
+<queryFormat>update %{table} set isdel=1 where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

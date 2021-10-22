@@ -1,0 +1,20 @@
+﻿<WndTap Name="instock_log_v" Text="instock_log_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="instock_log_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><medicineid format="i.medicineid='%{opvalue}'"/><medicineno format="(i.medicineno like '%%{opvalue}%')"/><bottleid format="i.bottleid='%{opvalue}'"/><intype format="i.intype='%{opvalue}'"/><receiveempid format="i.receiveempid='%{opvalue}'"/><receiveemp format="(i.receiveemp like '%%{opvalue}%')"/><stockno format="i.stockno='%{opvalue}'"/><locationno format="i.locationno='%{opvalue}'"/><bottleno format="(i.bottleno like '%%{opvalue}%')"/><manufacturer format="(i.manufacturer like '%%{opvalue}%')"/><weight format="(i.weight like '%%{opvalue}%')"/><validday format="(i.validday like '%%{opvalue}%')"/><memo format="(i.memo like '%%{opvalue}%')"/><inserttime format="(i.inserttime between '%{inserttime[datetime]}' and '%{inserttime[datetime2]}')"/><delemp format="(i.delemp like '%%{opvalue}%')"/><deltime format="(i.deltime between '%{deltime[datetime]}' and '%{deltime[datetime2]}')"/><opera format="i.opera='%{opvalue}'"/><inempid format="i.inempid='%{opvalue}'"/><inemp format="i.inemp='%{opvalue}'"/><instockid format="(i.instockid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\instock_log.xml"/>
+<Ctrls><GroupBox  Name="GBinstock_log" id="instock_log" Text="instock_log" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="instock_log_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVinstock_log" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.instock_log.GBDEDITinstock_log" function="reset"/><assign name="$this.instock_log.frmwndctrl" expr="%{$this.instock_log_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetinstock_log" Name="resetinstock_log" Size="50,20">	<OnClick>	<submit next="GBDEDITinstock_log" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchinstock_log" Name="gsearchinstock_log" Size="50,20">	<OnClick>	
+<search next="instock_log_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITinstock_log" namelist="search" function="search"/>	
+<search next="records_instock_log" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITinstock_log" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="instock_log_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="instock_log_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="instock_log_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

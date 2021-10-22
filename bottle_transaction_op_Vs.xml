@@ -1,0 +1,30 @@
+﻿<GroupBox Name="GBDEDITbottle_transaction" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_bottleid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bottleid" Size="60,20" Text="bottleid" Align="Right"/>
+<TextBox Name="bottleid" Size="170,20" Text="" Weight="170" ToolTip="ttp_bottleid">
+	<DbDetails>
+<Index>bottleid</Index>
+<DbTable>his.bottle_info</DbTable>
+<Data>bottleno,medicineid,bottleid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnEnChange><submit next="medicineid"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_medicineid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medicineid" Size="60,20" Text="medicineid" Align="Right"/>
+<TextBox Name="medicineid" Size="170,20" Text="" Weight="170" ToolTip="ttp_medicineid">
+	<DbDetails>
+<Index>medicineid</Index>
+<DbTable>his.medicine_info</DbTable>
+<Data>medicinenocn,medicineid</Data>
+<Where>medicineid='%{bottleid[medicineid]}'</Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_weight_cur" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_weight_cur" Size="60,20" Text="weight_cur" Align="Right"/>
+<TextBox Name="weight_cur" Size="170,20" Text="" Weight="170" ToolTip="ttp_weight_cur"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_uses_flag" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_uses_flag" Size="60,20" Text="uses_flag" Align="Right"/>
+<TextBox Name="uses_flag" Size="170,20" Text="" Weight="170" ToolTip="ttp_uses_flag"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

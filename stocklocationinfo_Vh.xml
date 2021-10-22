@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVstocklocationinfo" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="stocklocationinfoLst" ToolTip="ttp_stocklocationinfo" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>locationid</Index>
+<DbTable>his.stocklocationinfo</DbTable>
+<Data>stockno,location_no,location_name,location_guige,location_status,memo,insert_time,delemp,deltime,opera,locationid,stockid</Data>
+<Order>locationid</Order></DbDetails>
+<OnClick><assign name="opera[user_id]" expr="%{stocklocationinfoLst[opera]}" function="SetSel"/>
+<if cond="'%{locationid}'"><SetVisible name="insertstocklocationinfo" Visible="0"/><SetVisible name="modifystocklocationinfo" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

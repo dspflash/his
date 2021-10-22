@@ -1,0 +1,37 @@
+﻿<Language name="cabinet_cell">
+<Lang name="cabinet_cell" value="药格"/>
+<Lang name="cell" value="药格"/>
+<Lang name="TabEditcabinet_cell" value="cabinet_cell Edit"/>
+<Lang name="TabViewcabinet_cell" value="cabinet_cell View"/>
+<Lang name="cell_row" value="行"/>
+<Lang name="ttp_cell_row" value=""/>
+<Lang name="cell_col" value="列"/>
+<Lang name="ttp_cell_col" value=""/>
+<Lang name="op_idx" value="操作系列"/>
+<Lang name="ttp_op_idx" value="modbus regs index, eg:1,2,3,4,5"/>
+<Lang name="op_code" value="操作参数"/>
+<Lang name="ttp_op_code" value="modbus reg code,eg:0,1,2,3,4,...,15"/>
+<Lang name="cabinetid" value="药柜"/>
+<Lang name="ttp_cabinetid" value=""/>
+<Lang name="cellid" value="药格"/>
+<Lang name="ttp_cellid" value=""/>
+<Lang name="uptime" value=""/>
+<Lang name="ttp_uptime" value=""/>
+<Lang name="opera" value=""/>
+<Lang name="ttp_opera" value=""/>
+<Lang name="ttp_operationcabinet_cell" value=""/>
+<Lang name="ttp_createcabinet_cell" value=""/>
+<Lang name="ttp_modifycabinet_cell" value=""/>
+<Lang name="ttp_resetcabinet_cell" value=""/>
+<Lang name="ttp_deletecabinet_cell" value=""/>
+<Lang name="ttp_refreshcabinet_cell" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

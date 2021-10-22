@@ -1,0 +1,22 @@
+﻿<WndTap Name="computers_pick" Text="computers_Pick">
+<var name="searchtmpl"><computer_name format="(c.computer_name like '%%{opvalue}%')"/><computer_mac format="(c.computer_mac like '%%{opvalue}%')"/><computer_ip format="(c.computer_ip like '%%{opvalue}%')"/><memo format="(c.memo like '%%{opvalue}%')"/><delemp format="c.delemp='%{opvalue}'"/><deltime format="(c.deltime between '%{deltime[datetime]}' and '%{deltime[datetime2]}')"/><valid format="(c.valid like '%%{opvalue}%')"/><opera format="c.opera='%{opvalue}'"/><uptime format="(c.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><computerid format="(c.computerid like '%%{opvalue}%')"/><dispensaryid format="(c.dispensaryid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\computers.xml"/>
+<Ctrls><GroupBox  Name="GBcomputers" id="computers" Text="computers" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="computers_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVcomputers" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetcomputers" Name="resetcomputers" Size="50,20">	<OnClick>	<submit next="GBDEDITcomputers" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchcomputers" Name="gsearchcomputers" Size="50,20">	<OnClick>	
+<search next="computers_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITcomputers" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVcomputers" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="computers_vLst" ToolTip="ttp_computers_v" Size="700,450" Heading="computer_name,200;computer_mac,200;computer_ip,200;memo,250;delemp,55;deltime,150;valid,20;opera,55;uptime,150;computerid,55;dispensaryid,55;" loadedclick="0">
+	<DbDetails >
+<Index>computerid</Index>
+<DbTable>his.computers c left join his.users u on c.delemp=u.user_id left join his.users u0 on c.opera=u0.user_id</DbTable>
+<Data>c.computer_name,c.computer_mac,c.computer_ip,c.memo,u.user_name delemp,c.deltime,c.valid,u0.user_name opera,c.uptime,c.computerid,c.dispensaryid</Data>
+<Order>computerid</Order></DbDetails>
+<OnClick><if cond="%{computers_vLst[computerid]}"><DbDetails><Where>computerid='%{computers_vLst[computerid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

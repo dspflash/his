@@ -1,0 +1,16 @@
+﻿<GroupBox Name="GBDEDITbottle_info" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_bottleno" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bottleno" Size="60,20" Text="bottleno" Align="Right"/>
+<TextBox Name="bottleno" Size="170,20" Text="" Weight="170" ToolTip="ttp_bottleno"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_medicineid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medicineid" Size="60,20" Text="medicineid" Align="Right"/>
+<TextBox Name="medicineid" Size="150,20" Text="" Weight="150" ToolTip="ttp_medicineid">
+	<DbDetails fcsm="true">
+<Index>medicineid</Index>
+<DbTable>his.medicine_info</DbTable>
+<Data>medicinenocn,medicineno,medicineid</Data>
+<Where>!isdel</Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+<MagicCtrl Name="pickmedicineid" Link="tip:Pick" images=",data/search.png" button="type:0" Size="20,20"><OnClick><assign name="$this.medicine_info_pick.frmwndctrl" expr="medicineid"/><DbDetails><Where></Where></DbDetails><submit namelist="DbDetails" next="$this.medicine_info_pick.medicine_info_vLst"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDEDITcomputers" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_computer_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_computer_name" Size="60,20" Text="computer_name" Align="Right"/>
+<TextBox Name="computer_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_computer_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_computer_mac" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_computer_mac" Size="60,20" Text="computer_mac" Align="Right"/>
+<TextBox Name="computer_mac" Size="170,20" Text="" Weight="170" ToolTip="ttp_computer_mac"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

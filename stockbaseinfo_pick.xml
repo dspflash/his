@@ -1,0 +1,22 @@
+﻿<WndTap Name="stockbaseinfo_pick" Text="stockbaseinfo_Pick">
+<var name="searchtmpl"><stockno format="(s.stockno like '%%{opvalue}%')"/><stockname format="(s.stockname like '%%{opvalue}%')"/><guige format="(s.guige like '%%{opvalue}%')"/><locations format="(s.locations like '%%{opvalue}%')"/><memo format="(s.memo like '%%{opvalue}%')"/><delemp format="(s.delemp like '%%{opvalue}%')"/><deltime format="(s.deltime between '%{deltime[datetime]}' and '%{deltime[datetime2]}')"/><status format="(s.status like '%%{opvalue}%')"/><opera format="s.opera='%{opvalue}'"/><uptime format="(s.uptime between '%{uptime[datetime]}' and '%{uptime[datetime2]}')"/><stockid format="(s.stockid like '%%{opvalue}%')"/><dispensaryid format="(s.dispensaryid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\stockbaseinfo.xml"/>
+<Ctrls><GroupBox  Name="GBstockbaseinfo" id="stockbaseinfo" Text="stockbaseinfo" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stockbaseinfo_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVstockbaseinfo" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetstockbaseinfo" Name="resetstockbaseinfo" Size="50,20">	<OnClick>	<submit next="GBDEDITstockbaseinfo" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchstockbaseinfo" Name="gsearchstockbaseinfo" Size="50,20">	<OnClick>	
+<search next="stockbaseinfo_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITstockbaseinfo" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVstockbaseinfo" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="stockbaseinfo_vLst" ToolTip="ttp_stockbaseinfo_v" Size="700,450" Heading="stockno,25;stockname,250;guige,250;locations,250;memo,250;delemp,55;deltime,150;status,20;opera,55;uptime,150;stockid,55;dispensaryid,55;" loadedclick="0">
+	<DbDetails >
+<Index>stockid</Index>
+<DbTable>his.stockbaseinfo s left join his.users u on s.opera=u.user_id</DbTable>
+<Data>s.stockno,s.stockname,s.guige,s.locations,s.memo,s.delemp,s.deltime,s.status,u.user_name opera,s.uptime,s.stockid,s.dispensaryid</Data>
+<Order>stockid</Order></DbDetails>
+<OnClick><if cond="%{stockbaseinfo_vLst[stockid]}"><DbDetails><Where>stockid='%{stockbaseinfo_vLst[stockid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

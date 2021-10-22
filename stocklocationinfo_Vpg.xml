@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGstocklocationinfo"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_stocklocationinfo" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>locationid</Index>
+<DbTable>his.stocklocationinfo s left join his.users u on s.opera=u.user_id</DbTable>
+<Data>count(*) records</Data>
+<Order>locationid</Order><Queryformat>select %{data} from (select s.locationid from %{dbtable} %{where} GROUP BY s.locationid  ORDER BY s.locationid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_stocklocationinfo" expr="js(Math.ceil(%{records_stocklocationinfo}/%{stocklocationinfo_vLst[countsperpage]}))"/>
+<assign name="pgscb_stocklocationinfo" expr="js('1~'+Math.ceil(%{records_stocklocationinfo}/%{stocklocationinfo_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_stocklocationinfo" Size="60,20"><OnSelEndOK><submit next="stocklocationinfo_vLst" function="GetPage(%{pgscb_stocklocationinfo}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_stocklocationinfo" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_stocklocationinfo" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagestocklocationinfo_vLst" Size="50,20"><OnClick><submit next="stocklocationinfo_vLst" function="GetPage(%{pgcur_stocklocationinfo}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

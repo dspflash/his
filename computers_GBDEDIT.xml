@@ -1,0 +1,58 @@
+﻿<GroupBox Name="GBDEDITcomputers"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_computer_name"><Ctrls>
+<Label Align="Right" Text="computer_name" Name="lb_computer_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_computer_name" Name="computer_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_computer_mac"><Ctrls>
+<Label Align="Right" Text="computer_mac" Name="lb_computer_mac" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_computer_mac" Name="computer_mac" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_computer_ip"><Ctrls>
+<Label Align="Right" Text="computer_ip" Name="lb_computer_ip" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_computer_ip" Name="computer_ip" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_memo"><Ctrls>
+<Label Align="Right" Text="memo" Name="lb_memo" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_memo" Name="memo" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_delemp" Visible="false"><Ctrls>
+<Label Align="Right" Text="delemp" overlap="pre" Name="lb_delemp" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_delemp" overlap="pre" Name="delemp" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_deltime" Visible="false"><Ctrls>
+<Label Align="Right" Text="deltime" overlap="pre" Name="lb_deltime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_deltime" overlap="pre" Name="deltime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_valid"><Ctrls>
+<Label Align="Right" Text="valid" Name="lb_valid" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_valid" Name="valid" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_uptime" Visible="false"><Ctrls>
+<Label Align="Right" Text="uptime" overlap="pre" Name="lb_uptime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_uptime" overlap="pre" Name="uptime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_computerid" Visible="false"><Ctrls>
+<Label Align="Right" Text="computerid" overlap="pre" Name="lb_computerid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_computerid" overlap="pre" Name="computerid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{computerid}'"><SetVisible name="insertcomputers" Visible="0"/><SetVisible name="modifycomputers" Visible="1"/><else/><SetVisible name="insertcomputers" Visible="1"/><SetVisible name="modifycomputers" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_dispensaryid" Visible="false"><Ctrls>
+<Label Align="Right" Text="dispensaryid" overlap="pre" Name="lb_dispensaryid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_dispensaryid" overlap="pre" Name="dispensaryid" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

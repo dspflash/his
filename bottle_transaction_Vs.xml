@@ -1,0 +1,32 @@
+﻿<GroupBox Name="GBDEDITbottle_transaction" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_bottleid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bottleid" Size="60,20" Text="bottleid" Align="Right"  onload="init"/>
+<ComboBox Name="bottleid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_bottleid"  onload="init">
+	<DbDetails>
+<Index>bottleid</Index>
+<DbTable>his.bottle_info</DbTable>
+<Data>bottleno,bottleid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshbottleid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="bottleid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_medicineid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medicineid" Size="60,20" Text="medicineid" Align="Right"  onload="init"/>
+<ComboBox Name="medicineid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_medicineid"  onload="init">
+	<DbDetails>
+<Index>medicineid</Index>
+<DbTable>his.medicine_info</DbTable>
+<Data>medicinenocn,medicineid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshmedicineid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="medicineid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_uses_flag" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_uses_flag" Size="60,20" Text="uses_flag" Align="Right"  onload="init"/>
+<ComboBox Name="uses_flag" Size="170,100" Text="" Weight="170"  ToolTip="ttp_uses_flag"  onload="init">
+	<DbDetails>
+<Index>statuscode</Index>
+<DbTable>his.status_option</DbTable>
+<Data>statusname,statuscode</Data>
+<Where>statustype=1</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

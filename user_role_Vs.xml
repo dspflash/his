@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDEDITuser_role" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_role_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_role_name" Size="60,20" Text="role_name" Align="Right"/>
+<TextBox Name="role_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_role_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_layout" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_layout" Size="60,20" Text="layout" Align="Right"/>
+<TextBox Name="layout" Size="170,20" Text="" Weight="170" ToolTip="ttp_layout"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

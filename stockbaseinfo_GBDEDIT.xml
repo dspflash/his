@@ -1,0 +1,56 @@
+﻿<GroupBox Name="GBDEDITstockbaseinfo"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_stockno"><Ctrls>
+<Label Align="Right" Text="stockno" Name="lb_stockno" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_stockno" Name="stockno" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_stockname"><Ctrls>
+<Label Align="Right" Text="stockname" Name="lb_stockname" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_stockname" Name="stockname" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_guige"><Ctrls>
+<Label Align="Right" Text="guige" Name="lb_guige" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_guige" Name="guige" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_locations"><Ctrls>
+<Label Align="Right" Text="locations" Name="lb_locations" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_locations" Name="locations" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_memo"><Ctrls>
+<Label Align="Right" Text="memo" Name="lb_memo" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_memo" Name="memo" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_delemp" Visible="false"><Ctrls>
+<Label Align="Right" Text="delemp" overlap="pre" Name="lb_delemp" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_delemp" overlap="pre" Name="delemp" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_deltime" Visible="false"><Ctrls>
+<Label Align="Right" Text="deltime" overlap="pre" Name="lb_deltime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_deltime" overlap="pre" Name="deltime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" Name="lb_status" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_status" Name="status" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_uptime" Visible="false"><Ctrls>
+<Label Align="Right" Text="uptime" overlap="pre" Name="lb_uptime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_uptime" overlap="pre" Name="uptime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_stockid" Visible="false"><Ctrls>
+<Label Align="Right" Text="stockid" overlap="pre" Name="lb_stockid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_stockid" overlap="pre" Name="stockid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{stockid}'"><SetVisible name="insertstockbaseinfo" Visible="0"/><SetVisible name="modifystockbaseinfo" Visible="1"/><else/><SetVisible name="insertstockbaseinfo" Visible="1"/><SetVisible name="modifystockbaseinfo" Visible="0"/></if><if cond="'%{stockid}'"><DbDetails><Where>stockid='%{stockid}'</Where></DbDetails><submit next="stocklocationinfo_vLst" namelist="DbDetails"/><else/><submit next="stocklocationinfo_vLst" function="resetcontent"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_dispensaryid" Visible="false"><Ctrls>
+<Label Align="Right" Text="dispensaryid" overlap="pre" Name="lb_dispensaryid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_dispensaryid" overlap="pre" Name="dispensaryid" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

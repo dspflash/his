@@ -1,0 +1,9 @@
+﻿<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="addone" mustselected="0"><if cond="!%{medicationid}"><alert expr="medicationid is Empty!"/><else/><submit next="$parent.medication_detail.GBDEDITmedication_detail" function="reset"/><assign name="$parent.medication_detail.medicationid" expr="%{medicationid}"/><assign name="$parent.medication_detail.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>medication_detailid='%{medication_detail_vLst[medication_detailid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.medication_detail.medication_detailLst"/><DbDetails><Where>medicineid='%{medication_detail_vLst[medicine_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.medication_detail.medicineid"/><assign name="$parent.medication_detail.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.medication_detail</DbTable>
+<Where>medication_detailid='%{medication_detail_vLst[medication_detailid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

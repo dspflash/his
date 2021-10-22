@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVequipment_pos" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="equipment_posLst" ToolTip="ttp_equipment_pos" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>posid</Index>
+<DbTable>his.equipment_pos</DbTable>
+<Data>pos_idx,opera,uptime,posid,equipmentid</Data>
+<Order>posid</Order></DbDetails>
+<OnClick><assign name="opera[user_id]" expr="%{equipment_posLst[opera]}" function="SetSel"/>
+<if cond="'%{posid}'"><SetVisible name="insertequipment_pos" Visible="0"/><SetVisible name="modifyequipment_pos" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

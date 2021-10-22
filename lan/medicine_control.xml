@@ -1,0 +1,35 @@
+﻿<Language name="medicine_control">
+<Lang name="medicine_control" value="中药规则"/>
+<Lang name="medicine_control_v" value="中药规则"/>
+<Lang name="TabEditmedicine_control" value="medicine_control Edit"/>
+<Lang name="TabViewmedicine_control" value="medicine_control View"/>
+<Lang name="medicineid" value="药编号1"/>
+<Lang name="ttp_medicineid" value="药编号1"/>
+<Lang name="medicine2id" value="要编号2"/>
+<Lang name="ttp_medicine2id" value="要编号2"/>
+<Lang name="relation" value="关系"/>
+<Lang name="ttp_relation" value="关系"/>
+<Lang name="explains" value="说明"/>
+<Lang name="ttp_explains" value="说明"/>
+<Lang name="uptime" value=""/>
+<Lang name="ttp_uptime" value="时间"/>
+<Lang name="opera" value=""/>
+<Lang name="ttp_opera" value="操作者"/>
+<Lang name="controlid" value=""/>
+<Lang name="ttp_controlid" value=""/>
+<Lang name="ttp_operationmedicine_control" value=""/>
+<Lang name="ttp_createmedicine_control" value=""/>
+<Lang name="ttp_modifymedicine_control" value=""/>
+<Lang name="ttp_resetmedicine_control" value=""/>
+<Lang name="ttp_deletemedicine_control" value=""/>
+<Lang name="ttp_refreshmedicine_control" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

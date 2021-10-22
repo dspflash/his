@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEusers" Size="100,100"><Ctrls>
+<Button sqlpkinsert="user_id" Text="create" ToolTip="ttp_createusers" Name="insertusers" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>his.users</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>user_name,user_role[role_id],real_name,memo,dept_info[departmentid],ap_name,user_str</Data>
+<DataEx>user_pass;md5('%{user_pass}')</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertusers[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="usersLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.users_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyusers" Name="modifyusers" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>his.users</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>user_name,user_role[role_id],real_name,memo,dept_info[departmentid],ap_name,user_str</Data>
+<DataEx>user_pass;md5('%{user_pass}')</DataEx>
+<Where>user_id='%{user_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyusers[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="usersLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.users_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetusers" Name="resetusers" Size="50,20">
+<OnClick>
+<submit next="GBDEDITusers" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchusers" Name="gsearchusers" Size="50,20" visible="false">
+<OnClick>
+<search next="usersLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITusers" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

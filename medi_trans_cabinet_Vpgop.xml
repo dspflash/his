@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVmedi_trans"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialmedi_trans" Size="50,20">
+<OnClick><submit next="medi_trans_vLst" function="initial"/><submit next="records_medi_trans" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPmedi_trans_vLst" Size="50,20">
+<OnClick><submit next="medi_trans_vLst" function="GetPage(first)"/><submit next="records_medi_trans"/></OnClick></Button>
+<Button Text="prepage" Name="PREmedi_trans_vLst" Size="50,20">
+<OnClick><submit next="medi_trans_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPmedi_trans_vLst" Size="50,20">
+<OnClick><submit next="medi_trans_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

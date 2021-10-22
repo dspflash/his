@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVmedicine_control" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="medicine_controlLst" ToolTip="ttp_medicine_control" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>controlid</Index>
+<DbTable>his.medicine_control</DbTable>
+<Data>medicineid,relation,medicine2id,explains,uptime,opera,controlid</Data>
+<Order>controlid</Order></DbDetails>
+<OnClick><assign name="medicineid[medicineid]" expr="%{medicine_controlLst[medicineid]}" function="SetSel"/><assign name="relation[relationid]" expr="%{medicine_controlLst[relation]}" function="SetSel"/><assign name="medicine2id[medicineid]" expr="%{medicine_controlLst[medicine2id]}" function="SetSel"/><assign name="opera[user_id]" expr="%{medicine_controlLst[opera]}" function="SetSel"/>
+<if cond="'%{controlid}'"><SetVisible name="insertmedicine_control" Visible="0"/><SetVisible name="modifymedicine_control" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

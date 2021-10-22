@@ -1,0 +1,40 @@
+﻿<GroupBox Name="GBDEDITuser_role"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_role_name"><Ctrls>
+<Label Align="Right" Text="role_name" Name="lb_role_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_role_name" Name="role_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_layout"><Ctrls>
+<Label Align="Right" Text="layout" Name="lb_layout" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_layout" Name="layout" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_insert_time" Visible="false"><Ctrls>
+<Label Align="Right" Text="insert_time" overlap="pre" Name="lb_insert_time" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_insert_time" overlap="pre" Name="insert_time" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_insert_emp" Visible="false"><Ctrls>
+<Label Align="Right" Text="insert_emp" overlap="pre" Name="lb_insert_emp" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_insert_emp" overlap="pre" Name="insert_emp" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_del_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="del_opera" overlap="pre" Name="lb_del_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_del_opera" overlap="pre" Name="del_opera" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_del_time" Visible="false"><Ctrls>
+<Label Align="Right" Text="del_time" overlap="pre" Name="lb_del_time" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_del_time" overlap="pre" Name="del_time" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_role_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="role_id" overlap="pre" Name="lb_role_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_role_id" overlap="pre" Name="role_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{role_id}'"><SetVisible name="insertuser_role" Visible="0"/><SetVisible name="modifyuser_role" Visible="1"/><else/><SetVisible name="insertuser_role" Visible="1"/><SetVisible name="modifyuser_role" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

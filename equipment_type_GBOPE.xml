@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEequipment_type" Size="100,100"><Ctrls>
+<Button sqlpkinsert="equipmenttypeid" Text="create" ToolTip="ttp_createequipment_type" Name="insertequipment_type" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>his.equipment_type</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>equipmenttypeno,equipmenttypename</Data>
+<DataEx>opera;'%{operaid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertequipment_type[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="equipment_typeLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.equipment_type_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyequipment_type" Name="modifyequipment_type" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>his.equipment_type</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>equipmenttypeno,equipmenttypename</Data>
+<DataEx>opera;'%{operaid}'</DataEx>
+<Where>equipmenttypeid='%{equipmenttypeid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyequipment_type[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="equipment_typeLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.equipment_type_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetequipment_type" Name="resetequipment_type" Size="50,20">
+<OnClick>
+<submit next="GBDEDITequipment_type" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchequipment_type" Name="gsearchequipment_type" Size="50,20" visible="false">
+<OnClick>
+<search next="equipment_typeLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITequipment_type" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

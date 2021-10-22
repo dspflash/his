@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDEDITstockbaseinfo" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_stockno" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_stockno" Size="60,20" Text="stockno" Align="Right"/>
+<TextBox Name="stockno" Size="170,20" Text="" Weight="170" ToolTip="ttp_stockno"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_stockname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_stockname" Size="60,20" Text="stockname" Align="Right"/>
+<TextBox Name="stockname" Size="170,20" Text="" Weight="170" ToolTip="ttp_stockname"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

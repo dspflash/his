@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVmedi_trans" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="medi_transLst" ToolTip="ttp_medi_trans" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>transid</Index>
+<DbTable>his.medi_trans</DbTable>
+<Data>medication_detailid,medicineid,bottleid,cabinetid,cabinet_cellid,opera,uptime,transid,status</Data>
+<Order>transid</Order></DbDetails>
+<OnClick><assign name="medication_detailid[medication_detailid]" expr="%{medi_transLst[medication_detailid]}" function="SetSel"/><assign name="opera[user_id]" expr="%{medi_transLst[opera]}" function="SetSel"/>
+<if cond="'%{transid}'"><SetVisible name="insertmedi_trans" Visible="0"/><SetVisible name="modifymedi_trans" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

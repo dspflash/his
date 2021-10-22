@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVxiefang_t"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialxiefang_t" Size="50,20">
+<OnClick><submit next="xiefang_t_vLst" function="initial"/><submit next="records_xiefang_t" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPxiefang_t_vLst" Size="50,20">
+<OnClick><submit next="xiefang_t_vLst" function="GetPage(first)"/><submit next="records_xiefang_t"/></OnClick></Button>
+<Button Text="prepage" Name="PRExiefang_t_vLst" Size="50,20">
+<OnClick><submit next="xiefang_t_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPxiefang_t_vLst" Size="50,20">
+<OnClick><submit next="xiefang_t_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

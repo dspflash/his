@@ -1,0 +1,46 @@
+﻿<GroupBox Name="GBDEDITinstock_log" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_medicineid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_medicineid" Size="60,20" Text="medicineid" Align="Right"  onload="init"/>
+<ComboBox Name="medicineid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_medicineid"  onload="init">
+	<DbDetails fcsm="true">
+<Index>medicineid</Index>
+<DbTable>his.medicine_info</DbTable>
+<Data>medicinenocn,medicineno,medicineid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="bottleid"/></OnSelEndOk></ComboBox>
+<MagicCtrl Name="refreshmedicineid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="medicineid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_bottleid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bottleid" Size="60,20" Text="bottleid" Align="Right"/>
+<ComboBox Name="bottleid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_bottleid">
+	<DbDetails fcsm="true">
+<Index>bottleid</Index>
+<DbTable>his.bottle_info</DbTable>
+<Data>bottleno,inqty weight,bottleid</Data>
+<Where>medicineid='%{medicineid[medicineid]}' and uses_flag=100</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshbottleid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="bottleid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_intype" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_intype" Size="60,20" Text="intype" Align="Right"  onload="init"/>
+<ComboBox Name="intype" Size="170,100" Text="" Weight="170"  ToolTip="ttp_intype"  onload="init">
+	<DbDetails>
+<Index>statuscode</Index>
+<DbTable>his.status_option</DbTable>
+<Data>statusname,statuscode</Data>
+<Where>statuscode in (101,102,106,107)</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_receiveempid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_receiveempid" Size="60,20" Text="receiveempid" Align="Right"  onload="init"/>
+<ComboBox Name="receiveempid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_receiveempid"  onload="init">
+	<DbDetails fcsm="true">
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,real_name receiveemp,user_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshreceiveempid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="receiveempid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_inserttime" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_inserttime" Size="60,20" Text="inserttime" Align="Right"/>
+<DateTime Name="inserttime" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170" Text2="1 day" ToolTip="ttp_inserttime"></DateTime>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

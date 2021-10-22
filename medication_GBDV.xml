@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVmedication"><Ctrls>
+<ListCtrl Heading="medication_no,150;jici,25;dispensaryid,120;dept_category,120;type,120;status,120;doctor_no,250;doctory_diagnosis,500;doctory_medicineprescript,500;doctory_medicinefundesc,500;doctory_usemethod,500;total_price,50;patient_name,250;patient_sex,25;patient_age,20;patient_fresh,60;patient_phoneno,100;patient_fallill_time,150;patient_address,250;patient_intime,150;patient_allergy,500;patient_historyilldes,500;patient_illshow,500;opera,55;uptime,150;medicationid,100;" loadedclick="0" ToolTip="ttp_medication" Name="medicationLst" Size="700,450" colsDisplay="7">
+	<DbDetails fcsm="1">
+<Index>medicationid</Index>
+<DbTable>his.medication m left join his.dispensary d on m.dispensaryid=d.dispensaryid left join his.dept_category d0 on m.dept_category=d0.dept_categoryid left join his.status_option s on m.type=s.statuscode left join his.status_option s0 on m.status=s0.statuscode left join his.users u on m.opera=u.user_id</DbTable>
+<Data>m.medication_no,m.jici,d.dispensaryname dispensaryid,d0.dept_categoryname dept_category,s.statusname type,s0.statusname status,m.doctor_no,m.doctory_diagnosis,m.doctory_medicineprescript,m.doctory_medicinefundesc,m.doctory_usemethod,m.total_price,m.patient_name,m.patient_sex,m.patient_age,m.patient_fresh,m.patient_phoneno,m.patient_fallill_time,m.patient_address,m.patient_intime,m.patient_allergy,m.patient_historyilldes,m.patient_illshow,u.user_name opera,m.uptime,m.medicationid,m.status statusid</Data>
+<Order>medicationid</Order></DbDetails>%{}
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medication_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

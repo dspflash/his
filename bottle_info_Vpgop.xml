@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVbottle_info"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialbottle_info" Size="50,20">
+<OnClick><submit next="bottle_info_vLst" function="initial"/><submit next="records_bottle_info" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPbottle_info_vLst" Size="50,20">
+<OnClick><submit next="bottle_info_vLst" function="GetPage(first)"/><submit next="records_bottle_info"/></OnClick></Button>
+<Button Text="prepage" Name="PREbottle_info_vLst" Size="50,20">
+<OnClick><submit next="bottle_info_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPbottle_info_vLst" Size="50,20">
+<OnClick><submit next="bottle_info_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,22 @@
+﻿<WndTap Name="medication_detail_pick" Text="medication_detail_Pick">
+<var name="searchtmpl"><medicineid format="m.medicineid='%{opvalue}'"/><medicineno format="(m.medicineno like '%%{opvalue}%')"/><medicinenocn format="(m.medicinenocn like '%%{opvalue}%')"/><price format="(m.price like '%%{opvalue}%')"/><jiliang format="(m.jiliang like '%%{opvalue}%')"/><xiaoji format="(m.xiaoji like '%%{opvalue}%')"/><status format="m.status='%{opvalue}'"/><time1 format="(m.time1 between '%{time1[datetime]}' and '%{time1[datetime2]}')"/><medication_detailid format="(m.medication_detailid like '%%{opvalue}%')"/><medicationid format="(m.medicationid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\medication_detail.xml"/>
+<Ctrls><GroupBox  Name="GBmedication_detail" id="medication_detail" Text="medication_detail" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="medication_detail_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVmedication_detail" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetmedication_detail" Name="resetmedication_detail" Size="50,20">	<OnClick>	<submit next="GBDEDITmedication_detail" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchmedication_detail" Name="gsearchmedication_detail" Size="50,20">	<OnClick>	
+<search next="medication_detail_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITmedication_detail" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVmedication_detail" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="medication_detail_vLst" ToolTip="ttp_medication_detail_v" Size="700,450" Heading="medicineid,55;medicineno,250;medicinenocn,250;price,50;jiliang,50;xiaoji,50;status,120;time1,150;medication_detailid,100;medicationid,100;" loadedclick="0">
+	<DbDetails >
+<Index>medication_detailid</Index>
+<DbTable>his.medication_detail m left join his.medicine_info m0 on m.medicineid=m0.medicineid left join his.status_option s on m.status=s.statuscode</DbTable>
+<Data>m0.medicineno medicineid,m.medicineno,m.medicinenocn,m.price,m.jiliang,m.xiaoji,s.statusname status,m.time1,m.medication_detailid,m.medicationid,m.medicineid medichine_id</Data>
+<Order>medication_detailid</Order></DbDetails>
+<OnClick><if cond="%{medication_detail_vLst[medication_detailid]}"><DbDetails><Where>medication_detailid='%{medication_detail_vLst[medication_detailid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

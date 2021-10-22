@@ -1,0 +1,45 @@
+﻿<Language name="stocklocationinfo">
+<Lang name="stocklocationinfo" value="库位"/>
+<Lang name="stocklocationinfo_v" value="库位"/>
+<Lang name="TabEditstocklocationinfo" value="stocklocationinfo Edit"/>
+<Lang name="TabViewstocklocationinfo" value="stocklocationinfo View"/>
+<Lang name="stockno" value=""/>
+<Lang name="ttp_stockno" value="仓库编号"/>
+<Lang name="location_no" value="库位码"/>
+<Lang name="ttp_location_no" value="库位码"/>
+<Lang name="location_name" value="库位名"/>
+<Lang name="ttp_location_name" value="库位名"/>
+<Lang name="location_guige" value="位置规格"/>
+<Lang name="ttp_location_guige" value="位置规格"/>
+<Lang name="location_status" value="位置状态"/>
+<Lang name="ttp_location_status" value="位置状态"/>
+<Lang name="memo" value=""/>
+<Lang name="ttp_memo" value="备注"/>
+<Lang name="insert_time" value=""/>
+<Lang name="ttp_insert_time" value="时间"/>
+<Lang name="delemp" value=""/>
+<Lang name="ttp_delemp" value="删除人"/>
+<Lang name="deltime" value=""/>
+<Lang name="ttp_deltime" value="删除时间"/>
+<Lang name="opera" value=""/>
+<Lang name="ttp_opera" value="操作员"/>
+<Lang name="locationid" value=""/>
+<Lang name="ttp_locationid" value=""/>
+<Lang name="stockid" value=""/>
+<Lang name="ttp_stockid" value=""/>
+<Lang name="ttp_operationstocklocationinfo" value=""/>
+<Lang name="ttp_createstocklocationinfo" value=""/>
+<Lang name="ttp_modifystocklocationinfo" value=""/>
+<Lang name="ttp_resetstocklocationinfo" value=""/>
+<Lang name="ttp_deletestocklocationinfo" value=""/>
+<Lang name="ttp_refreshstocklocationinfo" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

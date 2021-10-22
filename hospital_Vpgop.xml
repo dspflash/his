@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVhospital"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialhospital" Size="50,20">
+<OnClick><submit next="hospital_vLst" function="initial"/><submit next="records_hospital" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPhospital_vLst" Size="50,20">
+<OnClick><submit next="hospital_vLst" function="GetPage(first)"/><submit next="records_hospital"/></OnClick></Button>
+<Button Text="prepage" Name="PREhospital_vLst" Size="50,20">
+<OnClick><submit next="hospital_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPhospital_vLst" Size="50,20">
+<OnClick><submit next="hospital_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

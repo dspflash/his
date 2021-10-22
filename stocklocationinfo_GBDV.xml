@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVstocklocationinfo"><Ctrls>
+<ListCtrl Heading="stockno,25;location_no,250;location_name,250;location_guige,250;location_status,20;memo,250;insert_time,150;delemp,55;deltime,150;opera,55;locationid,55;stockid,55;" loadedclick="0" ToolTip="ttp_stocklocationinfo" Name="stocklocationinfoLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>locationid</Index>
+<DbTable>his.stocklocationinfo s left join his.users u on s.opera=u.user_id</DbTable>
+<Data>s.stockno,s.location_no,s.location_name,s.location_guige,s.location_status,s.memo,s.insert_time,s.delemp,s.deltime,u.user_name opera,s.locationid,s.stockid</Data>
+<Order>locationid</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op mustselected="0" text="addone"><if cond="!%{stockid}"><alert expr="stockid is Empty!"/><else/><submit next="$parent.bottle_info.GBDEDITstocklocationinfo" function="reset"/><assign name="$parent.stocklocationinfo.stockid" expr="%{stockid}"/><assign name="$parent.bottle_info.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>locationid='%{stocklocationinfo_vLst[locationid]}'</Where></DbDetails><submit next="$parent.bottle_info.stocklocationinfoLst" namelist="DbDetails"/><assign name="$parent.bottle_info.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>his.stocklocationinfo</DbTable>
+<Where>locationid='%{stocklocationinfo_vLst[locationid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

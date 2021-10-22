@@ -1,0 +1,24 @@
+﻿<GroupBox Name="GBDEDITdepartment"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_departname"><Ctrls>
+<Label Align="Right" Text="departname" Name="lb_departname" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_departname" Name="departname" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_opera" Visible="false"><Ctrls>
+<Label Align="Right" Text="opera" overlap="pre" Name="lb_opera" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_opera" overlap="pre" Name="opera" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>user_id</Index>
+<DbTable>his.users</DbTable>
+<Data>user_name,user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_uptime" Visible="false"><Ctrls>
+<Label Align="Right" Text="uptime" overlap="pre" Name="lb_uptime" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_uptime" overlap="pre" Name="uptime" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_departmentid" Visible="false"><Ctrls>
+<Label Align="Right" Text="departmentid" overlap="pre" Name="lb_departmentid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_departmentid" overlap="pre" Name="departmentid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{departmentid}'"><SetVisible name="insertdepartment" Visible="0"/><SetVisible name="modifydepartment" Visible="1"/><else/><SetVisible name="insertdepartment" Visible="1"/><SetVisible name="modifydepartment" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

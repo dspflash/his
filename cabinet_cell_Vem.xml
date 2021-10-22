@@ -1,0 +1,13 @@
+﻿<WndTap Name="cabinet_cell" Text="cabinet_cell" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="cabinetid"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\cabinet_cell.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBcabinet_cell" id="cabinet_cell" Text="cabinet_cell" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cabinet_cell_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cabinet_cell_GBOPEm.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cabinet_cell_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertcabinet_cell" Visible="1"/><SetVisible name="modifycabinet_cell" Visible="0"/></OnActivate>
+</WndTap>

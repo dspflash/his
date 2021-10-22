@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVmedi_trans" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletemedi_trans" Name="deletemedi_trans" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>his.medi_trans</DbTable>
+<Where>transid='%{medi_transLst[transid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchmedi_trans" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshmedi_trans" Name="searchmedi_trans" Size="50,20">
+			  <OnClick><submit next="medi_transLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPmedi_transLst" OnClick="(medi_transLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREmedi_transLst" OnClick="(medi_transLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPmedi_transLst" OnClick="(medi_transLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

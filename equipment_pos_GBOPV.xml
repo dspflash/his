@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVequipment_pos" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteequipment_pos" Name="deleteequipment_pos" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>his.equipment_pos</DbTable>
+<Where>posid='%{equipment_posLst[posid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchequipment_pos" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshequipment_pos" Name="searchequipment_pos" Size="50,20">
+			  <OnClick><submit next="equipment_posLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPequipment_posLst" OnClick="(equipment_posLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREequipment_posLst" OnClick="(equipment_posLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPequipment_posLst" OnClick="(equipment_posLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

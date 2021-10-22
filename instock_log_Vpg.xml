@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGinstock_log"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_instock_log" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>instockid</Index>
+<DbTable>his.instock_log i left join his.medicine_info m on i.medicineid=m.medicineid left join his.bottle_info b on i.bottleid=b.bottleid left join his.status_option s on i.intype=s.statuscode left join his.users u on i.receiveempid=u.user_id left join his.stockbaseinfo s0 on i.stockno=s0.stockid left join his.stocklocationinfo s1 on i.locationno=s1.locationid left join his.users u0 on i.opera=u0.user_id left join his.users u1 on i.inempid=u1.user_id left join his.users u2 on i.inemp=u2.user_id</DbTable>
+<Data>count(*) records</Data>
+<Order>instockid</Order><Queryformat>select %{data} from (select i.instockid from %{dbtable} %{where} GROUP BY i.instockid  ORDER BY i.instockid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_instock_log" expr="js(Math.ceil(%{records_instock_log}/%{instock_log_vLst[countsperpage]}))"/>
+<assign name="pgscb_instock_log" expr="js('1~'+Math.ceil(%{records_instock_log}/%{instock_log_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_instock_log" Size="60,20"><OnSelEndOK><submit next="instock_log_vLst" function="GetPage(%{pgscb_instock_log}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_instock_log" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_instock_log" Size="30,20"/>
+<Button Text="go2Page" Name="go2pageinstock_log_vLst" Size="50,20"><OnClick><submit next="instock_log_vLst" function="GetPage(%{pgcur_instock_log}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>
